@@ -59,9 +59,15 @@ export const PrevButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-      <Button variant="default" className="rounded-full embla__buttons" size={"sm"} {...restProps}>
-        <ArrowLeft className="h-4 w-4" />{children}
-      </Button>
+    <Button
+      variant="default"
+      className="rounded-full embla__buttons"
+      size={"sm"}
+      {...restProps}
+    >
+      <ArrowLeft className="h-4 w-4" />
+      {children}
+    </Button>
   );
 };
 
@@ -69,8 +75,14 @@ export const NextButton: React.FC<PropType> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <Button variant="default" className="rounded-full embla__buttons" size={"sm"} {...restProps}>
-        <ArrowRight className="h-4 w-4" />{children}
-      </Button>
+    <Button
+      variant="default"
+      className="rounded-full embla__buttons"
+      size={"sm"}
+      {...restProps}
+    >
+      <ArrowRight className="h-4 w-4" />
+      {children}
+    </Button>
   );
 };

@@ -29,11 +29,11 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating, starColor = "#ffc978"
         return (
           <div key={index} onClick={() => handleRating(starValue)} className="cursor-pointer">
             {ratingStars >= starValue ? (
-                <Star fill={starColor} stroke=""/>
+                <Star fill={starColor} stroke={starColor}/>
             ) : ratingStars >= starValue - 0.5 ? (
-                <StarHalf fill={starColor} stroke=""/>
+                <StarHalf fill={starColor} stroke={starColor}/>
             ) : (
-                <Star fill="none" stroke=""/>
+                <Star fill="none" stroke={starColor}/>
             )}
           </div>
         );

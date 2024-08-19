@@ -51,7 +51,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
             <DotButton
               key={index}
               onClick={() => onDotButtonClick(index)}
-              className={`text-xs rounded-full after:bg-gray-900 p-2 h-fit ${index === selectedIndex ? 'outline outline-2 outline-gray-200' : ''}`}
+              className={`text-xs rounded-full after:bg-gray-900 p-1 md:p-2 h-fit ${index === selectedIndex ? 'outline outline-2 outline-gray-200' : ''}`}
               children={
                 <p></p>
               }
