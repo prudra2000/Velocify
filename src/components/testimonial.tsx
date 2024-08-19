@@ -45,7 +45,7 @@ const TestimonialContent = React.forwardRef<
   return (
     <div
       ref={ref}
-      className=" pt-0 justify-center text-center text-xs md:text-sm xl:text-lg px-6 md:px-40 lg:px-60"
+      className=" pt-0 justify-center text-center text-xs md:text-sm xl:text-lg px-10 md:px-40 lg:px-60 "
       {...props}
     >
       <p>{hasQuotes ? testimony : `"${testimony}"`}</p>
