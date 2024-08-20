@@ -1,7 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import Carousel from "../components/carousel";
-
+import { Badge } from "@/components/badge";
+import { Input } from "@/components/input";
+import { Textarea } from "@/components/textarea";
+import { Button } from "@/components/button";
 
 interface Testimonials {
   author: string;
@@ -27,11 +30,25 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <div className="flex gap-2"></div>
-      {testimonials.length > 0 && (
-        <Carousel testimonials={testimonials} maxTestimonials={maxTestimonials} looped={true} />
-      )}
+    <main className="flex flex-col items-center justify-center">
+
+        {testimonials.length > 0 && (
+          <Carousel
+            testimonials={testimonials}
+            maxTestimonials={maxTestimonials}
+            looped={true}
+          />
+        )}
+        <Badge variant="default" className="mb-10">
+          <p>Test</p>
+        </Badge>
+        <div className="flex gap-2 mb-10 px-10">
+          <Input type="text" variant="rounded" placeholder="Name" />
+          <Button className="rounded-full w-min"><p>Submit</p></Button>
+          
+        </div>
+        <Textarea placeholder="Name"/>
+        
     </main>
   );
 }

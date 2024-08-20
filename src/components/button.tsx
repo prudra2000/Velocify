@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
 const buttonVariants = cva(
-  "flex flex-row justify-center items-center rounded-lg",
+  "flex flex-row justify-center items-center rounded-lg text-sm sm:text-sm md:text-base ",
   {
     variants: {
       variant: {
