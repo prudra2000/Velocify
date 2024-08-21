@@ -5,6 +5,7 @@ import { Badge } from "@/components/badge";
 import { Input } from "@/components/input";
 import { Textarea } from "@/components/textarea";
 import { Button } from "@/components/button";
+import { Switch } from "@/components/switch";
 
 interface Testimonials {
   author: string;
@@ -48,6 +49,7 @@ export default function Home() {
           
         </div>
         <Textarea placeholder="Name"/>
+        <Switch/>
         
     </main>
   );
