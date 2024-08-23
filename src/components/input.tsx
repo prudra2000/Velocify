@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const inputVariants = cva(
-    "flex  h-10 w-full text-sm sm:text-sm md:text-base px-3 py-0 sm:px-3 sm:py-1  border border-input file:bg-transparent file:border-0 file:text-sm disabled:cursor-not-allowed disabled:opacity-50",
+    "flex h-10 w-full text-sm sm:text-sm md:text-base px-3 py-0 sm:px-3 sm:py-1 border border-input file:bg-transparent file:border-0 file:text-sm disabled:cursor-not-allowed disabled:opacity-50",
     {
       variants: {
         variant: {

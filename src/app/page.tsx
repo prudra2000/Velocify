@@ -6,6 +6,9 @@ import { Input } from "@/components/input";
 import { Textarea } from "@/components/textarea";
 import { Button } from "@/components/button";
 import { Switch } from "@/components/switch";
+import CheckboxDemo from "@/components/checkbox";
+import RaitingsBreakdown from "@/components/raitingsbreakdown";
+import RatingsBreakdown from "@/components/raitingsbreakdown";
 
 interface Testimonials {
   author: string;
@@ -32,25 +35,28 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center">
-
-        {testimonials.length > 0 && (
-          <Carousel
-            testimonials={testimonials}
-            maxTestimonials={maxTestimonials}
-            looped={true}
-          />
-        )}
-        <Badge variant="default" className="mb-10">
-          <p>Test</p>
-        </Badge>
-        <div className="flex gap-2 mb-10 px-10">
-          <Input type="text" variant="rounded" placeholder="Name" />
-          <Button className="rounded-full w-min"><p>Submit</p></Button>
-          
-        </div>
-        <Textarea placeholder="Name"/>
-        <Switch/>
-        
+      {testimonials.length > 0 && (
+        <Carousel
+          testimonials={testimonials}
+          maxTestimonials={maxTestimonials}
+          looped={true}
+        />
+      )}
+      <Badge variant="default" className="mb-10">
+        <p>Test</p>
+      </Badge>
+      <div className="flex gap-2 mb-10 px-10">
+        <Input type="text" variant="rounded" placeholder="Name" />
+        <Button className="rounded-full w-min">
+          <p>Submit</p>
+        </Button>
+      </div>
+      <Textarea placeholder="Name" />
+      <Switch />
+      <CheckboxDemo />
+      <div className="my-10">
+        <RatingsBreakdown progress={50} />
+      </div>
     </main>
   );
 }
