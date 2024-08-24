@@ -24,10 +24,14 @@ const TestimonialHeader = React.forwardRef<
     ref
   ) => (
     <div ref={ref} className="flex flex-col  p-6 items-center ">
-      <div className="flex flex-col items-center pb-3 space-y-0.5">
+      <div className="flex flex-col items-center space-y-0.5">
         <Avatar src={avatarURL} alt="" border />
-        <p className="font-semibold">{name}</p>
-        {secondaryInfo && <p className="text-gray-400">{secondaryInfo}</p>}
+        <p className="font-semibold text-xs sm:text-sm md:text-base">{name}</p>
+        {secondaryInfo && (
+          <p className="text-gray-400 text-xs sm:text-sm md:text-base">
+            {secondaryInfo}
+          </p>
+        )}
       </div>
       <RatingStars rating={rating} starColor={starColor} />
       <div {...props} />
@@ -45,7 +49,7 @@ const TestimonialContent = React.forwardRef<
   return (
     <div
       ref={ref}
-      className=" pt-0 justify-center text-center text-xs md:text-sm xl:text-lg px-10 md:px-40 lg:px-60 "
+      className="justify-center text-center text-xs sm:text-sm md:text-base px-10 md:px-40 lg:px-60 "
       {...props}
     >
       <p>{hasQuotes ? testimony : `"${testimony}"`}</p>

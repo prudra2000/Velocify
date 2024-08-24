@@ -7,6 +7,7 @@ import {
 import EmblaCarousel from "../components/emblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 
+
 interface Testimonials {
   author: string;
   testimony: string;
@@ -18,10 +19,12 @@ interface CarouselProps {
   testimonials: Testimonials[];
   maxTestimonials: number;
   looped?: boolean;
+  autoplay?: boolean;
 }
 
-const Carousel = ({ testimonials, maxTestimonials, looped }: CarouselProps) => {
+const Carousel = ({ testimonials, maxTestimonials, looped, autoplay }: CarouselProps) => {
   const options: EmblaOptionsType = { loop: looped };
+  
   const SLIDES = testimonials
     .slice(0, maxTestimonials)
     .map((testimonialData, index) => (
@@ -37,7 +40,7 @@ const Carousel = ({ testimonials, maxTestimonials, looped }: CarouselProps) => {
       </Testimonial>
     ));
 
-  return <EmblaCarousel slides={SLIDES} options={options} />;
+  return <EmblaCarousel slides={SLIDES} options={options} autoplay={autoplay} />;
 };
 
 export default Carousel;

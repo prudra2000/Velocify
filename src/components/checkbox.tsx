@@ -3,11 +3,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const checkboxVariants = cva(
-    " border-2 border-blue-500 bg-white",
+    "border-1 border-blue-500 bg-white",
     {
       variants: {
         variant: {
-          default: "rounded-lg",
+          default: "rounded-lg ",
           rounded: "rounded-full",
         },
       },

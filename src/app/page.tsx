@@ -7,8 +7,10 @@ import { Textarea } from "@/components/textarea";
 import { Button } from "@/components/button";
 import { Switch } from "@/components/switch";
 import { Checkbox } from "@/components/checkbox";
+import { Select } from "@/components/select";
 import RaitingsBreakdown from "@/components/raitingsbreakdown";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
+import { Option } from "@/components/options"; // Updated import path
 
 interface Testimonials {
   author: string;
@@ -40,10 +42,11 @@ export default function Home() {
           testimonials={testimonials}
           maxTestimonials={maxTestimonials}
           looped={true}
+          autoplay={false}
         />
       )}
       <Badge variant="default" className="mb-10">
-        <p>Test</p>
+        Rudra
       </Badge>
       <div className="flex gap-2 mb-10 px-10">
         <Input type="text" variant="rounded" placeholder="Name" />
@@ -57,6 +60,7 @@ export default function Home() {
       <div className="my-10">
         <RatingsBreakdown accentColor="#95c604" oneStars={100} twoStars={230} threeStars={500} fourStars={1000} fiveStars={2500}/>
       </div>
+      <Select/>
     </main>
   );
 }

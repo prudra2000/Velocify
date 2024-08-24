@@ -40,16 +40,16 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
     totalRatings ? ((stars / totalRatings) * 100).toFixed(0) : 0;
 
   return (
-    <div className="flex flex-col w-full h-full rounded-lg border p-4 gap-2">
+    <div className="flex flex-col w-full h-full rounded-lg border p-4 gap-2 text-xs sm:text-sm md:text-base ">
       <div className="flex flex-col items-center mb-3 rounded-full ">
-        <p className="text-xs px-4 pb-1">Customer Reviews</p>
-        <div className="flex flex-row justify-center items-center gap-2 px-2 py-1 rounded-full bg-gray-100">
+        <p className=" px-4 pb-1">Customer Reviews</p>
+        <div className="flex flex-row justify-center items-center gap-2 px-3 py-1 rounded-full bg-gray-100">
           <RatingStars
             rating={Number(average)}
             clickable={false}
             starColor={accentColor}
           />
-          <p className="text-gray-400 text-xs">{average} out of 5</p>
+          <p className="text-gray-400 ">{average} out of 5</p>
         </div>
       </div>
       <div className="flex flex-row justify-between items-center gap-2">

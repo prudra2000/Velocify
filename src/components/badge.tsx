@@ -3,18 +3,18 @@ import { twMerge } from "tailwind-merge";
 import * as React from "react";
 
 const badgeVariants = cva(
-  "flex flex-row justify-center items-center rounded-full ",
+  "flex flex-row justify-center items-center rounded-full text-xs sm:text-sm md:text-base",
   {
     variants: {
       variant: {
         default: "bg-gray-900 text-white hover:bg-gray-800",
-        destructive: "bg-red-700 text-white hover:bg-red-600",
+        destructive: "bg-red-700 text-white hover:bg-red-600 ",
         outline:
-          "bg-gray-200 hover:bg-gray-300 outline outline-2 outline-gray-300",
-        secondary: "bg-gray-200 hover:bg-gray-300",
+          "bg-gray-200 hover:bg-gray-300 outline outline-2 outline-gray-300 ",
+        secondary: "bg-gray-200 hover:bg-gray-300 ",
       },
       size: {
-        default: "px-4 py-1 text-xs sm:text-sm md:text-base",
+        default: "px-4 py-1 ",
       },
     },
     defaultVariants: {
