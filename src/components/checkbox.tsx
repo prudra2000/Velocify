@@ -1,21 +1,40 @@
-import React from "react";
-import * as Checkbox from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 
-const CheckboxDemo = () => (
-  <form>
-    <div style={{ display: "flex", alignItems: "center" }}>
-      <Checkbox.Root
-        className="peer outline outline-1 outline-black w-4 h-4 rounded-sm bg-white checked:bg-black"
-        defaultChecked
-        id="c1"
-      >
-        <Checkbox.Indicator className="bg-blue-700 flex items-center justify-center text-current">
-          <Check className="h-4 w-4 stroke-white" />
-        </Checkbox.Indicator>
-      </Checkbox.Root>
-    </div>
-  </form>
+const checkboxVariants = cva(
+    " border-2 border-blue-500 bg-white",
+    {
+      variants: {
+        variant: {
+          default: "rounded-lg",
+          rounded: "rounded-full",
+        },
+      },
+      defaultVariants: {
+        variant: "default",
+      },
+    }
+  );
+
+export interface CheckboxProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,VariantProps<typeof checkboxVariants> {
+    accentColor?: string;
+  } 
+
+const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  ({variant, alt, className, placeholder, accentColor, ...props }, ref) => (
+    <input
+      type="checkbox"
+      style={{ accentColor }}
+      className={twMerge(checkboxVariants({ variant, className }))}
+      ref={ref}
+      {...props} 
+      alt={alt}
+      placeholder={placeholder}
+    />
+  )
 );
+Checkbox.displayName = "Checkbox";
 
-export default CheckboxDemo;
+export { Checkbox };

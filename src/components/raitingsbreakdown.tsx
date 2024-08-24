@@ -7,21 +7,70 @@ import RatingStars from "./ratingstars";
 import ProgressBar from "./progressbar";
 
 interface RatingsBreakdownProps {
-  progress: number;
+  accentColor?: string;
+  oneStars: number;
+  twoStars: number;
+  threeStars: number;
+  fourStars: number;
+  fiveStars: number;
+
   starColor?: string;
 }
 
-const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({ progress }) => {
+const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
+  accentColor,
+  oneStars,
+  twoStars,
+  threeStars,
+  fourStars,
+  fiveStars,
+}) => {
+  const totalRatings = oneStars + twoStars + threeStars + fourStars + fiveStars;
+  const weightedSum =
+    oneStars * 1 +
+    twoStars * 2 +
+    threeStars * 3 +
+    fourStars * 4 +
+    fiveStars * 5;
+
+  // Calculate the average rating
+  const average = totalRatings ? (weightedSum / totalRatings).toFixed(1) : 0;
+
+  const calculatePercentage = (stars: number) =>
+    totalRatings ? ((stars / totalRatings) * 100).toFixed(0) : 0;
+
   return (
-    <div className="flex flex-col justify-center w-72 h-52 rounded-lg border p-4">
-      <p className="">Customer Reviews</p>
-      <div className="flex justify-center mb-5 gap-3 bg-gray-100 p-2 rounded-full ">
-        <RatingStars rating={3} />
-        <p className="text-gray-400">{3} out of 5</p>
+    <div className="flex flex-col w-full h-full rounded-lg border p-4 gap-2">
+      <div className="flex flex-col items-center mb-3 rounded-full ">
+        <p className="text-xs px-4 pb-1">Customer Reviews</p>
+        <div className="flex flex-row justify-center items-center gap-2 px-2 py-1 rounded-full bg-gray-100">
+          <RatingStars
+            rating={Number(average)}
+            clickable={false}
+            starColor={accentColor}
+          />
+          <p className="text-gray-400 text-xs">{average} out of 5</p>
+        </div>
       </div>
-      <div className="flex flex-row items-center gap-2 ">
-        <Star fill="#ffc978" stroke="#ffc978" />
-        <ProgressBar progress={progress} /> d
+      <div className="flex flex-row justify-between items-center gap-2">
+        <div className="flex flex-col items-center gap-2 w-min">
+          <p className="text-xs whitespace-nowrap">5 Stars</p>
+          <p className="text-xs whitespace-nowrap">4 Stars</p>
+          <p className="text-xs whitespace-nowrap">3 Stars</p>
+          <p className="text-xs whitespace-nowrap">2 Stars</p>
+          <p className="text-xs whitespace-nowrap">1 Stars</p>
+        </div>
+        <div className="flex flex-col gap-2 w-full">
+          {[fiveStars, fourStars, threeStars, twoStars, oneStars].map(
+            (stars, index) => (
+              <ProgressBar
+                key={index}
+                progress={Number(calculatePercentage(stars))}
+                progressBarColor={accentColor}
+              />
+            )
+          )}
+        </div>
       </div>
     </div>
   );

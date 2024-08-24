@@ -6,7 +6,7 @@ import { Input } from "@/components/input";
 import { Textarea } from "@/components/textarea";
 import { Button } from "@/components/button";
 import { Switch } from "@/components/switch";
-import CheckboxDemo from "@/components/checkbox";
+import { Checkbox } from "@/components/checkbox";
 import RaitingsBreakdown from "@/components/raitingsbreakdown";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
 
@@ -47,15 +47,15 @@ export default function Home() {
       </Badge>
       <div className="flex gap-2 mb-10 px-10">
         <Input type="text" variant="rounded" placeholder="Name" />
-        <Button className="rounded-full w-min">
+        <Button className="rounded-full" >
           <p>Submit</p>
         </Button>
       </div>
       <Textarea placeholder="Name" />
       <Switch />
-      <CheckboxDemo />
+      <Checkbox accentColor="#95c604"/>
       <div className="my-10">
-        <RatingsBreakdown progress={50} />
+        <RatingsBreakdown accentColor="#95c604" oneStars={100} twoStars={230} threeStars={500} fourStars={1000} fiveStars={2500}/>
       </div>
     </main>
   );
