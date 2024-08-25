@@ -7,10 +7,11 @@ import { Textarea } from "@/components/textarea";
 import { Button } from "@/components/button";
 import { Switch } from "@/components/switch";
 import { Checkbox } from "@/components/checkbox";
-import { Select } from "@/components/select";
+import { Select, SelectItem, SelectTrigger } from "@/components/select";
 import RaitingsBreakdown from "@/components/raitingsbreakdown";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
 import { Option } from "@/components/options"; // Updated import path
+import { NavBar, NavBarLinks } from "@/components/navbar";
 
 interface Testimonials {
   author: string;
@@ -37,6 +38,11 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center">
+      <NavBar>
+        <NavBarLinks>Home</NavBarLinks>
+        <NavBarLinks>About</NavBarLinks>
+        <NavBarLinks>Contact</NavBarLinks>
+      </NavBar>
       {testimonials.length > 0 && (
         <Carousel
           testimonials={testimonials}
@@ -49,18 +55,39 @@ export default function Home() {
         Rudra
       </Badge>
       <div className="flex gap-2 mb-10 px-10">
-        <Input type="text" variant="rounded" placeholder="Name" />
-        <Button className="rounded-full" >
+        <Input type="text" variant="default" placeholder="Name" />
+        <Button className="rounded-full">
           <p>Submit</p>
         </Button>
       </div>
-      <Textarea placeholder="Name" />
-      <Switch />
-      <Checkbox accentColor="#95c604"/>
-      <div className="my-10">
-        <RatingsBreakdown accentColor="#95c604" oneStars={100} twoStars={230} threeStars={500} fourStars={1000} fiveStars={2500}/>
+      <div className="w-1/2">
+        <Textarea placeholder="Name" />
       </div>
-      <Select/>
+      <Switch />
+      <Checkbox accentColor="#95c604" />
+      <div className="my-10">
+        <RatingsBreakdown
+          accentColor="#95c604"
+          oneStars={100}
+          twoStars={230}
+          threeStars={500}
+          fourStars={1000}
+          fiveStars={2500}
+        />
+      </div>
+      <div className="mb-28">
+        <Select placeholder="Select an option">
+          <SelectItem className="your-class-name" value="apple1">
+            Apple1
+          </SelectItem>
+          <SelectItem className="your-class-name" value="apple2">
+            Apple2
+          </SelectItem>
+          <SelectItem className="your-class-name" value="apple3">
+            Apple3
+          </SelectItem>
+        </Select>
+      </div>
     </main>
   );
 }
