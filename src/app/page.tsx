@@ -21,6 +21,7 @@ import { User, SendHorizontal } from "lucide-react";
 import Avatar from "@/components/avatar";
 import Tooltip from "@/components/tooltip";
 import { IconButton } from "@/components/iconButton";
+import { Divider } from "@/components/divider";
 
 interface Testimonials {
   author: string;
@@ -99,16 +100,27 @@ export default function Home() {
       <IconButton variant="default" size="default">
         <SendHorizontal className="w-4 h-4" />
       </IconButton>
+      <div className="flex flex-col gap-2 bg-gray-100">
+        <div className="flex gap-2">
+          <Input type="text" variant="default" placeholder="Name" />
+          <Divider orientation="vertical" size="verticalMedium" />
+          <Button
+            className="rounded-full"
+            variant="success"
+            size="default"
+            rightIcon={<User className="w-5 h-5" />}
+            alt="Rudra Patel"
+          >
+            <p>Submit</p>
+          </Button>
+        </div>
+        <Divider orientation="horizontal" size="horizontalMedium" />
 
-      <div className="flex gap-2">
-        <Input type="text" variant="default" placeholder="Name" />
-        <Button className="rounded-full" variant="success" size="default" rightIcon={<User className="w-5 h-5" />} alt="Rudra Patel">
-          <p>Submit</p>
-        </Button>
+        <div className="">
+          <Textarea placeholder="Name" />
+        </div>
       </div>
-      <div className="w-1/2">
-        <Textarea placeholder="Name" />
-      </div>
+
       <Switch />
       <Checkbox
         checked={isChecked}
