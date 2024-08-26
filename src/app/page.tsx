@@ -8,10 +8,14 @@ import { Button } from "@/components/button";
 import { Switch } from "@/components/switch";
 import { Checkbox } from "@/components/checkbox";
 import { Select, SelectItem, SelectTrigger } from "@/components/select";
-import RaitingsBreakdown from "@/components/raitingsbreakdown";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
 import { Option } from "@/components/options"; // Updated import path
-import { NavBar, NavBarLinks } from "@/components/navbar";
+import {
+  NavBar,
+  NavBarLinks,
+  NavBarLogo,
+  NavBarLink,
+} from "@/components/navbar";
 
 interface Testimonials {
   author: string;
@@ -21,9 +25,21 @@ interface Testimonials {
 }
 
 export default function Home() {
+  const [checked, setChecked] = useState("indeterminate");
   const [testimonials, setTestimonials] = useState<Testimonials[]>([]);
   const maxTestimonials = 10;
+  const [isChecked, setIsChecked] = useState(false); // Added state for checkbox
+  const [selectedValue, setSelectedValue] = useState<string>("option1");
 
+  const options = [
+    { value: "option1", label: "Option 1", id: "option1" },
+    { value: "option2", label: "Option 2", id: "option2" },
+    { value: "option3", label: "Option 3", id: "option3" },
+  ];
+
+  const handleChange = (value: string) => {
+    setSelectedValue(value);
+  };
   useEffect(() => {
     const fetchTestimonials = async () => {
       const response = await fetch("/sampleData.json");
@@ -37,11 +53,14 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center justify-center">
+    <main className="flex flex-col items-center justify-center gap-y-10">
       <NavBar>
-        <NavBarLinks>Home</NavBarLinks>
-        <NavBarLinks>About</NavBarLinks>
-        <NavBarLinks>Contact</NavBarLinks>
+        <NavBarLogo>Velocify</NavBarLogo>
+        <NavBarLinks>
+          <NavBarLink>Home</NavBarLink>
+          <NavBarLink>Home</NavBarLink>
+          <NavBarLink>Home</NavBarLink>
+        </NavBarLinks>
       </NavBar>
       {testimonials.length > 0 && (
         <Carousel
@@ -51,10 +70,10 @@ export default function Home() {
           autoplay={false}
         />
       )}
-      <Badge variant="default" className="mb-10">
-        Rudra
+      <Badge variant="default" className="">
+        Rudra Patel
       </Badge>
-      <div className="flex gap-2 mb-10 px-10">
+      <div className="flex gap-2">
         <Input type="text" variant="default" placeholder="Name" />
         <Button className="rounded-full">
           <p>Submit</p>
@@ -64,8 +83,11 @@ export default function Home() {
         <Textarea placeholder="Name" />
       </div>
       <Switch />
-      <Checkbox accentColor="#95c604" />
-      <div className="my-10">
+      <Checkbox
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)} // Updated to toggle the checkbox state
+      />
+      <div className="">
         <RatingsBreakdown
           accentColor="#95c604"
           oneStars={100}

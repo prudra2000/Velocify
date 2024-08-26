@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import * as React from "react";
 
 const badgeVariants = cva(
-  "flex flex-row justify-center items-center rounded-full text-xs sm:text-sm md:text-base",
+  "flex flex-row max-w-[10rem] justify-center items-center rounded-full text-xs sm:text-sm md:text-base truncate ...",
   {
     variants: {
       variant: {

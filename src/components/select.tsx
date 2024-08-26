@@ -7,7 +7,7 @@ import { ChevronDown, ChevronUp, Check } from "lucide-react";
 
 // New component for SelectTrigger
 const SelectTrigger = ({ children }: { children: React.ReactNode }) => (
-  <RadixSelect.Trigger className="flex w-full px-3 py-2 text-xs sm:text-sm md:text-base border border-input rounded-lg">
+  <RadixSelect.Trigger className=" flex w-full px-3 py-2 text-xs sm:text-sm md:text-base border border-input rounded-lg">
     <div className="inline-flex items-center justify-center">
       {children}
       <RadixSelect.Icon>
@@ -27,16 +27,19 @@ const SelectItem: React.FC<{
   <RadixSelect.Item
     value={value}
     className={twMerge(
-      "relative flex w-full flex-row items-center px-3 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm md:text-base",
+      "relative flex w-full flex-row select-none items-center px-3 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm md:text-base rounded-md focus:bg-gray-100 ",
       className
     )}
   >
-    <RadixSelect.ItemText className="flex flex-col items-center">
-      <span className="max-w-xs truncate">{children}</span>
-    </RadixSelect.ItemText>
-    <RadixSelect.ItemIndicator>
-      <Check className="ml-2 w-4 h-4" />
-    </RadixSelect.ItemIndicator>
+    <div className="flex flex-row items-center">
+        <RadixSelect.ItemIndicator>
+          <Check className="ml-2 w-4 h-4" />
+        </RadixSelect.ItemIndicator>
+
+      <RadixSelect.ItemText className="flex flex-col ">
+        <span className="max-w-xs truncate">{children}</span>
+      </RadixSelect.ItemText>
+    </div>
   </RadixSelect.Item>
 );
 SelectItem.displayName = "SelectItem";
@@ -54,11 +57,9 @@ const Select = React.forwardRef<
     </SelectTrigger>
     <RadixSelect.Portal>
       <RadixSelect.Content className="bg-white relative z-50 max-h-96 min-w-[8rem] overflow-hidden rounded-md border shadow-md">
-
         <RadixSelect.Viewport className="p-1 flex flex-col items-center text-center">
           {children}
         </RadixSelect.Viewport>
-
       </RadixSelect.Content>
     </RadixSelect.Portal>
   </RadixSelect.Root>
