@@ -10,23 +10,26 @@ type CheckboxProps = {
   label?: string; // Added label prop
   disabled?: boolean; // Added disabled prop
   className?: string; // Added className prop for custom styling
+  accentColor?: string; // Added accentColor prop
 };
 
 const Checkbox: React.FC<CheckboxProps> = React.memo(
-  ({ checked, onChange, label, disabled, className }) => {
+  ({ checked, onChange, label, disabled, className, accentColor }) => {
     return (
-      <div className={`flex items-center space-x-2 ${className}`}>
+      <div className={`flex items-center ${className}`}>
         <RadixCheckbox.Root
           checked={checked}
           onCheckedChange={(newChecked) => onChange(Boolean(newChecked))}
-          className={`flex w-5 h-5 appearance-none items-center justify-center border border-gray-300 rounded-md ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+          className={`flex w-5 h-5  items-center justify-center border border-primary ring-offset-background rounded-sm ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
           disabled={disabled} // Apply disabled state
         >
-          <RadixCheckbox.Indicator className="bg-white ">
-            <Check className="w-4 h-4"/>
+          <RadixCheckbox.Indicator className={`rounded-sm `} style={{ backgroundColor: accentColor }}>
+            <Check className="w-4 h-4 stroke-white"/>
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
-        {label && <span>{label}</span>} 
+        <div className="ml-2">
+          {label && <span>{label}</span>} 
+        </div>
       </div>
     );
   }

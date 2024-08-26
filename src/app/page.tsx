@@ -16,6 +16,11 @@ import {
   NavBarLogo,
   NavBarLink,
 } from "@/components/navbar";
+import Logo from "/Logo.svg";
+import { User, SendHorizontal } from "lucide-react";
+import Avatar from "@/components/avatar";
+import Tooltip from "@/components/tooltip";
+import { IconButton } from "@/components/iconButton";
 
 interface Testimonials {
   author: string;
@@ -31,6 +36,7 @@ export default function Home() {
   const [isChecked, setIsChecked] = useState(false); // Added state for checkbox
   const [selectedValue, setSelectedValue] = useState<string>("option1");
 
+  const accentColor = "#95c604";
   const options = [
     { value: "option1", label: "Option 1", id: "option1" },
     { value: "option2", label: "Option 2", id: "option2" },
@@ -51,17 +57,25 @@ export default function Home() {
 
     fetchTestimonials();
   }, []);
-
+  const longtext = "This is a tooltip!";
   return (
     <main className="flex flex-col items-center justify-center gap-y-10">
-      <NavBar>
-        <NavBarLogo>Velocify</NavBarLogo>
-        <NavBarLinks>
-          <NavBarLink>Home</NavBarLink>
-          <NavBarLink>Home</NavBarLink>
-          <NavBarLink>Home</NavBarLink>
-        </NavBarLinks>
-      </NavBar>
+      <NavBar
+        logo={
+          <NavBarLogo>
+            <img src="/Logo.svg" alt="Logo" className="w-8 h-8" />{" "}
+            {/* Adjust the width as needed */}
+            Velocify
+          </NavBarLogo>
+        }
+        links={
+          <NavBarLinks>
+            <NavBarLink>Home</NavBarLink>
+            <NavBarLink>Home</NavBarLink>
+            <NavBarLink>Home</NavBarLink>
+          </NavBarLinks>
+        }
+      ></NavBar>
       {testimonials.length > 0 && (
         <Carousel
           testimonials={testimonials}
@@ -70,12 +84,25 @@ export default function Home() {
           autoplay={false}
         />
       )}
-      <Badge variant="default" className="">
-        Rudra Patel
-      </Badge>
+
+      <Tooltip
+        text={longtext}
+        variant="dark"
+        rounded="large"
+        size="default"
+        position="top"
+      >
+        <Badge variant="default" size="small" avatar={<User />}>
+          Rudra Patel
+        </Badge>
+      </Tooltip>
+      <IconButton variant="default" size="default">
+        <SendHorizontal className="w-4 h-4" />
+      </IconButton>
+
       <div className="flex gap-2">
         <Input type="text" variant="default" placeholder="Name" />
-        <Button className="rounded-full">
+        <Button className="rounded-full" variant="success" size="default" rightIcon={<User className="w-5 h-5" />} alt="Rudra Patel">
           <p>Submit</p>
         </Button>
       </div>
@@ -86,10 +113,12 @@ export default function Home() {
       <Checkbox
         checked={isChecked}
         onChange={() => setIsChecked(!isChecked)} // Updated to toggle the checkbox state
+        accentColor={accentColor}
+        label="Test"
       />
       <div className="">
         <RatingsBreakdown
-          accentColor="#95c604"
+          accentColor={accentColor}
           oneStars={100}
           twoStars={230}
           threeStars={500}

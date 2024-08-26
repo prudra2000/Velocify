@@ -62,7 +62,7 @@ export const PrevButton: React.FC<PropType> = (props) => {
     <Button
       variant="default"
       className="rounded-full embla__buttons"
-      size={"sm"}
+      size="small"
       {...restProps}
     >
       <ArrowLeft className="h-4 w-4" />
@@ -78,7 +78,7 @@ export const NextButton: React.FC<PropType> = (props) => {
     <Button
       variant="default"
       className="rounded-full embla__buttons"
-      size={"sm"}
+      size="small"
       {...restProps}
     >
       <ArrowRight className="h-4 w-4" />

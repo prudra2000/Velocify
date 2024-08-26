@@ -1,8 +1,8 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
-const buttonVariants = cva(
-  "flex flex-row justify-center items-center rounded-lg text-xs lg:text-sm ",
+const iconButtonVariants = cva(
+  "flex flex-row rounded-full justify-center items-center text-xs lg:text-sm ",
   {
     variants: {
       variant: {
@@ -21,9 +21,9 @@ const buttonVariants = cva(
         custom: "",
       },
       size: {
-        default: "px-3 py-1.5",
-        small: "rounded-md px-2 py-1",
-        large: " rounded-md px-4 py-2",
+        default: "px-2 py-2",
+        small: "px-1 py-1",
+        large: "px-3 py-3",
       },
     },
     defaultVariants: {
@@ -33,37 +33,31 @@ const buttonVariants = cva(
   }
 );
 
-export interface ButtonProps
+export interface IconButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+    VariantProps<typeof iconButtonVariants> {
   asChild?: boolean;
   alt?: string;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
-  avatar?: React.ReactNode;     
   children?: React.ReactNode;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, leftIcon, rightIcon, avatar, children, ...props }, ref) => { // {{ edit_2 }}
+const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
+  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+    // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
-        
         <button
-        className={twMerge(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      >
-        {leftIcon && <div className="mr-2 ">{leftIcon}</div>}
-        {avatar && <div className="mr-2">{avatar}</div>}
-        {children}
-        {rightIcon && <div className="ml-2">{rightIcon}</div>}
-      </button>
+          className={twMerge(iconButtonVariants({ variant, size, className }))}
+          ref={ref}
+          {...props}
+        >
+          {children}
+        </button>
       </div>
     );
   }
 );
 
-Button.displayName = "Button";
+IconButton.displayName = "IconButton";
 
-export { Button };
+export { IconButton };
