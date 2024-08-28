@@ -33,7 +33,7 @@ const Avatar: React.FC<AvatarProps> = ({
           className="rounded-full object-cover"
         />
       ) : (
-        <div className={`rounded-full flex items-center justify-center bg-white w-6 h-6 text-${textColor}`}>
+        <div className={`rounded-full flex items-center justify-center bg-primary dark:bg-[var(--background)] w-6 h-6 text-${textColor} outline-3 outline-black dark:outline-white outline`}>
           {alt.charAt(0)}
         </div>
       )}

@@ -40,9 +40,10 @@ const tooltipVariants = cva(
 interface TooltipProps extends VariantProps<typeof tooltipVariants> {
     text: string;
     children: React.ReactNode;
+    className?: string;
 }
 
-const Tooltip: React.FC<TooltipProps> = ({ variant, size, rounded, text, children, position }) => {
+const Tooltip: React.FC<TooltipProps> = ({ variant, size, rounded, text, children, position, className }) => {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
@@ -53,7 +54,7 @@ const Tooltip: React.FC<TooltipProps> = ({ variant, size, rounded, text, childre
         >
             {children}
             {isVisible && (
-                <div className={twMerge(tooltipVariants({ variant, size, rounded, position }))}>
+                <div className={twMerge(tooltipVariants({ variant, size, rounded, position, className }))}>
                     {text}
                 </div>
             )}

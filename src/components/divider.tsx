@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 import * as React from "react";
 
 const dividerVariants = cva(
-  "bg-black ",
+  "bg-white w-full",
   {
     variants: {
       variant: {
@@ -15,14 +15,14 @@ const dividerVariants = cva(
         verticalMedium: "",
         horizontalMedium: "",
       },
-      orientationStyle: {
-        horizontal: "h-0.5",
-        vertical: "w-0.5",
+      orientation: {
+        horizontal: "h-1",
+        vertical: "w-1",
       },
     },
     defaultVariants: {
       variant: "default",
-      orientationStyle: "horizontal",
+      orientation: "horizontal",
       size: "default",
     },
   }
@@ -35,11 +35,11 @@ interface DividerProps extends VariantProps<typeof dividerVariants> {
 }
 
 const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
-  ({ variant, className, size, orientation = "vertical", ...props }, ref) => (
-    <div className={twMerge(orientation === "horizontal" && size === "horizontalMedium" ? "px-1" : orientation === "vertical" && size === "verticalMedium" ? "my-1" : "")}> {/* Apply padding conditionally */}
+  ({ variant, className, size, orientation, ...props }, ref) => (
+    <div>
       <div
         ref={ref}
-        className={twMerge(dividerVariants({ variant, className, orientationStyle: orientation, size }))}
+        className={twMerge(dividerVariants({ variant, className, orientation, size }))}
         {...props}
       >
         <hr className={orientation} />

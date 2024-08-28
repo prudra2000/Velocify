@@ -6,7 +6,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-900 text-white hover:bg-gray-800",
+        default: "bg-gray-900 text-white hover:bg-gray-800 outline outline-1 outline-gray-800",
         outline:
           "bg-gray-200 hover:bg-gray-300 outline outline-1 outline-gray-300 ",
         secondary: "bg-gray-200 hover:bg-gray-300 ",
@@ -25,10 +25,20 @@ const buttonVariants = cva(
         small: "rounded-md px-2 py-1",
         large: " rounded-md px-4 py-2",
       },
+      rounded: {
+        default: "rounded-lg",
+        none: "rounded-none",
+        full: "rounded-full",
+      },
+      disabled: {
+        true: "cursor-not-allowed opacity-50",
+        false: "",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      rounded: "default",
     },
   }
 );
@@ -40,24 +50,29 @@ export interface ButtonProps
   alt?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  avatar?: React.ReactNode;     
+  leftAvatar?: React.ReactNode;     
+  rightAvatar?: React.ReactNode;
   children?: React.ReactNode;
+  rounded?: "default" | "none" | "full";
+  disabled?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, leftIcon, rightIcon, avatar, children, ...props }, ref) => { // {{ edit_2 }}
+  ({ className, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, ...props }, ref) => { // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
         
         <button
-        className={twMerge(buttonVariants({ variant, size, className }))}
+        className={twMerge(buttonVariants({ variant, size, rounded, className, disabled }))}
         ref={ref}
         {...props}
+        disabled={disabled}
       >
-        {leftIcon && <div className="mr-2 ">{leftIcon}</div>}
-        {avatar && <div className="mr-2">{avatar}</div>}
+        {leftIcon && <div className="mr-2">{leftIcon}</div>}
+        {leftAvatar && <div className="mr-2">{leftAvatar}</div>}
         {children}
         {rightIcon && <div className="ml-2">{rightIcon}</div>}
+        {rightAvatar && <div className="ml-2">{rightAvatar}</div>}
       </button>
       </div>
     );

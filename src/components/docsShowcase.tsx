@@ -1,0 +1,80 @@
+"use client";
+import React, { useState } from "react";
+import { IconButton } from "./iconButton";
+import { Copy, Github } from "lucide-react";
+import { Button } from "./button";
+import Tooltip from "./tooltip";
+
+interface ElementShowcaseProps {
+  element: React.ReactNode;
+  codeShowcase: React.ReactNode;
+  githubLink: string;
+  code: string;
+}
+
+const ElementShowcase: React.FC<ElementShowcaseProps> = ({
+  element,
+  codeShowcase,
+  githubLink,
+  code,
+}) => {
+  const [isCopied, setIsCopied] = useState(false);
+  const copyToClipboard = () => {
+    if (navigator.clipboard) {
+      // Check if clipboard API is available
+      navigator.clipboard
+        .writeText(code)
+        .then(() => {
+          setIsCopied(true);
+        })
+        .catch((err) => {
+          console.error("Failed to copy: ", err);
+        });
+    } else {
+      // Fallback for unsupported clipboard
+      const textarea = document.createElement("textarea");
+      textarea.value = code;
+      document.body.appendChild(textarea);
+      textarea.select();
+      try {
+        document.execCommand("copy"); // Fallback copy command
+        setIsCopied(true);
+      } catch (err) {
+        console.error("Fallback: Failed to copy: ", err);
+      }
+      document.body.removeChild(textarea); // Clean up
+    }
+  };
+  return (
+    <div className="flex flex-col border border-1 border-white/10 rounded-lg justify-center">
+      <div className="flex w-full justify-center items-center p-10 overflow-y-auto max-h-[50vh] sm:max-h-[400px]">  {/* Adjusted max-height for responsiveness */}
+        {element}
+      </div>
+      <div className="border-y border-1 border-white/10 bg-[#1e293b]">
+        {codeShowcase}
+      </div>
+      <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-4">
+        <Button
+          variant="default"
+          size="default"
+          onClick={() => window.open(githubLink, "_blank")}
+          leftIcon={<Github className="w-5 h-5" />}
+        >
+          GitHub
+        </Button>
+        <Tooltip text="Copy to clipboard" className="" position="top">
+          <Button
+            variant="default"
+            size="default"
+            onClick={copyToClipboard}
+            leftIcon={<Copy className="w-5 h-5" />}
+          >
+            Copy
+          </Button>
+        </Tooltip>
+      </div>
+    </div>
+  );
+};
+
+export default ElementShowcase;

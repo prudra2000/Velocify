@@ -17,7 +17,7 @@ const iconButtonVariants = cva(
         info: "bg-blue-500 text-white hover:bg-blue-400 outline outline-1 outline-blue-300",
         error:
           "bg-red-500 text-white hover:bg-red-400 outline outline-1 outline-red-300",
-        link: "text-blue-700 underline-offset-4 hover:underline",
+        ghost: "text-white hover:bg-white/10 hover:outline outline-1 outline-white/50",
         custom: "",
       },
       size: {
@@ -25,10 +25,15 @@ const iconButtonVariants = cva(
         small: "px-1 py-1",
         large: "px-3 py-3",
       },
+      disabled: {
+        true: "opacity-50 cursor-not-allowed",
+        false: "",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      disabled: false,
     },
   }
 );
@@ -39,15 +44,16 @@ export interface IconButtonProps
   asChild?: boolean;
   alt?: string;
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ className, variant, size, asChild = false, children, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, children, disabled, ...props }, ref) => {
     // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
         <button
-          className={twMerge(iconButtonVariants({ variant, size, className }))}
+          className={twMerge(iconButtonVariants({ variant, size, className, disabled }))}
           ref={ref}
           {...props}
         >

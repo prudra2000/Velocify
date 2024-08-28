@@ -9,19 +9,19 @@ import { Switch } from "@/components/switch";
 import { Checkbox } from "@/components/checkbox";
 import { Select, SelectItem, SelectTrigger } from "@/components/select";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
-import { Option } from "@/components/options"; // Updated import path
 import {
   NavBar,
   NavBarLinks,
   NavBarLogo,
   NavBarLink,
 } from "@/components/navbar";
-import Logo from "/Logo.svg";
 import { User, SendHorizontal } from "lucide-react";
-import Avatar from "@/components/avatar";
 import Tooltip from "@/components/tooltip";
 import { IconButton } from "@/components/iconButton";
 import { Divider } from "@/components/divider";
+import { ModeToggle } from "@/components/themeSetter";
+import Avatar from "@/components/avatar";
+
 
 interface Testimonials {
   author: string;
@@ -60,7 +60,7 @@ export default function Home() {
   }, []);
   const longtext = "This is a tooltip!";
   return (
-    <main className="flex flex-col items-center justify-center gap-y-10">
+    <main className="flex flex-col  light:bg-light-background dark:bg-dark-background items-center justify-center gap-y-10">
       <NavBar
         logo={
           <NavBarLogo>
@@ -85,7 +85,7 @@ export default function Home() {
           autoplay={false}
         />
       )}
-
+      <ModeToggle />
       <Tooltip
         text={longtext}
         variant="dark"
@@ -100,15 +100,16 @@ export default function Home() {
       <IconButton variant="default" size="default">
         <SendHorizontal className="w-4 h-4" />
       </IconButton>
+      <Avatar src="" alt="Rudra Patel" />
       <div className="flex flex-col gap-2 bg-gray-100">
         <div className="flex gap-2">
           <Input type="text" variant="default" placeholder="Name" />
           <Divider orientation="vertical" size="verticalMedium" />
           <Button
             className="rounded-full"
-            variant="success"
+            variant="default"
             size="default"
-            rightIcon={<User className="w-5 h-5" />}
+            leftAvatar={<User className="w-5 h-5" />}
             alt="Rudra Patel"
           >
             <p>Submit</p>
