@@ -24,6 +24,7 @@ const buttonVariants = cva(
         default: "px-3 py-1.5",
         small: "rounded-md px-2 py-1",
         large: " rounded-md px-4 py-2",
+        fill: "w-fill",
       },
       rounded: {
         default: "rounded-lg",

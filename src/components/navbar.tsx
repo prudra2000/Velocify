@@ -25,7 +25,7 @@ const NavBarLinks = ({ children }: { children: React.ReactNode }) => (
 NavBarLinks.displayName = "NavBarLinks";
 // Added useState import
 
-const NavBar = ({
+const Navbar = ({
   logo,
   links,
 }: {
@@ -67,6 +67,6 @@ const NavBar = ({
     </div>
   );
 };
-NavBar.displayName = "NavBar";
+Navbar.displayName = "Navbar";
 
-export { NavBar, NavBarLinks, NavBarLogo, NavBarLink };
+export { Navbar, NavBarLinks, NavBarLogo, NavBarLink };

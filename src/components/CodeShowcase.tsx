@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IconButton } from "./iconButton";
-import { Copy } from "lucide-react";
+import { Copy, Github } from "lucide-react";
 import Tooltip from "./tooltip";
 interface CodeShowcaseProps {
   code: string;
+  githubLink: string;
 }
 
-const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code }) => {
+const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code, githubLink }) => {
   const copyToClipboard = () => {
     if (navigator.clipboard) {
       // Check if clipboard API is available
@@ -35,12 +36,15 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code }) => {
       }
       document.body.removeChild(textarea); // Clean up
     }
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 5000);
   };
   const [isCopied, setIsCopied] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <Tooltip
-        text="Copy to clipboard"
+        text={isCopied ? "Copied!" : "Copy to clipboard"}
         className="absolute top-3.5 right-12"
       >
         <IconButton
@@ -52,6 +56,14 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code }) => {
           <Copy className="w-3 h-3" />
         </IconButton>
       </Tooltip>
+      <IconButton
+          onClick={() => window.open(githubLink, "_blank")}
+          className="absolute top-10 right-3 md:top-10 md:right-3 stroke-white"
+          variant="ghost"
+          size="default"
+        >
+          <Github className="w-3 h-3" />
+        </IconButton>
 
       <SyntaxHighlighter
         language="tsx"
@@ -69,6 +81,8 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code }) => {
           boxShadow: "",
           overflowY: "auto",
           lineHeight: "1",
+          zIndex: 10,
+          
         }}
         className="overflow-x-auto w-full"
         wrapLines={true}
@@ -76,7 +90,7 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code }) => {
         lineNumberStyle={{
           color: "#888",
           backgroundColor: "#1e293b",
-          fontSize: "12px",
+          fontSize: "0.8rem",
           paddingRight: "10px",
           paddingLeft: "20px",
         }}

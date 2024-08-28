@@ -50,10 +50,10 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
       <div className="flex w-full justify-center items-center p-10 overflow-y-auto max-h-[50vh] sm:max-h-[400px]">  {/* Adjusted max-height for responsiveness */}
         {element}
       </div>
-      <div className="border-y border-1 border-white/10 bg-[#1e293b]">
+      <div className="border-y border-1 border-white/10 bg-[#1e293b] z-1">
         {codeShowcase}
       </div>
-      <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-4">
+      <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-2">
         <Button
           variant="default"
           size="default"
@@ -62,6 +62,7 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
         >
           GitHub
         </Button>
+        
         <Tooltip text="Copy to clipboard" className="" position="top">
           <Button
             variant="default"

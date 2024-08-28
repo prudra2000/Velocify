@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/checkbox";
 import { Select, SelectItem, SelectTrigger } from "@/components/select";
 import RatingsBreakdown from "@/components/raitingsbreakdown";
 import {
-  NavBar,
+  Navbar,
   NavBarLinks,
   NavBarLogo,
   NavBarLink,
@@ -61,7 +61,7 @@ export default function Home() {
   const longtext = "This is a tooltip!";
   return (
     <main className="flex flex-col  light:bg-light-background dark:bg-dark-background items-center justify-center gap-y-10">
-      <NavBar
+      <Navbar
         logo={
           <NavBarLogo>
             <img src="/Logo.svg" alt="Logo" className="w-8 h-8" />{" "}
@@ -76,7 +76,7 @@ export default function Home() {
             <NavBarLink>Home</NavBarLink>
           </NavBarLinks>
         }
-      ></NavBar>
+      ></Navbar>
       {testimonials.length > 0 && (
         <Carousel
           testimonials={testimonials}

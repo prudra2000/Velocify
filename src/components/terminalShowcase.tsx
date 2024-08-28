@@ -40,7 +40,7 @@ const TerminalShowcase: React.FC<TerminalShowcaseProps> = ({
   };
   const [isCopied, setIsCopied] = useState(false);
   return (
-    <div className="relative">
+    <div className="relative border border-1 border-white/10 rounded-lg bg-[#1e293b]">
       <Tooltip text="Copy to clipboard" className="absolute top-3.5 right-12">
         <IconButton
           onClick={copyToClipboard}
