@@ -73,8 +73,8 @@ export default function Home() {
               </div>
             </div>
           }
-          githubLink="https://github.com/prudra2000/Velocify"
           code={code}
+          githubLink="https://github.com/prudra2000/Velocify"
         />
         <div className="flex flex-col gap-y-2 w-min ">
           <TerminalShowcase command={terminal} />
