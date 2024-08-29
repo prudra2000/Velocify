@@ -20,11 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="z-50">
+        <div className="z-10 fixed w-screen ">
           <Navbar
             logo={
               <div className="flex flex-row items-center gap-x-2">
-                <VelocifyUILogo />{" "}
+                <VelocifyUILogo className="w-7 h-7"/>
                 <p className="text-xl font-bold bg-gradient-to-r from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
                   Velocify UI
                 </p>
@@ -49,7 +49,7 @@ export default function RootLayout({
           />
         </div>
 
-        <div className="z-0 ">{children}</div>
+        <div className="z-0  ">{children}</div>
       </body>
     </html>
   );
