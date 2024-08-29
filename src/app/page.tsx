@@ -1,14 +1,15 @@
 "use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
+import { FooterBarDocs } from "@/components/footerbarDocs";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import { ChevronRight, Zap, Settings2, PersonStanding } from "lucide-react";
 import React from "react"; // Ensure this import is present
 
 export default function Home() {
   return (
-    <main className="bg-[#030711] px-10 flex flex-col items-center gap-x-10 z-10">
-      <div className="flex flex-col gap-y-2 h-screen w-full md:w-3/4 justify-center items-center">
+    <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
+      <div className="flex flex-col gap-y-2 h-screen w-full md:w-3/4 justify-center items-center ">
         <div className="flex flex-col gap-y-3 justify-center items-center">
           <div className="flex flex-col gap-x-1 mb-20 justify-center items-center">
             <VelocifyUILogo className="w-36 h-36 bg-transparent border-0 " />
@@ -61,6 +62,20 @@ export default function Home() {
           icon={
             <PersonStanding className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
           }
+        />
+      </div>
+      <div className="flex flex-col pt-10 w-full">
+        <FooterBarDocs
+          logo={
+            <div className="flex flex-row items-center gap-x-2">
+              <VelocifyUILogo className="w-7 h-7" />
+              <p className="text-xl font-bold bg-gradient-to-r from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
+                Velocify UI
+              </p>
+            </div>
+          }
+          links={<div className="flex flex-col gap-y-2 w-full"></div>}
+          
         />
       </div>
     </main>

@@ -42,7 +42,7 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code, githubLink }) => {
   };
   const [isCopied, setIsCopied] = useState(false);
   return (
-    <div className="relative z-10">
+    <div className="relative ">
       <Tooltip
         text={isCopied ? "Copied!" : "Copy to clipboard"}
         className="absolute top-3.5 right-12"
@@ -81,7 +81,6 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code, githubLink }) => {
           boxShadow: "",
           overflowY: "auto",
           lineHeight: "1",
-          zIndex: 10,
           
         }}
         className="overflow-x-auto w-full"

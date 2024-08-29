@@ -50,17 +50,17 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
       <div className="flex w-full justify-center items-center p-10 overflow-y-auto max-h-[50vh] sm:max-h-[400px]">  {/* Adjusted max-height for responsiveness */}
         {element}
       </div>
-      <div className="border-y border-1 border-white/10 bg-[#1e293b] z-1">
+      <div className="border-y border-1 border-white/10 bg-[#1e293b] ">
         {codeShowcase}
       </div>
-      <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-2">
+      <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-2 z-1">
         <Button
           variant="default"
           size="default"
           onClick={() => window.open(githubLink, "_blank")}
-          leftIcon={<Github className="w-5 h-5" />}
+          leftIcon={<Github className="w-4 h-4" />}
         >
-          GitHub
+          <p className="text-xs">GitHub</p>
         </Button>
         
         <Tooltip text="Copy to clipboard" className="" position="top">
@@ -68,9 +68,9 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
             variant="default"
             size="default"
             onClick={copyToClipboard}
-            leftIcon={<Copy className="w-5 h-5" />}
+            leftIcon={<Copy className="w-4 h-4" />}
           >
-            Copy
+            <p className="text-xs">Copy</p>
           </Button>
         </Tooltip>
       </div>

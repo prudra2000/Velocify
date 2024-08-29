@@ -8,6 +8,8 @@ interface AvatarProps {
   border?: boolean;
   className?: string;
   textColor?: string;
+  width?: number;
+  height?: number;
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -16,25 +18,27 @@ const Avatar: React.FC<AvatarProps> = ({
   border = false,
   className,
   textColor = "black",
+  width = 24, // Default width
+  height = 24, // Default height
 }) => {
   const borderClasses = border ? "border-2 border-gray-600" : "";
 
   return (
     <div
-      className={twMerge(`relative rounded-full overflow-hidden
+      className={twMerge(`relative rounded-full aspect-square
                   ${borderClasses} ${className}`)}
+      style={{ width, height }} // Set width and height
     >
       {src ? (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          sizes="(max-width: 640px) 3rem, (max-width: 768px) 4rem, (max-width: 1024px) 5rem, (max-width: 1280px) 6rem, 8rem"
-          className="rounded-full object-cover"
+        <Image 
+          src={src} 
+          alt={alt} 
+          fill 
+          className="rounded-full object-cover" // Removed aspect-square for Image
         />
       ) : (
-        <div className={`rounded-full flex items-center justify-center bg-primary dark:bg-[var(--background)] w-6 h-6 text-${textColor} outline-3 outline-black dark:outline-white outline`}>
-          {alt.charAt(0)}
+        <div className={`rounded-full flex items-center justify-center bg-white ${textColor} outline-3 outline-black dark:outline-white outline`} style={{ width, height }}>
+          {alt.charAt(0).toUpperCase()}
         </div>
       )}
     </div>
