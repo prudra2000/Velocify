@@ -1,7 +1,7 @@
 # Velocify UI Library
 
 <div align="center">
-    <img src="https://github.com/prudra2000/Velocify/blob/main/public/VelocifyUI.png" alt="Logo" style="width: 10%; height: 10%;" /> 
+    <img src="https://github.com/prudra2000/Velocify/blob/main/public/VelocifyUI.png" alt="Logo" style="width: 30%; height: 30%; margin-bottom: 50px;" /> 
 </div>
 
 Welcome to the Velocify UI Library! This is a modern UI component library designed to accelerate web development with a focus on performance, customizability, and accessibility.
