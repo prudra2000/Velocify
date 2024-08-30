@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
       <div className="flex flex-col gap-y-2 h-screen w-full md:w-3/4 justify-center items-center ">
-        <div className="flex flex-col gap-y-3 justify-center items-center">
+        <div className="flex flex-col gap-y-3 justify-center items-center text-center">
           <div className="flex flex-col gap-x-1 mb-20 justify-center items-center">
             <VelocifyUILogo className="w-36 h-36 bg-transparent border-0 " />
             <VelocifyUILogo className="absolute w-96 h-96 bg-transparent border-0 blur-3xl opacity-50" />

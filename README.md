@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Velocify UI Library
+
+Welcome to the Velocify UI Library! This is a modern UI component library designed to accelerate web development with a focus on performance, customizability, and accessibility.
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Components](#components)
+- [Usage](#usage)
+- [Customization](#customization)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Getting Started
 
-First, run the development server:
+To get started with Velocify UI, follow these steps:
+
+## Installation
+
+You can install the Velocify UI library using npm, yarn, or pnpm. Here’s how:
 
 ```bash
-npm run dev
+npm install velocity-ui
 # or
-yarn dev
+yarn add velocity-ui
 # or
-pnpm dev
-# or
-bun dev
+pnpm add velocity-ui
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Components
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Velocify UI offers a variety of components to help you build your application. Some of the key components include:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Button**: A customizable button component.
+- **Badge**: A component for displaying status or notifications.
+- **Input**: A versatile input field for user data entry.
+- **Card**: A container for displaying content in a structured way.
+- **Navbar**: A navigation bar for your application.
 
-## Learn More
+For a complete list of components and their usage, please refer to the [documentation](https://github.com/prudra2000/Velocify).
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each component can be easily integrated into your application. Here’s an example of how to use the Button component:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```

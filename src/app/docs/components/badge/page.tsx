@@ -29,6 +29,18 @@ export default function Home() {
 }>
   Icon Badge
 </Badge>`;
+const disabledBadge = `<Badge variant="default" disabled>
+  Disabled
+</Badge>`;
+const sizeBadge = `<Badge variant="default" size="small">
+  Small
+</Badge>
+<Badge variant="default" size="default">
+  Default
+</Badge>
+<Badge variant="default" size="large">
+  Large
+</Badge>`;
 const avatarBadge = `<Badge
   variant="default"
   avatar={
@@ -59,10 +71,7 @@ const avatarBadge = `<Badge
   const errorBadge = `<Badge variant="error">
   Error
 </Badge>`;
-  const defaultBadge = `<Badge variant="default">
-  Default
-</Badge>`;
-  const terminal = `npx shadcn-ui@latest init`;
+  const terminal = `npm install velocity-ui@latest add badge`;
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
@@ -80,7 +89,7 @@ const avatarBadge = `<Badge
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Badge installation
+            Badge Installation
           </h1>
           <TerminalShowcase command={terminal} />
         </div>
@@ -109,6 +118,64 @@ const avatarBadge = `<Badge
             Badge API Reference
           </h1>
           <Table data={badgeTableData} columns={badgeTableColumns} />{" "}
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Disabled Badge</h1>
+          <p className="text-gray-400">
+            The Badge component has a prop called disabled which allows you to
+            disable the button. The disabled button is compatable with all styles, sizes, and variants.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={disabledBadge}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Badge variant="default" disabled>
+                    Disabled
+                  </Badge>
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={disabledBadge}
+          />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Size Badge</h1>
+          <p className="text-gray-400">
+            The Badge component has a prop called size which allows you to
+            change the size of the button.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={sizeBadge}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Badge variant="default" size="small">
+                    Small
+                  </Badge>
+                  <Badge variant="default" size="default">
+                    Default
+                  </Badge>
+                  <Badge variant="default" size="large">
+                    Large
+                  </Badge>
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={sizeBadge}
+          />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">Icon Badge</h1>

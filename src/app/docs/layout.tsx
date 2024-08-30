@@ -59,6 +59,16 @@ export default function RootLayout({
                       text="Badge"
                       className=""
                     />
+                    <DocsMenuItem
+                      hrefText="components/button"
+                      text="Button"
+                      className=""
+                    />
+                    <DocsMenuItem
+                      hrefText="components/input"
+                      text="Input"
+                      className=""
+                    />
                   </DocsMenuSection>
                 </DocsMenu>
               </div>

@@ -47,7 +47,7 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
   };
   return (
     <div className="flex flex-col border border-1 border-white/10 rounded-lg justify-center">
-      <div className="flex w-full justify-center items-center p-10 overflow-y-auto max-h-[50vh] sm:max-h-[400px]">  {/* Adjusted max-height for responsiveness */}
+      <div className="flex w-full justify-center items-center p-5 md:p-10 overflow-y-auto max-h-[40vh] md:max-h-[50vh]">  {/* Adjusted padding and max-height for responsiveness */}
         {element}
       </div>
       <div className="border-y border-1 border-white/10 bg-[#1e293b] ">

@@ -1,0 +1,292 @@
+import React from "react";
+import CodeShowcase from "@/components/CodeShowcase";
+import ElementShowcase from "@/components/docsShowcase";
+import TerminalShowcase from "@/components/terminalShowcase";
+import Table from "@/components/table";
+import { Input } from "@/components/input";
+
+export default function Home() {
+  const inputTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
+  const inputTableData = [
+    { prop: "className", type: "string", default: "-" },
+    { prop: "rounded", type: "string", default: "default" },
+    { prop: "variant", type: "string", default: "default" },
+    { prop: "disabled", type: "boolean", default: "false" },
+    { prop: "status", type: "string", default: "-" },
+  ];
+  const basicInput = `<Input placeholder="Default Input" variant="default" />`;
+  const iconInput = `<Input
+  variant="default"
+  avatar={
+    <Zap 
+      className="w-5 h-5" 
+    />
+}>
+  Icon Input
+</Input>`;
+  const disabledInput = `<Input variant="default" disabled />`;
+  const fileInput = `<Input variant="default" type="file" />`;
+  const roundedInput = `<Input placeholder="Rounded None" rounded="none" />
+<Input placeholder="Rounded Default" rounded="default" />
+<Input placeholder="Rounded Full" rounded="full" />`;
+  const statusInput = `<Input 
+  placeholder="Default Input"  
+  status="success" 
+/>
+<Input 
+  placeholder="Default Input" 
+  status="error" 
+/>
+<Input 
+  placeholder="Default Input" 
+  status="warning" 
+/>
+<Input 
+  placeholder="Default Input" 
+  status="info" 
+/>`;
+  const terminal = `npm install velocity-ui@latest add input`;
+  return (
+    <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
+      <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h2 className="text-3xl font-bold text-white ">Input</h2>
+          <p className="text-gray-400">
+            {" "}
+            The Input component is a fundamental UI element designed to
+            facilitate user interaction within your application. It allows users
+            to enter and manipulate data efficiently. With a variety of
+            customizable styles, sizes, and states, the Input component can
+            adapt to different use cases, ensuring a consistent and
+            user-friendly experience. Whether for text input, file uploads, or
+            status indicators, this component enhances the overall functionality
+            and aesthetics of your forms.
+          </p>
+        </div>
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-2xl font-semibold text-white ">
+            Input Installation
+          </h1>
+          <TerminalShowcase command={terminal} />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-2xl font-semibold text-white ">Basic Input</h1>
+          <div className="flex flex-col gap-y-2  ">
+            <ElementShowcase
+              codeShowcase={
+                <CodeShowcase
+                  code={basicInput}
+                  githubLink="https://github.com/prudra2000/Velocify"
+                />
+              }
+              element={
+                <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <Input placeholder="Default Input" variant="default" />
+                </div>
+              }
+              githubLink="https://github.com/prudra2000/Velocify"
+              code={basicInput}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-2xl font-semibold text-white ">
+            Input API Reference
+          </h1>
+          <Table data={inputTableData} columns={inputTableColumns} />{" "}
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Disabled Input</h1>
+          <p className="text-gray-400">
+            The Badge component has a prop called disabled which allows you to
+            disable the button. The disabled button is compatable with all
+            styles, sizes, and variants.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={disabledInput}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Input
+                    placeholder="Default Input"
+                    variant="default"
+                    disabled={true}
+                  />
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={disabledInput}
+          />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">File Input</h1>
+          <p className="text-gray-400">
+            The Input component has a prop called type which allows you to
+            change the type of the input.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={iconInput}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Input placeholder="Default Input" type="file" />
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={iconInput}
+          />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">File Input</h1>
+          <p className="text-gray-400">
+            The Input component has a prop called type which allows you to
+            change the type of the input.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={fileInput}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Input placeholder="Default Input" type="file" />
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={fileInput}
+          />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-xl font-semibold text-white ">Rounded Input</h1>
+          <div className="flex flex-col gap-y-2  ">
+            <ElementShowcase
+              codeShowcase={
+                <CodeShowcase
+                  code={roundedInput}
+                  githubLink="https://github.com/prudra2000/Velocify"
+                />
+              }
+              element={
+                <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <div className="flex flex-col gap-y-3 px-10">
+                    <Input placeholder="Rounded None" rounded="none" />
+                    <Input placeholder="Rounded Default" rounded="default" />
+                    <Input placeholder="Rounded Full" rounded="full" />
+                  </div>
+                </div>
+              }
+              githubLink="https://github.com/prudra2000/Velocify"
+              code={roundedInput}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">
+            Input Status Types
+          </h1>
+          <p className="text-gray-400">
+            The Input component has a prop called status which allows you to
+            change the status of the input.
+          </p>
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-xl font-semibold text-white ">Success Status</h1>
+          <div className="flex flex-col gap-y-2  ">
+            <ElementShowcase
+              codeShowcase={
+                <CodeShowcase
+                  code={statusInput}
+                  githubLink="https://github.com/prudra2000/Velocify"
+                />
+              }
+              element={
+                <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <div className="flex flex-col gap-y-3 px-10">
+                    <Input placeholder="Default Input" status="success" />
+                    <Input placeholder="Default Input" status="error" />
+                    <Input placeholder="Default Input" status="warning" />
+                    <Input placeholder="Default Input" status="info" />
+                  </div>
+                </div>
+              }
+              githubLink="https://github.com/prudra2000/Velocify"
+              code={statusInput}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Input Styles</h1>
+          <p className="text-gray-400">
+            The Input component has a prop called variant which allows you to
+            change the variant of the input.
+          </p>
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-xl font-semibold text-white ">Outline Input</h1>
+          <div className="flex flex-col gap-y-2  ">
+            <ElementShowcase
+              codeShowcase={
+                <CodeShowcase
+                  code={fileInput}
+                  githubLink="https://github.com/prudra2000/Velocify"
+                />
+              }
+              element={
+                <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <div className="flex flex-row gap-x-5 px-10">
+                    <Input placeholder="Default Input" variant="outline" />
+                  </div>
+                </div>
+              }
+              githubLink="https://github.com/prudra2000/Velocify"
+              code={fileInput}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-3">
+          <h1 className="text-xl font-semibold text-white ">Secondary Input</h1>
+          <div className="flex flex-col gap-y-2  ">
+            <ElementShowcase
+              codeShowcase={
+                <CodeShowcase
+                  code={fileInput}
+                  githubLink="https://github.com/prudra2000/Velocify"
+                />
+              }
+              element={
+                <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <div className="flex flex-row gap-x-5 px-10">
+                    <Input placeholder="Default Input" variant="secondary" />
+                  </div>
+                </div>
+              }
+              githubLink="https://github.com/prudra2000/Velocify"
+              code={fileInput}
+            />
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}
