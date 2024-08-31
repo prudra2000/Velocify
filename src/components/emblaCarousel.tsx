@@ -88,7 +88,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   ? "outline outline-2 outline-gray-200"
                   : ""
               }`}
-              children={<p></p>}
             />
           ))}
         </div>
