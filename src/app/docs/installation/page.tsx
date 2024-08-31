@@ -54,7 +54,6 @@ export default function Home() {
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
                   <Badge variant="default">Default</Badge>
-                  <Badge variant="outline">Outline</Badge>
                   <Badge variant="secondary">Secondary</Badge>
                 </div>
                 <div className="flex flex-row gap-x-5 px-10">
