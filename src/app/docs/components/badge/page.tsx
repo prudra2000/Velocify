@@ -1,4 +1,5 @@
-import React from "react"; // Add this import
+"use client";
+import React, { useEffect, useState } from "react"; // Add this import
 import { Badge } from "@/components/badge";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
@@ -29,10 +30,10 @@ export default function Home() {
 }>
   Icon Badge
 </Badge>`;
-const disabledBadge = `<Badge variant="default" disabled>
+  const disabledBadge = `<Badge variant="default" disabled>
   Disabled
 </Badge>`;
-const sizeBadge = `<Badge variant="default" size="small">
+  const sizeBadge = `<Badge variant="default" size="small">
   Small
 </Badge>
 <Badge variant="default" size="default">
@@ -41,7 +42,7 @@ const sizeBadge = `<Badge variant="default" size="small">
 <Badge variant="default" size="large">
   Large
 </Badge>`;
-const avatarBadge = `<Badge
+  const avatarBadge = `<Badge
   variant="default"
   avatar={
     <Avatar
@@ -72,8 +73,10 @@ const avatarBadge = `<Badge
   Error
 </Badge>`;
   const terminal = `npm install velocity-ui@latest add badge`;
+ 
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
+      
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Badge</h2>
@@ -123,7 +126,8 @@ const avatarBadge = `<Badge
           <h1 className="text-2xl font-semibold text-white ">Disabled Badge</h1>
           <p className="text-gray-400">
             The Badge component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all styles, sizes, and variants.
+            disable the button. The disabled button is compatable with all
+            styles, sizes, and variants.
           </p>
           <ElementShowcase
             codeShowcase={

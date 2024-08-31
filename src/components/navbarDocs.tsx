@@ -2,9 +2,9 @@
 import React from "react";
 import { Button } from "@/components/button";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { AlignJustify, Github, Search, Home } from "lucide-react";
+import { AlignJustify, Github, Search, Home, X } from "lucide-react";
 import { Input } from "./input";
 import { IconButton } from "./iconButton";
 const NavBarLogo = ({ children }: { children: React.ReactNode }) => (
@@ -34,13 +34,30 @@ const Navbar = ({
   links,
 }: {
   logo: React.ReactElement<typeof NavBarLogo>;
-  links: React.ReactElement<typeof NavBarLinks>;
+  links: React.ReactNode;
 }) => {
   const [isOpen, setIsOpen] = useState(false); // Moved inside the component
+  const menuRef = useRef<HTMLDivElement>(null); // Create a ref for the menu
 
   const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(true); // Toggle the menu state
   };
+  const closeNavbar = () => {
+    setIsOpen(false); // Close the menu
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeNavbar(); // Call closeNavbar to close the menu if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     // Added return statement
@@ -63,11 +80,11 @@ const Navbar = ({
           </IconButton>
           <Input placeholder="Search" className="w-full h-7" rounded="full" />
 
-          <Link href="/" passHref>
-            <IconButton variant="default" size="default" >
+          <a href={`/`}>
+            <IconButton variant="default" size="default">
               <Home className="w-4 h-4 stroke-[#F8CC38]" />
             </IconButton>
-          </Link>
+          </a>
           <IconButton
             variant="default"
             size="default"
@@ -77,14 +94,23 @@ const Navbar = ({
           >
             <Github className="w-4 h-4 stroke-[#F8CC38]" />
           </IconButton>
-          <Button
-            variant="default"
-            className="rounded-full"
-            onClick={toggleNavbar}
-          >
-            <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
-          </Button>
-          {}
+          {isOpen ? (
+            <Button
+              variant="default"
+              className="rounded-full"
+              onClick={closeNavbar}
+            >
+              <X className="h-4 w-4 stroke-[#F8CC38]" />
+            </Button>
+          ) : (
+            <Button
+              variant="default"
+              className="rounded-full"
+              onClick={toggleNavbar}
+            >
+              <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
+            </Button>
+          )}
         </div>
         <div className="-mr-2 flex md:hidden gap-x-2">
           <IconButton
@@ -98,15 +124,11 @@ const Navbar = ({
           <div className="hidden md:block">
             <Input placeholder="Search" className="w-full h-8" rounded="full" />
           </div>
-          <IconButton
-            variant="default"
-            size="default"
-            onClick={() =>
-              window.open("https://github.com/prudra2000/Velocify", "_blank")
-            }
-          >
-            <Home className="w-4 h-4 stroke-[#F8CC38]" />
-          </IconButton>
+          <a href={`/`}>
+            <IconButton variant="default" size="default">
+              <Home className="w-4 h-4 stroke-[#F8CC38]" />
+            </IconButton>
+          </a>
           <IconButton
             variant="default"
             size="default"
@@ -116,16 +138,27 @@ const Navbar = ({
           >
             <Github className="w-4 h-4 stroke-[#F8CC38]" />
           </IconButton>
-          <Button
-            variant="default"
-            className="rounded-full"
-            onClick={toggleNavbar}
-          >
-            <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
-          </Button>
+          {isOpen ? (
+            <Button
+              variant="default"
+              className="rounded-full"
+              onClick={closeNavbar}
+            >
+              <X className="h-4 w-4 stroke-[#F8CC38]" />
+            </Button>
+          ) : (
+            <Button
+              variant="default"
+              className="rounded-full"
+              onClick={toggleNavbar}
+            >
+              <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
+            </Button>
+          )}
         </div>
       </div>
       <div
+        ref={menuRef} // Attach the ref to the menu div
         className={`${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 absolute w-80 h-screen bg-[#030711]/80 backdrop-blur-md border-r border-1 border-white/10 `}
