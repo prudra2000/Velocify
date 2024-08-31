@@ -90,18 +90,6 @@ export default function Home() {
           
           
         </div>
-        <div className="flex flex-col gap-y-3 justify-center items-center text-center">
-          <h1 className="text-2xl font-bold bg-gradient-to-b from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
-            Radio Button Group
-          </h1>
-          <RadioButtonGroup
-            name="options"
-            options={options}
-            selectedValue={selectedOption}
-            onChange={setSelectedOption}
-          />
-          <RadioButton label="Option 1" value="option1" name="options" onChange={setSelectedOption}  variant="default" rounded="full" color="default" size="large" disabled={false} />
-        </div>
         
       </main>
     </>
