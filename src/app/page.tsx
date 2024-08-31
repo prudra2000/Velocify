@@ -1,23 +1,11 @@
 "use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
-import { FooterBarDocs } from "@/components/footerbarDocs";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import { ChevronRight, Zap, Settings2, PersonStanding } from "lucide-react";
 import React from "react"; // Ensure this import is present
 import Head from "next/head";
-import Checkbox from "@/components/checkbox";
-import RadioButton from "@/components/radioButton";
-import { useState } from "react";
-import RadioButtonGroup from "@/components/radioButtonGroup";
 export default function Home() {
-  const [selectedOption, setSelectedOption] = useState<string>("option1");
-
-  const options = [
-    { label: "Option 1", value: "option1" },
-    { label: "Option 2", value: "option2" },
-    { label: "Option 3", value: "option3" },
-  ];
   return (
     <>
       <Head>

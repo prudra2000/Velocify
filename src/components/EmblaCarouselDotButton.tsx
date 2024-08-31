@@ -58,7 +58,7 @@ export const DotButton: React.FC<PropType> = (props) => {
 
   return (
     <Button
-      variant="ghost"
+      variant="default"
       className=""
       {...restProps}
     >
