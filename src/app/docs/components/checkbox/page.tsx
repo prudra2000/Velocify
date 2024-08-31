@@ -46,16 +46,6 @@ export default function Home() {
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Checkbox</h2>
           <p className="text-gray-400">
-            {" "}
-            The Checkbox component is a fundamental UI element that enables
-            users to select or deselect options within your application. It is
-            commonly used in forms, settings, and lists where multiple
-            selections are possible. With various customization options, the
-            Checkbox component can be tailored to match the visual style of your
-            application. Whether used for selecting individual items or as part
-            of a group, the Checkbox component ensures that your application's
-            interface remains clear and user-friendly, allowing for seamless
-            interaction and decision-making.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">

@@ -81,13 +81,6 @@ export default function Home() {
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Badge</h2>
           <p className="text-gray-400">
-            The Badge component is a versatile UI element that enhances the
-            visibility of important information within your application. It can
-            be used to display status indicators, notifications, or labels,
-            making it an essential tool for improving user experience. With
-            various styles and sizes, the Badge component is fully customizable
-            to fit seamlessly into your design, ensuring that critical
-            information stands out while maintaining a cohesive look and feel.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -255,29 +248,6 @@ export default function Home() {
             to convey different meanings and enhance visual distinction in your
             application.
           </p>
-        </div>
-
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Outline Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={outlineBadge}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="outline">Outline</Badge>
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={outlineBadge}
-            />
-          </div>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-xl font-semibold text-white ">

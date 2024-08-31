@@ -114,16 +114,6 @@ const sizeButton = `<Button variant="default" size="small">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Button</h2>
           <p className="text-gray-400">
-            {" "}
-            The Button component is a fundamental UI element that facilitates
-            user interaction within your application. It serves as a trigger for
-            actions, such as submitting forms, navigating to different pages, or
-            executing commands. With a variety of styles, sizes, and variants,
-            the Button component is designed to be highly customizable, allowing
-            developers to create a consistent and engaging user experience.
-            Whether used as a primary call-to-action or a subtle secondary
-            option, the Button component ensures that your application's
-            interface remains intuitive and accessible.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">

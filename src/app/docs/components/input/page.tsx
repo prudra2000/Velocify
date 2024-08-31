@@ -52,15 +52,6 @@ export default function Home() {
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Input</h2>
           <p className="text-gray-400">
-            {" "}
-            The Input component is a fundamental UI element designed to
-            facilitate user interaction within your application. It allows users
-            to enter and manipulate data efficiently. With a variety of
-            customizable styles, sizes, and states, the Input component can
-            adapt to different use cases, ensuring a consistent and
-            user-friendly experience. Whether for text input, file uploads, or
-            status indicators, this component enhances the overall functionality
-            and aesthetics of your forms.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
