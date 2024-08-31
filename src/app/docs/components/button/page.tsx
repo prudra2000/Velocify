@@ -344,31 +344,6 @@ const sizeButton = `<Button variant="default" size="small">
             in your application.
           </p>
         </div>
-
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Outline Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={outlineButton}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Button variant="outline" alt="Outline">
-                      Outline
-                    </Button>
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={outlineButton}
-            />
-          </div>
-        </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-xl font-semibold text-white ">
             Secondary Variant

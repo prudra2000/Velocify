@@ -7,21 +7,20 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-900 text-white hover:bg-gray-800 outline outline-1 outline-gray-800",
-        outline:
-          "bg-gray-200 hover:bg-gray-300 outline outline-1 outline-gray-300 text-black",
-        secondary: "bg-gray-200 hover:bg-gray-300 text-black",
+        default:
+          "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
+        secondary: "bg-light-primary hover:bg-light-secondary text-black",
         warning:
-          "bg-yellow-500 text-black hover:bg-yellow-400 outline outline-1 outline-yellow-300",
+          "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
         success:
-          "bg-green-500 text-black hover:bg-green-400 outline outline-1 outline-green-300",
-        info: "bg-blue-500 text-white hover:bg-blue-400 outline outline-1 outline-blue-300",
+          "bg-success-primary text-black hover:bg-success-secondary outline outline-1 outline-success-secondary",
+        info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
         error:
-          "bg-red-500 text-white hover:bg-red-400 outline outline-1 outline-red-300",
+          "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
         custom: "",
       },
       size: {
-        default: "px-3 py-1",
+        default: "px-3 py-1.5",
         large: "px-6 py-2",
         small: "px-3 py-0.5",
       },

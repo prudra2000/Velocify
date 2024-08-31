@@ -957,7 +957,7 @@ export default function Home() {
                     fillOpacity="0.2"
                   />
                   <rect
-                    x="100"
+                    x="102"
                     y="25"
                     width="71"
                     height="16"
@@ -968,7 +968,7 @@ export default function Home() {
                   <rect
                     x="15"
                     y="79"
-                    width="156"
+                    width="158"
                     height="16"
                     rx="4"
                     fill="white"
@@ -983,9 +983,9 @@ export default function Home() {
                     strokeWidth="2"
                   />
                   <line
-                    x1="174"
+                    x1="173"
                     y1="61"
-                    x2="14"
+                    x2="15"
                     y2="61"
                     stroke="#F8CC38"
                     strokeWidth="2"

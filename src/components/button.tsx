@@ -6,24 +6,22 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-900 text-white hover:bg-gray-800 outline outline-1 outline-gray-800",
-        outline:
-          "bg-gray-200 hover:bg-gray-300 outline outline-1 outline-gray-300 ",
-        secondary: "bg-gray-200 hover:bg-gray-300 ",
+        default: "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
+        secondary: "bg-light-primary hover:bg-light-secondary text-black",
         warning:
-          "bg-yellow-500 text-black hover:bg-yellow-400 outline outline-1 outline-yellow-300",
+          "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
         success:
-          "bg-green-500 text-black hover:bg-green-400 outline outline-1 outline-green-300",
-        info: "bg-blue-500 text-white hover:bg-blue-400 outline outline-1 outline-blue-300",
+          "bg-success-primary text-black hover:bg-success-secondary outline outline-1 outline-success-secondary",
+        info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
         error:
-          "bg-red-500 text-white hover:bg-red-400 outline outline-1 outline-red-300",
-        link: "text-blue-700 underline-offset-4 hover:underline",
+          "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
+        link: "text-link-primary underline-offset-4 hover:underline",
         custom: "",
       },
       size: {
         default: "px-3 py-1.5",
         small: "rounded-md px-2 py-1",
-        large: " rounded-md px-4 py-2",
+        large: " rounded-md px-4 py-3",
       },
       rounded: {
         default: "rounded-lg",
