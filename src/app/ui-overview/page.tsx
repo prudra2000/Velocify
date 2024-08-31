@@ -15,7 +15,6 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-white ">Button Variants</h2>
           <div className="flex flex-row gap-x-5 px-10">
             <Button variant="default">Default</Button>
-            <Button variant="outline">Secondary</Button>
           </div>
           <div className="flex flex-row gap-x-5 px-10">
             <Button variant="warning">Ghost</Button>
@@ -32,9 +31,8 @@ export default function Home() {
             <Button variant="default" disabled={true}>
               Disabled
             </Button>
-            <Button variant="outline" disabled={true}>
-              Secondary
-            </Button>
+
+
           </div>
           <div className="flex flex-row gap-x-5 px-10">
             <Button variant="warning" disabled={true}>
@@ -212,7 +210,6 @@ export default function Home() {
 
           <div className="flex flex-row gap-x-5 px-10">
             <Badge variant="default">Default</Badge>
-            <Badge variant="outline">Outline</Badge>
             <Badge variant="secondary">Secondary</Badge>
           </div>
           <div className="flex flex-row gap-x-5 px-10">
@@ -225,9 +222,6 @@ export default function Home() {
           <div className="flex flex-row gap-x-5 px-10">
             <Badge variant="default" disabled={true}>
               Disabled
-            </Badge>
-            <Badge variant="outline" disabled={true}>
-              Outline
             </Badge>
             <Badge variant="secondary" disabled={true}>
               Secondary
