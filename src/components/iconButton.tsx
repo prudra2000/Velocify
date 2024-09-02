@@ -6,19 +6,17 @@ const iconButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gray-900 text-white hover:bg-gray-800",
-        outline:
-          "bg-gray-200 hover:bg-gray-300 outline outline-1 outline-gray-300 ",
-        secondary: "bg-gray-200 hover:bg-gray-300 ",
+        default: "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
+        secondary: "bg-light-primary hover:bg-light-secondary text-black",
         warning:
-          "bg-yellow-500 text-black hover:bg-yellow-400 outline outline-1 outline-yellow-300",
+          "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
         success:
-          "bg-green-500 text-black hover:bg-green-400 outline outline-1 outline-green-300",
-        info: "bg-blue-500 text-white hover:bg-blue-400 outline outline-1 outline-blue-300",
+          "bg-success-primary text-black hover:bg-success-secondary outline outline-1 outline-success-secondary",
+        info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
         error:
-          "bg-red-500 text-white hover:bg-red-400 outline outline-1 outline-red-300",
-        ghost: "text-white hover:bg-white/10 hover:outline outline-1 outline-white/50",
+          "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
         custom: "",
+        ghost: "bg-transparent hover:bg-white/10 outline outline-1 outline-white/10 text-white",
       },
       size: {
         default: "px-2 py-2",
@@ -45,6 +43,8 @@ export interface IconButtonProps
   alt?: string;
   children?: React.ReactNode;
   disabled?: boolean;
+  variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "custom" | "ghost";
+  size?: "default" | "small" | "large";
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(

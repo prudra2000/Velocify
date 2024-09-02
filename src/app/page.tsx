@@ -9,9 +9,12 @@ import {
   PersonStanding,
   User,
 } from "lucide-react";
-import React, { useState } from "react"; // Ensure this import is present
+import React, { useEffect, useState } from "react"; // Ensure this import is present
 import Head from "next/head";
 export default function Home() {
+  useEffect(() => {
+    document.title = "Velocify UI - Performance, Customizability, & Accessibility"; // Set the document title
+  }, []);
   return (
     <>
       <Head>

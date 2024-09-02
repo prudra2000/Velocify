@@ -19,7 +19,7 @@ const ScrollToTopButton: React.FC = () => {
     return (
         <div className="fixed z-10">
             {showButton && (
-                <FloatButton onClick={() => window.scrollTo({ top: 0, behavior: "smooth" }) }>
+                <FloatButton onClick={() => window.scrollTo({ top: 0, behavior: "smooth" }) } variant="default" size="default" position="bottom-right">
                     <ChevronUpIcon className="w-4 h-4"/>
                 </FloatButton>
             )}

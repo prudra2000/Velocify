@@ -5,16 +5,18 @@ interface UIDisplayCardProps {
   className?: string;
   title: string;
   component: React.ReactNode;
+  disabled?: boolean;
 }
 
 const UIDisplayCard: React.FC<UIDisplayCardProps> = ({
   className,
   title,
   component,
+  disabled = false,
 }) => {
   return (
     <div
-      className={`flex flex-col h-full w-72 rounded-md text-white outline outline-1 outline-gray-800 hover:outline-2 hover:outline-[#F8CC38]  hover:scale-105 transition-all duration-300 ${className}`}
+      className={`flex flex-col h-full w-72 rounded-md text-white outline outline-1 outline-gray-800 hover:outline-2 hover:outline-[#F8CC38]  hover:scale-105 transition-all duration-300 ${className} disabled:opacity-50 disabled:cursor-not-allowed ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
     >
       <div className="flex justify-center items-center p-5 md:p-10 overflow-y-auto flex-grow min-h-40">
         {component}
