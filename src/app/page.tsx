@@ -2,26 +2,16 @@
 import { Button } from "@/components/button";
 import Card from "@/components/card";
 import VelocifyUILogo from "@/components/velocifyUILogo";
-import { ChevronRight, Zap, Settings2, PersonStanding, User } from "lucide-react";
+import {
+  ChevronRight,
+  Zap,
+  Settings2,
+  PersonStanding,
+  User,
+} from "lucide-react";
 import React, { useState } from "react"; // Ensure this import is present
 import Head from "next/head";
-import RadioButtonGroup from "@/components/radioButtonGroup";
-import Switch from "@/components/switch";
-import ProgressBar from "@/components/progressbar";
-import Avatar from "@/components/avatar";
-import Badge from "@/components/badge";
 export default function Home() {
-  const options = [
-    { value: "test", label: "Test", alt: "Test" },
-    { value: "test2", label: "Test 2", alt: "Test 2" },
-    { value: "test3", label: "Test 3", alt: "Test 3" },
-  ];
-  const [selectedValue, setSelectedValue] = useState("test");
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const toggleSwitch = () => {
-    setIsSwitchOn(!isSwitchOn);
-  };
   return (
     <>
       <Head>
@@ -38,7 +28,7 @@ export default function Home() {
         />
       </Head>
       <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
-        <div className="flex flex-col gap-y-2 h-screen w-full md:w-3/4 justify-center items-center ">
+        <div className="flex flex-col gap-y-2 h-screen w-full px-10 md:w-3/4 justify-center items-center ">
           <div className="flex flex-col gap-y-3 justify-center items-center text-center">
             <div className="flex flex-col gap-x-1 mb-20 justify-center items-center">
               <VelocifyUILogo className="w-36 h-36 bg-transparent border-0 " />
@@ -91,47 +81,6 @@ export default function Home() {
               <PersonStanding className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
             }
           />
-        </div>
-        <RadioButtonGroup
-          name={"test"}
-          options={options}
-          selectedValue={selectedValue}
-          onChange={(value) => setSelectedValue(value)}
-        />
-        <div className="flex flex-col my-10 gap-y-2">
-          <Switch
-            isOn={isSwitchOn}
-            handleToggle={toggleSwitch}
-            variant="warning"
-            size="small"
-          />
-          <Switch
-            isOn={isSwitchOn}
-            handleToggle={toggleSwitch}
-            variant="default"
-            size="default"
-          />
-          <Switch
-            isOn={isSwitchOn}
-            handleToggle={toggleSwitch}
-            variant="success"
-            size="large"
-          />
-        </div>
-        <div className="my-5">
-          <Badge
-            content="10"
-            size="default"
-            position="top-left"
-            variant="success"
-          >
-            <Button>Hello</Button>
-          </Badge>
-        </div>
-        <div className="my-5">
-          <Badge content="10" position="bottom-right" variant="error">
-            <Avatar alt="Avatar" />
-          </Badge>
         </div>
       </main>
     </>
