@@ -1,5 +1,4 @@
 import Avatar from "@/components/avatar";
-import { Badge } from "@/components/chip";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
 import { IconButton } from "@/components/iconButton";
@@ -203,86 +202,6 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex flex-col items-center text-center gap-y-10 bg-[#030711] outline outline-1 outline-white/10 w-min p-10 rounded-lg">
-        <div className="flex flex-col justify-center items-center gap-y-5">
-          <h2 className="text-2xl font-bold text-white ">Badge Variants</h2>
-          <h2 className="text-xl font-bold text-white ">Badge Variants</h2>
-
-          <div className="flex flex-row gap-x-5 px-10">
-            <Badge variant="default">Default</Badge>
-            <Badge variant="secondary">Secondary</Badge>
-          </div>
-          <div className="flex flex-row gap-x-5 px-10">
-            <Badge variant="warning">Warning</Badge>
-            <Badge variant="success">Success</Badge>
-            <Badge variant="info">Info</Badge>
-            <Badge variant="error">Error</Badge>
-          </div>
-          <h2 className="text-xl font-bold text-white ">Badge Variants</h2>
-          <div className="flex flex-row gap-x-5 px-10">
-            <Badge variant="default" disabled={true}>
-              Disabled
-            </Badge>
-            <Badge variant="secondary" disabled={true}>
-              Secondary
-            </Badge>
-          </div>
-          <div className="flex flex-row gap-x-5 px-10">
-            <Badge variant="warning" disabled={true}>
-              Warning
-            </Badge>
-            <Badge variant="success" disabled={true}>
-              Success
-            </Badge>
-            <Badge variant="info" disabled={true}>
-              Info
-            </Badge>
-            <Badge variant="error" disabled={true}>
-              Error
-            </Badge>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-y-5 ">
-          <h2 className="text-xl font-bold text-white ">Size Variants</h2>
-          <div className="flex flex-row gap-x-5">
-            <Badge variant="default" size="small">
-              Small
-            </Badge>
-            <Badge variant="default" size="default">
-              Default
-            </Badge>
-            <Badge variant="default" size="large">
-              Large
-            </Badge>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-y-5 ">
-          <h2 className="text-xl font-bold text-white ">Icon Variants</h2>
-          <div className="flex flex-row gap-x-5">
-            <Badge
-              variant="default"
-              size="default"
-              icon={<User className="w-5 h-5" />}
-            >
-              Left Icon
-            </Badge>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center items-center gap-y-5">
-          <h2 className="text-xl font-bold text-white ">Avatar Variants</h2>
-          <div className="flex flex-row gap-x-5">
-            <Badge
-              variant="default"
-              size="default"
-              avatar={
-                <Avatar className="w-7 h-7" alt={""} src="/avatarImage.png" />
-              }
-            >
-              Left Avatar
-            </Badge>
-          </div>
-        </div>
-      </div>
 
       <div className="flex flex-col items-center text-center gap-y-10 bg-[#030711] outline outline-1 outline-white/10 w-min p-10 rounded-lg">
         <div className="flex flex-col justify-center items-center gap-y-5">
