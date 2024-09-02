@@ -1,5 +1,5 @@
 import Avatar from "@/components/avatar";
-import { Badge } from "@/components/badge";
+import { Badge } from "@/components/chip";
 import { Button } from "@/components/button";
 import { Divider } from "@/components/divider";
 import { IconButton } from "@/components/iconButton";

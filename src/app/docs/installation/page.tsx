@@ -1,4 +1,4 @@
-import { Badge } from "@/components/badge";
+import { Badge } from "@/components/chip";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";

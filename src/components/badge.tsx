@@ -1,63 +1,101 @@
+import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
-import * as React from "react";
+import { twMerge } from "tailwind-merge"; // Add this import
 
 const badgeVariants = cva(
-  "flex flex-row max-w-[10rem] justify-center items-center rounded-full text-xs  truncate ... disabled:cursor-not-allowed disabled:opacity-50",
+  "absolute grid translate-x-2/4 -translate-y-2/4 place-items-center rounded-full",
   {
     variants: {
       variant: {
         default:
-          "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
-        secondary: "bg-light-primary hover:bg-light-secondary text-black",
+          "bg-dark-primary text-white outline outline-1 outline-dark-secondary",
+        secondary: "bg-light-primary  text-black",
         warning:
-          "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
+          "bg-warning-primary text-black outline outline-1 outline-warning-secondary",
         success:
-          "bg-success-primary text-black hover:bg-success-secondary outline outline-1 outline-success-secondary",
-        info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
+          "bg-success-primary text-black outline outline-1 outline-success-secondary",
+        info: "bg-info-primary text-white outline outline-1 outline-info-secondary",
         error:
-          "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
+          "bg-error-primary text-white outline outline-1 outline-error-secondary",
         custom: "",
       },
-      size: {
-        default: "px-3 py-1.5",
-        large: "px-6 py-2",
-        small: "px-3 py-0.5",
+      rounded: {
+        small: "rounded-sm",
+        medium: "rounded-md",
+        large: "rounded-lg",
+        full: "rounded-full",
       },
-      disabled: {
-        true: "cursor-not-allowed opacity-50",
+      position: {
+        "top-right": "top-0.5 right-0", // Corrected key
+        "bottom-right": "top-full right-full", // Added this line
+        "top-left": "top-0.5 right-full", // Added this line
+        "bottom-left": "top-full right-0", // Added this line
+      },
+      size: {
+        default: "min-w-4 h-4 text-[0.70rem] px-0.5",
+        large: "min-w-6 min-h-6 text-[0.75rem] px-1",
+        small: "min-w-3 h-3 text-[0.50rem] px-0.5",
+      },
+      noContent: {
+        true: "p-0 w-2 h-2",
         false: "",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      rounded: "full",
+      position: "top-right",
     },
   }
 );
-
 interface BadgeProps extends VariantProps<typeof badgeVariants> {
+  children: React.ReactNode;
+  variant?:
+    | "default"
+    | "secondary"
+    | "warning"
+    | "success"
+    | "info"
+    | "error"
+    | "custom";
+  size?: "small" | "large" | "default"; // Removed "medium"
+  rounded?: "small" | "medium" | "large" | "full";
+  position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
   className?: string;
-  children?: React.ReactNode;
-  icon?: React.ReactNode;
-  avatar?: React.ReactNode;
-  size?: "default" | "large" | "small";
-  disabled?: boolean;
+  content: string;
+  onContent?: boolean;
 }
 
-const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  ({ variant, avatar, children, className, icon, size, disabled, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={twMerge(badgeVariants({ variant, size, className, disabled }))}
-      {...props}
-    >
-      {icon && <div className="mr-2">{icon}</div>}
-      {avatar && <div className="mr-2">{avatar}</div>}
+const Badge: React.FC<BadgeProps> = ({
+  children,
+  content,
+  variant,
+  size,
+  rounded,
+  position,
+  className = "",
+  onContent,
+}) => {
+  return (
+    <div className="relative inline-flex flex-col">
       {children}
+      <span
+        className={twMerge(
+          badgeVariants({
+            variant,
+            size,
+            rounded,
+            position,
+            className,
+            noContent: content === "" ? true : false, // Updated to use noContent as a boolean
+          })
+        )}
+      >
+        {content}
+      </span>
     </div>
-  )
-);
-Badge.displayName = "Badge";
+  );
+};
 
-export { Badge, badgeVariants };
+export default Badge;

@@ -45,9 +45,9 @@ export default function Home() {
               }
             />
           </a>
-          <a href="/docs/components/radio-input">
+          <a href="/docs/components/radio-group">
             <UIDisplayCard
-              title="Radio Input"
+              title="Radio Group"
               component={
                 <svg
                   width="155"
@@ -785,32 +785,32 @@ export default function Home() {
           </a>
           <a href="/docs/components/alert-badge">
             <UIDisplayCard
-              title="Alert Badge"
+              title="Badge"
               component={
                 <svg
-                  width="49"
-                  height="51"
-                  viewBox="0 0 49 51"
+                  width="56"
+                  height="56"
+                  viewBox="0 0 56 56"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect
                     x="1"
-                    y="12"
-                    width="38"
-                    height="38"
-                    rx="1"
+                    y="12.2"
+                    width="42.8"
+                    height="42.8"
+                    rx="13"
                     fill="#F8CC38"
                     fillOpacity="0.1"
                     stroke="#F8CC38"
                     strokeWidth="2"
                   />
                   <rect
-                    x="28"
+                    x="32.36"
                     y="1"
-                    width="20"
-                    height="20"
-                    rx="10"
+                    width="22.64"
+                    height="22.64"
+                    rx="11.32"
                     fill="#F8CC38"
                     stroke="#F8CC38"
                     strokeWidth="2"
@@ -819,9 +819,9 @@ export default function Home() {
               }
             />
           </a>
-          <a href="/docs/components/badge">
+          <a href="/docs/components/chip">
             <UIDisplayCard
-              title="Badge"
+              title="Chip"
               component={
                 <svg
                   width="145"

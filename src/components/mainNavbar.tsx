@@ -68,9 +68,9 @@ const MainNavbar: React.FC = () => {
               />
               <DocsMenuDivider sectionTitle={"Input Components"} />
               <DocsMenuItem
-                hrefText="components/badge"
-                text="Badge"
-                isActive={currentPath.includes("components/badge")} // Check if active
+                hrefText="components/chip"
+                text="Chip"
+                isActive={currentPath.includes("components/chip")} // Check if active
               />
               <DocsMenuItem
                 hrefText="components/button"
@@ -86,6 +86,11 @@ const MainNavbar: React.FC = () => {
                 hrefText="components/input"
                 text="Input"
                 isActive={currentPath.includes("components/input")} // Check if active
+              />
+              <DocsMenuItem
+                hrefText="components/radio-group"
+                text="Radio Group"
+                isActive={currentPath.includes("components/radio-group")} // Check if active
               />
             </DocsMenuSection>
           </DocsMenu>

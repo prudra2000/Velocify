@@ -54,7 +54,7 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
         {codeShowcase}
       </div>
       <div className="flex flex-row w-full justify-center items-center gap-x-2  px-10 py-2 z-1">
-        <Button
+        {/* <Button
           variant="default"
           size="default"
           onClick={() => window.open(githubLink, "_blank")}
@@ -72,7 +72,7 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
           >
             <p className="text-xs">Copy</p>
           </Button>
-        </Tooltip>
+        </Tooltip> */}
       </div>
     </div>
   );

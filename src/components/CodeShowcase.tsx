@@ -56,14 +56,14 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code, githubLink }) => {
           <Copy className="w-3 h-3" />
         </IconButton>
       </Tooltip>
-      <IconButton
+      {/* <IconButton
           onClick={() => window.open(githubLink, "_blank")}
           className="absolute top-10 right-3 md:top-10 md:right-3 stroke-white"
           variant="ghost"
           size="default"
         >
           <Github className="w-3 h-3" />
-        </IconButton>
+        </IconButton> */}
 
       <SyntaxHighlighter
         language="tsx"

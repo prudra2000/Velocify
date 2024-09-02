@@ -1,48 +1,55 @@
 "use client";
-import React, { useEffect, useState } from "react"; // Add this import
-import { Badge } from "@/components/badge";
+import React, { useEffect, useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import Avatar from "@/components/avatar";
-import { Zap } from "lucide-react";
+import Switch from "@/components/switch";
 
 export default function Home() {
-  const badgeTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
-  const badgeTableData = [
-    { prop: "className", type: "string", default: "-" },
-    { prop: "children", type: "React.ReactNode", default: "-" },
-    { prop: "icon", type: "React.ReactNode", default: "-" },
-    { prop: "avatar", type: "React.ReactNode", default: "-" },
+  const switchTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
+  const switchTableData = [
+    { prop: "isOn", type: "boolean", default: "false" },
+    { prop: "handleToggle", type: "function", default: "-" },
+    { prop: "variant", type: "string", default: "default" },
     { prop: "size", type: "string", default: "default" },
+    { prop: "rounded", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
   ];
-  const basicBadge = `<Badge variant="default">
-  Default
-</Badge>`;
-  const iconBadge = `<Badge
+  const basicSwitch = `<Switch
+  isOn={isSwitchOn}
+  handleToggle={toggleSwitch}
+/>`;
+  const iconSwitch = `<Switch
   variant="default"
   avatar={
     <Zap 
       className="w-5 h-5" 
     />
 }>
-  Icon Badge
-</Badge>`;
-  const disabledBadge = `<Badge variant="default" disabled>
-  Disabled
-</Badge>`;
-  const sizeBadge = `<Badge variant="default" size="small">
-  Small
-</Badge>
-<Badge variant="default" size="default">
-  Default
-</Badge>
-<Badge variant="default" size="large">
-  Large
-</Badge>`;
-  const avatarBadge = `<Badge
+  Icon Switch
+</Switch>`;
+  const disabledSwitch = `<Switch
+  isOn={isSwitchOn}
+  handleToggle={toggleSwitch}
+  disabled={true}
+/>`;
+  const sizeSwitch = `<Switch
+  isOn={isSwitchOn}
+  handleToggle={toggleSwitch}
+  size="small"
+/>
+<Switch
+  isOn={isSwitchOn}
+  handleToggle={toggleSwitch}
+  size="default"
+/>
+<Switch
+  isOn={isSwitchOn}
+  handleToggle={toggleSwitch}
+  size="large"
+/>`;
+  const avatarSwitch = `<Switch
   variant="default"
   avatar={
     <Avatar
@@ -52,198 +59,137 @@ export default function Home() {
       height={20}
     />
 }>
-  Avatar Badge
-</Badge>`;
-  const outlineBadge = `<Badge variant="outline">
-  Default
-</Badge>`;
-  const secondaryBadge = `<Badge variant="secondary">
-  Secondary
-</Badge>`;
-  const warningBadge = `<Badge variant="warning">
-  Warning
-</Badge>`;
-  const successBadge = `<Badge variant="success">
-  Success
-</Badge>`;
-  const infoBadge = `<Badge variant="info">
-  Info
-</Badge>`;
-  const errorBadge = `<Badge variant="error">
-  Error
-</Badge>`;
-  const terminal = `npm install velocity-ui@latest add badge`;
- 
+  Avatar Switch
+</Switch>`;
+  const secondarySwitch = `<Switch variant="secondary" />`;
+  const warningSwitch = `<Switch variant="warning" />`;
+  const successSwitch = `<Switch variant="success" />`;
+  const infoSwitch = `<Switch variant="info" />`;
+  const errorSwitch = `<Switch variant="error" />`;
+  const terminal = `npm install velocity-ui@latest add switch`;
+
+  const [isSwitchOn, setIsSwitchOn] = useState(true);
+  const toggleSwitch = () => {
+    setIsSwitchOn(!isSwitchOn);
+  };
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
-      
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
-          <h2 className="text-3xl font-bold text-white ">Badge</h2>
-          <p className="text-gray-400">
-          </p>
+          <h2 className="text-3xl font-bold text-white ">Switch</h2>
+          <p className="text-gray-400"></p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Badge Installation
+            Switch Installation
           </h1>
           <TerminalShowcase command={terminal} />
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">Basic Badge</h1>
+          <h1 className="text-2xl font-semibold text-white ">Switch Switch</h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={basicBadge}
+                  code={basicSwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <Badge variant="default">Default</Badge>
+                  <Switch
+                    isOn={isSwitchOn}
+                    handleToggle={toggleSwitch}
+                    variant="default"
+                    size="default"
+                  />
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={basicBadge}
+              code={basicSwitch}
             />
           </div>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Badge API Reference
+            Switch API Reference
           </h1>
-          <Table data={badgeTableData} columns={badgeTableColumns} />{" "}
+          <Table data={switchTableData} columns={switchTableColumns} />{" "}
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Disabled Badge</h1>
+          <h1 className="text-2xl font-semibold text-white ">Disabled Switch</h1>
           <p className="text-gray-400">
-            The Badge component has a prop called disabled which allows you to
+            The Switch component has a prop called disabled which allows you to
             disable the button. The disabled button is compatable with all
             styles, sizes, and variants.
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={disabledBadge}
+                code={disabledSwitch}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
-                  <Badge variant="default" disabled>
-                    Disabled
-                  </Badge>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={disabledBadge}
-          />
-        </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Size Badge</h1>
-          <p className="text-gray-400">
-            The Badge component has a prop called size which allows you to
-            change the size of the button.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={sizeBadge}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Badge variant="default" size="small">
-                    Small
-                  </Badge>
-                  <Badge variant="default" size="default">
-                    Default
-                  </Badge>
-                  <Badge variant="default" size="large">
-                    Large
-                  </Badge>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={sizeBadge}
-          />
-        </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Icon Badge</h1>
-          <p className="text-gray-400">
-            The Badge component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={iconBadge}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Badge variant="default" icon={<Zap className="w-5 h-5" />}>
-                    Icon Badge
-                  </Badge>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={iconBadge}
-          />
-        </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Avatar Badge</h1>
-          <p className="text-gray-400">
-            The Badge component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={avatarBadge}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Badge
+                  <Switch
+                    isOn={isSwitchOn}
+                    handleToggle={toggleSwitch}
                     variant="default"
-                    avatar={
-                      <Avatar
-                        alt={"avatar"}
-                        src={"/avatarImage.png"}
-                        width={20}
-                        height={20}
-                      />
-                    }
-                  >
-                    Avatar Badge
-                  </Badge>
+                    size="default"
+                    disabled={true}
+                  />
                 </div>
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={avatarBadge}
+            code={disabledSwitch}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Badge Variants</h1>
+          <h1 className="text-2xl font-semibold text-white ">Size Switch</h1>
           <p className="text-gray-400">
-            The Badge component offers various variants, including default,
+            The Switch component has a prop called size which allows you to change
+            the size of the button.
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={sizeSwitch}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10 justify-center items-center">
+                  <Switch
+                    isOn={isSwitchOn}
+                    handleToggle={toggleSwitch}
+                    size="small"
+                  />
+                  <Switch
+                    isOn={isSwitchOn}
+                    handleToggle={toggleSwitch}
+                    size="default"
+                  />
+                  <Switch
+                    isOn={isSwitchOn}
+                    handleToggle={toggleSwitch}
+                    size="large"
+                  />
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={sizeSwitch}
+          />
+        </div>
+
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Switch Variants</h1>
+          <p className="text-gray-400">
+            The Switch component offers various variants, including default,
             outline, secondary, warning, success, info, and error, each designed
             to convey different meanings and enhance visual distinction in your
             application.
@@ -257,19 +203,24 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={secondaryBadge}
+                  code={secondarySwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="secondary">Secondary</Badge>
+                    <Switch
+                      isOn={isSwitchOn}
+                      handleToggle={toggleSwitch}
+                      variant="secondary"
+                      size="default"
+                    />
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={secondaryBadge}
+              code={secondarySwitch}
             />
           </div>
         </div>
@@ -279,19 +230,24 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={errorBadge}
+                  code={errorSwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="error">Error</Badge>
+                  <Switch
+                      isOn={isSwitchOn}
+                      handleToggle={toggleSwitch}
+                      variant="error"
+                      size="default"
+                    />
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={errorBadge}
+              code={errorSwitch}
             />
           </div>
         </div>
@@ -301,19 +257,24 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={warningBadge}
+                  code={warningSwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="warning">Warning</Badge>
+                    <Switch
+                      isOn={isSwitchOn}
+                      handleToggle={toggleSwitch}
+                      variant="warning"
+                      size="default"
+                    />
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={warningBadge}
+              code={warningSwitch}
             />
           </div>
         </div>
@@ -323,19 +284,24 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={successBadge}
+                  code={successSwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="success">Success</Badge>
+                    <Switch
+                      isOn={isSwitchOn}
+                      handleToggle={toggleSwitch}
+                      variant="success"
+                      size="default"
+                    />
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={successBadge}
+              code={successSwitch}
             />
           </div>
         </div>
@@ -345,19 +311,24 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={infoBadge}
+                  code={infoSwitch}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Badge variant="info">Info</Badge>
+                    <Switch
+                      isOn={isSwitchOn}
+                      handleToggle={toggleSwitch}
+                      variant="info"
+                      size="default"
+                    />
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={infoBadge}
+              code={infoSwitch}
             />
           </div>
         </div>
