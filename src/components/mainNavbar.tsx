@@ -68,11 +68,6 @@ const MainNavbar: React.FC = () => {
               />
               <DocsMenuDivider sectionTitle={"Input Components"} />
               <DocsMenuItem
-                hrefText="components/chip"
-                text="Chip"
-                isActive={currentPath.includes("components/chip")} // Check if active
-              />
-              <DocsMenuItem
                 hrefText="components/button"
                 text="Button"
                 isActive={currentPath.includes("components/button")} // Check if active
@@ -81,6 +76,17 @@ const MainNavbar: React.FC = () => {
                 hrefText="components/checkbox"
                 text="Checkbox"
                 isActive={currentPath.includes("components/checkbox")} // Check if active
+              />
+              <DocsMenuItem
+                hrefText="components/float-button"
+                text="Float Button"
+                isActive={currentPath.includes("components/float-button")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/icon-button"
+                text="Icon Button"
+                isActive={currentPath.includes("components/icon-button")} // Check if active
               />
               <DocsMenuItem
                 hrefText="components/input"
@@ -92,6 +98,73 @@ const MainNavbar: React.FC = () => {
                 text="Radio Group"
                 isActive={currentPath.includes("components/radio-group")} // Check if active
               />
+              <DocsMenuItem
+                hrefText="components/ratings"
+                text="Ratings"
+                isActive={currentPath.includes("components/ratings")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/select"
+                text="Select"
+                isActive={currentPath.includes("components/select")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/slider"
+                text="Slider"
+                isActive={currentPath.includes("components/slider")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/switch"
+                text="Switch"
+                isActive={currentPath.includes("components/switch")} 
+              />
+              <DocsMenuItem
+                hrefText="components/textarea"
+                text="Textarea"
+                isActive={currentPath.includes("components/textarea")} 
+              />
+              <DocsMenuDivider sectionTitle={"Display Components"} />
+              <DocsMenuItem
+                hrefText="components/avatar"
+                text="Avatar"
+                isActive={currentPath.includes("components/avatar")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/badge"
+                text="Badge"
+                isActive={currentPath.includes("components/badge")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/chip"
+                text="Chip"
+                isActive={currentPath.includes("components/chip")} // Check if active
+              />
+              <DocsMenuItem
+                hrefText="components/divider"
+                text="Divider"
+                isActive={currentPath.includes("components/divider")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/progress-bar"
+                text="Progress Bar"
+                isActive={currentPath.includes("components/progress-bar")} // Check if active
+                disabled={true}
+              />
+              <DocsMenuItem
+                hrefText="components/tooltip"
+                text="Tooltip"
+                isActive={currentPath.includes("components/tooltip")} // Check if active
+                disabled={true}
+              />
+              
+              
+              
             </DocsMenuSection>
           </DocsMenu>
         </div>

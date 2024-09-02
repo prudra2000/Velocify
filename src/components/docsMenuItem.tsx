@@ -8,6 +8,7 @@ interface docsMenuItemProps {
   text: string;
   hrefText: string;
   isActive: boolean;
+  disabled?: boolean;
 }
 
 const DocsMenuItem: React.FC<docsMenuItemProps> = ({
@@ -15,11 +16,12 @@ const DocsMenuItem: React.FC<docsMenuItemProps> = ({
   text,
   hrefText,
   isActive,
+  disabled,
 }) => {
   return (
     <a href={`/docs/${hrefText}`}>
       <div
-        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-gray-400 hover:bg-gray-800/80  ${className}`}
+        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-gray-400 hover:bg-gray-800/80  ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
       >
         <p className={`${isActive ? "text-[#F8CC38]" : "text-gray-400"}`}>{text}</p>
       </div>
