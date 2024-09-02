@@ -1,3 +1,4 @@
+"use client";
 import Avatar from "@/components/avatar";
 import Badge from "@/components/badge";
 import { Button } from "@/components/button";
