@@ -1,4 +1,4 @@
-import { Badge } from "@/components/chip";
+
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
@@ -48,25 +48,6 @@ export default function Home() {
               importing them from the library.
             </p>
           </div>
-          <ElementShowcase
-            codeShowcase={<CodeShowcase code={code} githubLink="https://github.com/prudra2000/Velocify" />}
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Badge variant="default">Default</Badge>
-                  <Badge variant="secondary">Secondary</Badge>
-                </div>
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Badge variant="warning">Warning</Badge>
-                  <Badge variant="success">Success</Badge>
-                  <Badge variant="info">Info</Badge>
-                  <Badge variant="error">Error</Badge>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={code}
-          />
         </div>
       
     </main>
