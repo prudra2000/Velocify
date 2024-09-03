@@ -739,7 +739,6 @@ export default function Home() {
                   />
                 </svg>
               }
-              disabled={true}
             />
           </a>
         </div>
