@@ -3,15 +3,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const inputVariants = cva(
-  "flex  px-3 py-2 text-xs md:text-sm file:bg-transparent file:border-0 file:w-min  ",
+  "flex  px-3 py-2 text-xs md:text-sm file:bg-transparent file:border-0 file:w-min invalid:outline invalid:outline-1 invalid:outline-error-primary  ",
   {
     variants: {
       variant: {
         default:
-          "bg-gray-900 text-white hover:bg-gray-800 outline outline-1 outline-gray-800 file:text-white",
-        outline:
-          "bg-gray-200 hover:bg-gray-300 outline outline-1 outline-gray-300 file:text-black",
-        secondary: "bg-gray-200 hover:bg-gray-300 file:text-black",
+          "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary file:text-white",
+        secondary: "bg-light-primary hover:bg-light-secondary text-black file:text-black",
       },
       rounded: {
         default: "rounded-lg",
@@ -23,10 +21,10 @@ const inputVariants = cva(
         false: "",
       },
       status: {
-        success: "outline outline-1 outline-green-500 ",
-        error: "outline outline-1 outline-red-500 ",
-        warning: "outline outline-1 outline-yellow-500 ",
-        info: "outline outline-1 outline-blue-500 ",
+        success: "outline outline-offset-2 outline-1 outline-success-primary",
+        error: "outline outline-offset-2 outline-1 outline-error-primary ",
+        warning: "outline outline-offset-2 outline-1 outline-warning-primary ",
+        info: "outline outline-offset-2 outline-1 outline-info-primary ",
       },
     },
     defaultVariants: {
@@ -42,7 +40,7 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   rounded?: "default" | "none" | "full";
   disabled?: boolean;
-  variant?: "default" | "outline" | "secondary";
+  variant?: "default" | "secondary";
   status?: "success" | "error" | "warning" | "info";
 }
 
@@ -67,10 +65,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         inputVariants({ variant, rounded, className, disabled, status })
       )}
       ref={ref}
-      {...props}
       alt={alt}
       disabled={disabled}
       placeholder={placeholder}
+      {...props}
     />
   )
 );

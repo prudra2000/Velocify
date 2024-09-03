@@ -4,7 +4,7 @@ import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import Switch from "@/components/switch";
+import RadioGroup from "@/components/switch";
 import RadioButtonGroup from "@/components/radioButtonGroup";
 
 export default function Home() {
@@ -13,19 +13,14 @@ export default function Home() {
     { value: "Pizza", label: "Pizza", alt: "Pizza" },
     { value: "Pasta", label: "Pasta", alt: "Pasta" },
   ];
-  const smallsizeOptions = [
-    { value: "small", label: "Small", alt: "Small" },
-  ];
+  const smallsizeOptions = [{ value: "small", label: "Small", alt: "Small" }];
   const defaultsizeOptions = [
     { value: "default", label: "Default", alt: "Default" },
   ];
 
-  const largesizeOptions = [
-    { value: "large", label: "Large", alt: "Large" },
-  ];
+  const largesizeOptions = [{ value: "large", label: "Large", alt: "Large" }];
 
   const [defaultSelectedValue, setDefaultSelectedValue] = useState("Burgers");
-  const [disabledSelectedValue, setDisabledSelectedValue] = useState("Burgers");
 
   const [smallSelectedValue, setSmallSelectedValue] = useState("small");
   const [defaultSSelectedValue, setDefaultSSelectedValue] = useState("default");
@@ -40,46 +35,48 @@ export default function Home() {
     { prop: "rounded", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
   ];
-  const basicSwitch = 
-`<RadioButtonGroup
-  label={"What your favorite food?"}
-  labelClassName={"text-xl font-bold text-white"}
+  const basicRadioGroup = `<RadioButtonGroup
+  label="What your favorite food?"
+  labelClassName="text-xl font-bold text-white"
   name={"favorite-food"}
   options={options}
-  selectedValue={selectedValue}
-  onChange={(value: string) => setSelectedValue(value)}
-  orientation="horizontal"
+  selectedValue={defaultSelectedValue}
+  onChange={(value: string) => setDefaultSelectedValue(value)}
 />`;
-  const iconSwitch = `<Switch
+  const iconRadioGroup = `<RadioGroup
   variant="default"
   avatar={
     <Zap 
       className="w-5 h-5" 
     />
 }>
-  Icon Switch
-</Switch>`;
-  const disabledSwitch = `<Switch
-  isOn={isSwitchOn}
-  handleToggle={toggleSwitch}
+  Icon RadioGroup
+</RadioGroup>`;
+  const disabledRadioGroup = `<RadioButtonGroup
+  label="What your favorite food?"
+  labelClassName="text-xl font-bold text-white"
+  name={"favorite-food-disabled"}
+  options={options}
+  selectedValue={""}
+  onChange={(value: string) => {}}
   disabled={true}
 />`;
-  const sizeSwitch = `<Switch
-  isOn={isSwitchOn}
-  handleToggle={toggleSwitch}
+  const sizeRadioGroup = `<RadioGroup
+  isOn={isRadioGroupOn}
+  handleToggle={toggleRadioGroup}
   size="small"
 />
-<Switch
-  isOn={isSwitchOn}
-  handleToggle={toggleSwitch}
+<RadioGroup
+  isOn={isRadioGroupOn}
+  handleToggle={toggleRadioGroup}
   size="default"
 />
-<Switch
-  isOn={isSwitchOn}
-  handleToggle={toggleSwitch}
+<RadioGroup
+  isOn={isRadioGroupOn}
+  handleToggle={toggleRadioGroup}
   size="large"
 />`;
-  const avatarSwitch = `<Switch
+  const avatarRadioGroup = `<RadioGroup
   variant="default"
   avatar={
     <Avatar
@@ -89,25 +86,32 @@ export default function Home() {
       height={20}
     />
 }>
-  Avatar Switch
-</Switch>`;
-  const secondarySwitch = `<Switch variant="secondary" />`;
-  const warningSwitch = `<Switch variant="warning" />`;
-  const successSwitch = `<Switch variant="success" />`;
-  const infoSwitch = `<Switch variant="info" />`;
-  const errorSwitch = `<Switch variant="error" />`;
-  const terminal = `npm install velocity-ui@latest add switch`;
+  Avatar RadioGroup
+</RadioGroup>`;
+  const secondaryRadioGroup = `<RadioGroup variant="secondary" />`;
+  const warningRadioGroup = `<RadioGroup variant="warning" />`;
+  const successRadioGroup = `<RadioGroup variant="success" />`;
+  const infoRadioGroup = `<RadioGroup variant="info" />`;
+  const errorRadioGroup = `<RadioGroup variant="error" />`;
+  const terminal = `npm install velocity-ui@latest add radio-button-group`;
 
-  const [isSwitchOn, setIsSwitchOn] = useState(true);
-  const toggleSwitch = () => {
-    setIsSwitchOn(!isSwitchOn);
-  };
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Radio Group</h2>
-          <p className="text-paragraph-secondary"></p>
+          <p className="text-paragraph-secondary">
+            The RadioButtonGroup component is a flexible and customizable radio
+            button set designed to handle various input scenarios within your
+            UI. It supports different configurations, including orientation,
+            size, and rounding, allowing you to adapt the radio buttons to fit
+            your design needs. With options for custom labels, variants, and
+            color themes, this component ensures that your selection interface
+            is both intuitive and visually consistent across your application.
+            Additionally, the component is fully accessible, with support for
+            disabled states and custom labeling, making it an essential part of
+            any form or selection-based UI.
+          </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
@@ -116,12 +120,14 @@ export default function Home() {
           <TerminalShowcase command={terminal} />
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">Basic Radio Group</h1>
+          <h1 className="text-2xl font-semibold text-white ">
+            Basic Radio Group
+          </h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={basicSwitch}
+                  code={basicRadioGroup}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
@@ -138,7 +144,7 @@ export default function Home() {
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={basicSwitch}
+              code={basicRadioGroup}
             />
           </div>
         </div>
@@ -153,21 +159,18 @@ export default function Home() {
             Disabled Radio Group
           </h1>
           <p className="text-paragraph-secondary">
-            The Radio Group component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all
-            styles, sizes, and variants.
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={disabledSwitch}
+                code={disabledRadioGroup}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
-                <RadioButtonGroup
+                  <RadioButtonGroup
                     label="What your favorite food?"
                     labelClassName="text-xl font-bold text-white"
                     name={"favorite-food-disabled"}
@@ -180,51 +183,56 @@ export default function Home() {
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={disabledSwitch}
+            code={disabledRadioGroup}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Radio Group Switch</h1>
+          <h1 className="text-2xl font-semibold text-white ">
+            Radio Group - Sizes
+          </h1>
           <p className="text-paragraph-secondary">
-            The Switch component has a prop called size which allows you to
-            change the size of the button.
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={sizeSwitch}
+                code={sizeRadioGroup}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10 justify-center items-center">
-                <RadioButtonGroup
-                    name={"favorite-food"}
+                  <RadioButtonGroup
+                    name={"small"}
                     options={smallsizeOptions}
                     selectedValue={smallSelectedValue}
                     onChange={(value: string) => setSmallSelectedValue(value)}
                     size="small"
+                    selectedColor="default"
                   />
                   <RadioButtonGroup
-                    name={"favorite-food"}
+                    name={"default"}
                     options={defaultsizeOptions}
                     selectedValue={defaultSSelectedValue}
-                    onChange={(value: string) => setDefaultSSelectedValue(value)}
+                    onChange={(value: string) =>
+                      setDefaultSSelectedValue(value)
+                    }
                     size="default"
+                    selectedColor="default"
                   />
                   <RadioButtonGroup
-                    name={"favorite-food"}
+                    name={"large"}
                     options={largesizeOptions}
                     selectedValue={largeSelectedValue}
                     onChange={(value: string) => setLargeSelectedValue(value)}
                     size="large"
+                    selectedColor="default"
                   />
                 </div>
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={sizeSwitch}
+            code={sizeRadioGroup}
           />
         </div>
 
@@ -238,147 +246,6 @@ export default function Home() {
             to convey different meanings and enhance visual distinction in your
             application.
           </p>
-        </div>
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">
-            Secondary Variant
-          </h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={secondarySwitch}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                  <RadioButtonGroup
-                    label="What your favorite food?"
-                    labelClassName="text-xl font-bold text-white"
-                    name={"favorite-food"}
-                    options={options}
-                    selectedValue={defaultSelectedValue}
-                    onChange={(value: string) => setDefaultSelectedValue(value)}
-                    variant="secondary"
-                    selectedColor="secondary"
-                  />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={secondarySwitch}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Error Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={errorSwitch}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Switch
-                      isOn={isSwitchOn}
-                      handleToggle={toggleSwitch}
-                      variant="error"
-                      size="default"
-                    />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={errorSwitch}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Warning Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={warningSwitch}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Switch
-                      isOn={isSwitchOn}
-                      handleToggle={toggleSwitch}
-                      variant="warning"
-                      size="default"
-                    />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={warningSwitch}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Success Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={successSwitch}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Switch
-                      isOn={isSwitchOn}
-                      handleToggle={toggleSwitch}
-                      variant="success"
-                      size="default"
-                    />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={successSwitch}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Info Variant</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={infoSwitch}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Switch
-                      isOn={isSwitchOn}
-                      handleToggle={toggleSwitch}
-                      variant="info"
-                      size="default"
-                    />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={infoSwitch}
-            />
-          </div>
         </div>
       </div>
     </main>

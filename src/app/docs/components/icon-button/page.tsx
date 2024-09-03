@@ -1,11 +1,9 @@
-import React from "react"; // Add this import
+import React from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";
-import { Button } from "@/components/button";
 import { IconButton } from "@/components/iconButton";
 import TableProps from "@/components/Docs Components/tableProps";
 
@@ -67,7 +65,7 @@ export default function Home() {
   const errorIconButton = `<IconButton variant="error" >
   <Zap className="w-5 h-5" />
 </IconButton>`;
-  const terminal = `npm install velocity-ui@latest add iconButton`;
+  const terminal = `npm install velocity-ui@latest add icon-button`;
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
@@ -120,8 +118,8 @@ export default function Home() {
           <h1 className="text-2xl font-semibold text-white ">
             Icon Button API Reference
           </h1>
-          <Table data={buttonTableData} columns={buttonTableColumns} />{" "}
-          <TableProps data={buttonData} columns={buttonProps} />{" "}
+          <Table data={buttonTableData} columns={buttonTableColumns} />
+          <TableProps data={buttonData} columns={buttonProps} />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">

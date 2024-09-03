@@ -161,7 +161,7 @@ const Navbar = ({
         ref={menuRef} // Attach the ref to the menu div
         className={`${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 absolute w-80 h-screen bg-[#030711]/80 backdrop-blur-md border-r border-1 border-white/10 `}
+        } transition-transform duration-300 absolute w-80 h-screen bg-[#030711]/90 backdrop-blur-md border-r border-1 border-white/10 `}
       >
         <div className="flex flex-col justify-between px-2 pt-2 pb-3 space-y-1 sm:px-3">
           <div className="flex flex-row gap-2 text-white p-2">{links}</div>

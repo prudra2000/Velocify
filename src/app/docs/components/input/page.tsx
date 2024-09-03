@@ -4,6 +4,7 @@ import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import { Input } from "@/components/input";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const inputTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -13,6 +14,15 @@ export default function Home() {
     { prop: "variant", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
     { prop: "status", type: "string", default: "-" },
+  ];
+  const inputProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const inputData = [
+    { prop: "rounded", type: "default, none, full" },
+    { prop: "variant", type: "default, secondary" },
+    {
+      prop: "status",
+      type: "success, error, warning, info",
+    },
   ];
   const basicInput = `<Input placeholder="Default Input" variant="default" />`;
   const iconInput = `<Input
@@ -52,6 +62,15 @@ export default function Home() {
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Input</h2>
           <p className="text-paragraph-secondary">
+            The Input component in our UI library offers a versatile and
+            customizable input field, designed to seamlessly integrate with your
+            application&apos;s UI. It supports various properties, such as variant,
+            rounded, and status, allowing you to tailor its appearance and
+            behavior to suit different use cases. Whether you need a simple text
+            input, a file uploader, or an input with status indicators for
+            validation, this component provides the flexibility to meet your
+            design requirements while maintaining consistency across your
+            project.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -84,14 +103,12 @@ export default function Home() {
           <h1 className="text-2xl font-semibold text-white ">
             Input API Reference
           </h1>
-          <Table data={inputTableData} columns={inputTableColumns} />{" "}
+          <Table data={inputTableData} columns={inputTableColumns} />
+          <TableProps data={inputData} columns={inputProps} />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">Disabled Input</h1>
           <p className="text-paragraph-secondary">
-            The Badge component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all
-            styles, sizes, and variants.
           </p>
           <ElementShowcase
             codeShowcase={
@@ -118,8 +135,6 @@ export default function Home() {
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">File Input</h1>
           <p className="text-paragraph-secondary">
-            The Input component has a prop called type which allows you to
-            change the type of the input.
           </p>
           <ElementShowcase
             codeShowcase={
@@ -139,32 +154,8 @@ export default function Home() {
             code={iconInput}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">File Input</h1>
-          <p className="text-paragraph-secondary">
-            The Input component has a prop called type which allows you to
-            change the type of the input.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={fileInput}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Input placeholder="Default Input" type="file" />
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={fileInput}
-          />
-        </div>
         <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Rounded Input</h1>
+          <h1 className="text-xl font-semibold text-white ">Input - Rounded Edges</h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
@@ -187,19 +178,8 @@ export default function Home() {
             />
           </div>
         </div>
-
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">
-            Input Status Types
-          </h1>
-          <p className="text-paragraph-secondary">
-            The Input component has a prop called status which allows you to
-            change the status of the input.
-          </p>
-        </div>
-
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Success Status</h1>
+        <div className="flex flex-col gap-y-3">
+          <h1 className="text-xl font-semibold text-white ">Input - Status Variants</h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
@@ -225,34 +205,9 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Input Styles</h1>
+          <h1 className="text-2xl font-semibold text-white ">Input - Style Variants</h1>
           <p className="text-paragraph-secondary">
-            The Input component has a prop called variant which allows you to
-            change the variant of the input.
           </p>
-        </div>
-
-        <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-xl font-semibold text-white ">Outline Input</h1>
-          <div className="flex flex-col gap-y-2  ">
-            <ElementShowcase
-              codeShowcase={
-                <CodeShowcase
-                  code={fileInput}
-                  githubLink="https://github.com/prudra2000/Velocify"
-                />
-              }
-              element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Input placeholder="Default Input" variant="outline" />
-                  </div>
-                </div>
-              }
-              githubLink="https://github.com/prudra2000/Velocify"
-              code={fileInput}
-            />
-          </div>
         </div>
 
         <div className="flex flex-col mt-5 gap-y-3">

@@ -29,7 +29,7 @@ const radioButtonVariants = cva(
         true: "cursor-not-allowed opacity-50",
         false: "",
       },
-      selectedColor: {
+      status: {
         default: "bg-light-primary",
         secondary: "bg-light-secondary",
         warning: "bg-warning-secondary",
@@ -106,14 +106,9 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             "w-2 h-2 rounded-full",
             "peer-checked:peer-disabled:bg-paragraph-secondary",
             {
-              "peer-checked:bg-light-primary": selectedColor === "default",
-              "peer-checked:bg-dark-secondary": selectedColor === "secondary",
-              "peer-checked:bg-warning-secondary": selectedColor === "warning",
-              "peer-checked:bg-success-secondary": selectedColor === "success",
-              "peer-checked:bg-info-secondary": selectedColor === "info",
-              "peer-checked:bg-error-secondary": selectedColor === "error",
-              "peer-checked:bg-accent-secondary": selectedColor === "accent",
-              "peer-checked:bg-custom": selectedColor === "custom",
+              "peer-checked:bg-light-primary": variant === "default",
+              "peer-checked:bg-dark-secondary": variant === "secondary",
+              "peer-checked:bg-accent-secondary": !variant || (variant !== "default" && variant !== "secondary"), // Fallback class
             },
             disabled ? "cursor-not-allowed opacity-50" : ""
           )}

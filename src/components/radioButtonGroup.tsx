@@ -40,17 +40,22 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
   variant = "default",
   size = "default",
   disabled,
-  selectedColor = "default",
+  selectedColor,
   label,
   labelClassName,
   orientation = "vertical",
 }) => {
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className={twMerge("flex flex-col gap-y-2", disabled && "opacity-50 cursor-not-allowed")}>
       {label && (
-          <h1 className={twMerge("", labelClassName)}>{label}</h1>
+        <h1 className={twMerge("text-base font-medium", labelClassName)}>{label}</h1>
       )}
-      <div className={twMerge("flex flex-col justify-center items-start gap-3", orientation === "horizontal" ? "flex-row" : "flex-col")}>
+      <div
+        className={twMerge(
+          "flex justify-center items-start gap-3",
+          orientation === "horizontal" ? "flex-row" : "flex-col"
+        )}
+      >
         {options.map((option) => (
           <RadioButton
             key={option.value}
@@ -59,7 +64,7 @@ const RadioButtonGroup: React.FC<RadioButtonGroupProps> = ({
             alt={option.alt}
             name={name}
             checked={selectedValue === option.value}
-            onChange={onChange}
+            onChange={() => onChange(option.value)}
             variant={variant}
             rounded={rounded}
             size={size}

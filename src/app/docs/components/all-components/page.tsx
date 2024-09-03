@@ -690,7 +690,7 @@ export default function Home() {
               disabled={true}
             />
           </WIPBadge>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <a href="/docs/components/rating-stars">
             <UIDisplayCard
               title="Rating"
               component={
@@ -741,7 +741,7 @@ export default function Home() {
               }
               disabled={true}
             />
-          </WIPBadge>
+          </a>
         </div>
         <div className="flex flex-col mt-10 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">

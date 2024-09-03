@@ -99,10 +99,9 @@ const MainNavbar: React.FC = () => {
                 isActive={currentPath.includes("components/radio-group")} // Check if active
               />
               <DocsMenuItem
-                hrefText="components/ratings"
+                hrefText="components/rating-stars"
                 text="Ratings"
-                isActive={currentPath.includes("components/ratings")} // Check if active
-                disabled={true}
+                isActive={currentPath.includes("components/rating-stars")}
               />
               <DocsMenuItem
                 hrefText="components/select"
