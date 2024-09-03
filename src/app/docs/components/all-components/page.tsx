@@ -748,7 +748,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
-        <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+        <a href="/docs/components/avatar">
             <UIDisplayCard
               title="Avatar"
               component={
@@ -791,9 +791,8 @@ export default function Home() {
                   />
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
+          </a>
           <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
             <UIDisplayCard
               title="Badge"

@@ -19,18 +19,12 @@ const switchVariants = cva(
         info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
         error:
           "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
-        link: "text-link-primary underline-offset-4 hover:underline",
         custom: "",
       },
       size: {
         default: "w-[2.75rem] h-5",
         small: "w-9 h-4",
         large: "w-[3.5rem] h-7",
-      },
-      thumbSize: {
-        default: "w-2 h-2",
-        small: "w-4 h-4",
-        large: "w-8 h-8",
       },
       disabled: {
         true: "cursor-not-allowed opacity-50",
@@ -40,7 +34,6 @@ const switchVariants = cva(
     defaultVariants: {
       variant: "default",
       size: "default",
-      thumbSize: "default",
       disabled: false,
     },
   }
@@ -60,7 +53,6 @@ interface SwitchProps
     | "success"
     | "info"
     | "error"
-    | "link"
     | "custom";
   size: "default" | "small" | "large";
   disabled?: boolean;

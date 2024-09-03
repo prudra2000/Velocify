@@ -1,15 +1,55 @@
 import Image from "next/image";
 import React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
-interface AvatarProps {
+const avatarVariants = cva(
+  "relative ",
+  {
+    variants: {
+      border: {
+        true: "outline outline-1 border-color-class", // Update with the desired border color
+        false: "border-none", // Change to remove the border when false
+      },
+      variant: {
+        default: "bg-dark-primary text-white outline-dark-secondary",
+        secondary: "bg-light-primary text-black outline-light-secondary",
+      },
+      rounded: {
+        none: "rounded-none",
+        large: "rounded-lg",
+        full: "rounded-full aspect-square",
+      },
+      size: {
+        default: "w-10 h-10 text-sm",
+        small: "w-8 h-8 text-xs",
+        large: "w-12 h-12 text-lg",
+      },
+      disabled: {
+        true: "opacity-50 cursor-not-allowed",
+        false: "",
+      },
+    },
+    defaultVariants: {
+      border: false,
+      variant: "default",
+      rounded: "full",
+      size: "default",
+      disabled: false,
+    },
+  }
+);
+
+
+interface AvatarProps extends VariantProps<typeof avatarVariants> {
   src?: string;
   alt: string;
-  border?: boolean;
   className?: string;
-  textColor?: string;
-  width?: number;
-  height?: number;
+  variant?: "default" | "secondary";
+  border?: boolean;
+  size?: "default" | "small" | "large";
+  disabled?: boolean;
+  rounded?: "none" | "large" | "full";
 }
 
 const Avatar: React.FC<AvatarProps> = ({
@@ -17,29 +57,29 @@ const Avatar: React.FC<AvatarProps> = ({
   alt,
   border = false,
   className,
-  textColor = "black",
-  width = 24, // Default width
-  height = 24, // Default height
+  variant = "default",
+  size = "default",
+  disabled = false,
+  rounded = "full",
+  ...props
 }) => {
-  const borderClasses = border ? "border-2 border-gray-600" : "";
-
   return (
     <div
-      className={twMerge(`relative rounded-full aspect-square
-                  ${borderClasses} ${className}`)}
-      style={{ width, height }} // Set width and height
+      className={twMerge(avatarVariants({variant, border, className, size, disabled , rounded})) + " flex items-center justify-center"}
     >
       {src ? (
         <Image 
           src={src} 
           alt={alt} 
-          fill 
-          className="rounded-full object-cover" // Removed aspect-square for Image
+          fill={true}
+          {...props}
+          objectFit="cover"
+          className={twMerge(avatarVariants({rounded}))} 
         />
       ) : (
-        <div className={`rounded-full flex items-center justify-center bg-white ${textColor} outline-3 outline-black dark:outline-white outline`} style={{ width, height }}>
-          {alt.charAt(0).toUpperCase()}
-        </div>
+          <span className={twMerge(size)}>
+            {alt.split(' ').slice(0, 2).map(word => word.charAt(0)).join('').toUpperCase()}
+          </span>
       )}
     </div>
   );

@@ -129,8 +129,7 @@ const MainNavbar: React.FC = () => {
               <DocsMenuItem
                 hrefText="components/avatar"
                 text="Avatar"
-                isActive={currentPath.includes("components/avatar")} // Check if active
-                disabled={true}
+                isActive={currentPath.includes("components/avatar")}
               />
               <DocsMenuItem
                 hrefText="components/badge"

@@ -5,6 +5,7 @@ import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Switch from "@/components/switch";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const switchTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -15,6 +16,14 @@ export default function Home() {
     { prop: "size", type: "string", default: "default" },
     { prop: "rounded", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
+  ];
+  const switchProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const switchData = [
+    { prop: "size", type: "default, small, large" },
+    {
+      prop: "variant",
+      type: "default, secondary, warning, success, info, error, custom",
+    },
   ];
   const basicSwitch = `<Switch
   isOn={isSwitchOn}
@@ -77,7 +86,17 @@ export default function Home() {
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Switch</h2>
-          <p className="text-paragraph-secondary"></p>
+          <p className="text-paragraph-secondary">
+            The Switch component in this UI library provides a versatile and
+            customizable toggle switch that can be used in various contexts. It
+            supports different sizes and style variants, making it adaptable to
+            diverse UI designs. Key props include isOn for managing the switch&apos;s
+            state, handleToggle for defining the toggle function, and variant
+            for applying pre-defined or custom styles. The component also offers
+            options for rounding, disabling, and incorporating icons or avatars,
+            allowing for a seamless integration into any application while
+            maintaining a consistent user experience.
+          </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
@@ -114,15 +133,14 @@ export default function Home() {
           <h1 className="text-2xl font-semibold text-white ">
             Switch API Reference
           </h1>
-          <Table data={switchTableData} columns={switchTableColumns} />{" "}
+          <Table data={switchTableData} columns={switchTableColumns} />
+          <TableProps data={switchData} columns={switchProps} />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Disabled Switch</h1>
-          <p className="text-paragraph-secondary">
-            The Switch component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all
-            styles, sizes, and variants.
-          </p>
+          <h1 className="text-2xl font-semibold text-white ">
+            Disabled Switch
+          </h1>
+          <p className="text-paragraph-secondary"></p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
@@ -148,11 +166,8 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Size Switch</h1>
-          <p className="text-paragraph-secondary">
-            The Switch component has a prop called size which allows you to change
-            the size of the button.
-          </p>
+          <h1 className="text-2xl font-semibold text-white ">Switch - Sizes</h1>
+          <p className="text-paragraph-secondary"></p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
@@ -187,15 +202,12 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Switch Variants</h1>
-          <p className="text-paragraph-secondary">
-            The Switch component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
-          </p>
+          <h1 className="text-2xl font-semibold text-white ">
+            Switch - Style Variants
+          </h1>
+          <p className="text-paragraph-secondary"></p>
         </div>
-        <div className="flex flex-col mt-5 gap-y-3">
+        <div className="flex flex-col  gap-y-3">
           <h1 className="text-xl font-semibold text-white ">
             Secondary Variant
           </h1>
@@ -237,7 +249,7 @@ export default function Home() {
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                  <Switch
+                    <Switch
                       isOn={isSwitchOn}
                       handleToggle={toggleSwitch}
                       variant="error"
