@@ -2,12 +2,8 @@
 import Avatar from "@/components/avatar";
 import Badge from "@/components/badge";
 import { Button } from "@/components/button";
-import { Divider } from "@/components/divider";
-import { IconButton } from "@/components/iconButton";
-import { Input } from "@/components/input";
 import RadioButtonGroup from "@/components/radioButtonGroup";
 import Switch from "@/components/switch";
-import { User } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -63,7 +59,7 @@ export default function Home() {
         </div>
         <div className="my-5">
           <Badge content="10" position="bottom-right" variant="error">
-            <Avatar alt="Avatar" />
+            <Avatar alt="Avatar" size="small" />
           </Badge>
         </div>
     </main>

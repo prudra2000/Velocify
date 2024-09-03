@@ -226,8 +226,7 @@ export default function Home() {
                       <Avatar
                         alt={"avatar"}
                         src={"/avatarImage.png"}
-                        width={20}
-                        height={20}
+                        size="small"
                       />
                     }
                   >

@@ -25,7 +25,7 @@ const TestimonialHeader = React.forwardRef<
   ) => (
     <div ref={ref} className="flex flex-col  p-6 items-center ">
       <div className="flex flex-col items-center space-y-0.5">
-        <Avatar src={avatarURL} alt="ASdksai" />
+        <Avatar src={avatarURL} alt="ASdksai" size="small" />
         <p className="font-semibold text-xs sm:text-sm md:text-base">{name}</p>
         {secondaryInfo && (
           <p className="text-paragraph-secondary text-xs sm:text-sm md:text-base">

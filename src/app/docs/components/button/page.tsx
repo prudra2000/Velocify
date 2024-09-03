@@ -96,9 +96,6 @@ export default function Home() {
 <Button variant="default" rounded="full">
   Rounded Full
 </Button>`;
-  const outlineButton = `<Button variant="outline" alt="Outline">
-  Default
-</Button>`;
   const secondaryButton = `<Button variant="secondary" alt="Secondary">
   Secondary
 </Button>`;
@@ -286,8 +283,7 @@ export default function Home() {
                       <Avatar
                         alt={"avatar"}
                         src={"/avatarImage.png"}
-                        width={20}
-                        height={20}
+                        size="small"
                       />
                     }
                   >
@@ -299,8 +295,7 @@ export default function Home() {
                       <Avatar
                         alt={"avatar"}
                         src={"/avatarImage.png"}
-                        width={20}
-                        height={20}
+                        size="small"
                       />
                     }
                   >
