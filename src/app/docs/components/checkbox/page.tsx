@@ -4,10 +4,9 @@ import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import Avatar from "@/components/avatar";
 import { ThumbsUp } from "lucide-react";
-import { Button } from "@/components/button";
 import Checkbox from "@/components/checkbox";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -17,35 +16,60 @@ export default function Home() {
     { prop: "checked", type: "boolean", default: "false" },
     { prop: "onChange", type: "function", default: "-" },
     { prop: "variant", type: "string", default: "default" },
-    { prop: "color", type: "string", default: "default" },
     { prop: "size", type: "string", default: "default" },
     { prop: "rounded", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
     { prop: "icon", type: "React.ReactNode", default: "-" },
   ];
-  const basicButton = `<Checkbox onChange={() => {}} />`;
-  const disabledButton = `<Checkbox
+  const checkboxProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const checkboxData = [
+    { prop: "rounded", type: "default, small, large" },
+    { prop: "size", type: "default, small, large" },
+    {
+      prop: "variant",
+      type: "default, secondary, warning, success, info, error",
+    },
+  ];
+  const basicCheckbox = `<Checkbox onChange={() => {}} />`;
+  const disabledCheckbox = `<Checkbox
   onChange={() => {}}
   disabled={true}
 />`;
-  const sizeButton = `<Checkbox onChange={() => {}} size="small" />
+  const labelCheckbox = `<Checkbox
+  onChange={() => {}}
+  label="Checkbox with Label"
+/>`;
+  const sizeCheckbox = `<Checkbox onChange={() => {}} size="small" />
 <Checkbox onChange={() => {}} size="default" />
 <Checkbox onChange={() => {}} size="large" />`;
-  const roundedButton = `<Checkbox onChange={() => {}} rounded="none" />
+  const roundedCheckbox = `<Checkbox onChange={() => {}} rounded="none" />
 <Checkbox onChange={() => {}} rounded="default" />
 <Checkbox onChange={() => {}} rounded="full" />`;
-  const checkboxVariants = `<Checkbox onChange={() => {}} color="default" />
-<Checkbox onChange={() => {}} color="success" />
-<Checkbox onChange={() => {}} color="warning" />
-<Checkbox onChange={() => {}} color="error" />
-<Checkbox onChange={() => {}} color="info" />`;
+  const iconCheckbox = `<Checkbox
+  onChange={() => {}}
+  icon={<ThumbsUp className="w-3 h-3 fill-white" />}
+/>`;
+  const checkboxVariants = `<Checkbox onChange={() => {}} variant="default" />
+<Checkbox onChange={() => {}} variant="success" />
+<Checkbox onChange={() => {}} variant="warning" />
+<Checkbox onChange={() => {}} variant="error" />
+<Checkbox onChange={() => {}} variant="info" />`;
   const terminal = `npm install velocity-ui@latest add checkbox`;
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Checkbox</h2>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
+            The Checkbox component is a versatile UI element designed to provide
+            a customizable checkbox experience. It offers a range of options
+            including size, variant, and shape variations, allowing you to tailor
+            it to your application&apos;s needs. The component supports essential
+            props like label, checked, onChange, and disabled, ensuring smooth
+            integration and functionality within your project. Additionally, the
+            Checkbox can incorporate icons and is fully adaptable to different
+            styles and states, making it a flexible choice for any form or
+            selection-based interface.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -56,23 +80,23 @@ export default function Home() {
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Checkbox Button
+            Checkbox Checkbox
           </h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={basicButton}
+                  code={basicCheckbox}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <Checkbox onChange={() => {}} />
+                  <Checkbox onChange={() => {}} label="Checkbox" />
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={basicButton}
+              code={basicCheckbox}
             />
           </div>
         </div>
@@ -81,20 +105,18 @@ export default function Home() {
             Checkbox API Reference
           </h1>
           <Table data={buttonTableData} columns={buttonTableColumns} />{" "}
+          <TableProps data={checkboxData} columns={checkboxProps} />{" "}
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">
-            Disabled Button
+            Disabled Checkbox
           </h1>
-          <p className="text-gray-400">
-            The Button component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all
-            styles, sizes, and variants.
+          <p className="text-paragraph-secondary">
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={disabledButton}
+                code={disabledCheckbox}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
@@ -106,19 +128,41 @@ export default function Home() {
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={disabledButton}
+            code={disabledCheckbox}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Checkbox Size</h1>
-          <p className="text-gray-400">
-            The Checkbox component has a prop called size which allows you to
-            change the size of the checkbox.
+          <h1 className="text-2xl font-semibold text-white ">
+            Checkbox with Label
+          </h1>
+          <p className="text-paragraph-secondary">
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={sizeButton}
+                code={labelCheckbox}
+                githubLink="https://github.com/prudra2000/Velocify"
+              />
+            }
+            element={
+              <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-row gap-x-5 px-10">
+                  <Checkbox onChange={() => {}} label="Checkbox with Label" />
+                </div>
+              </div>
+            }
+            githubLink="https://github.com/prudra2000/Velocify"
+            code={labelCheckbox}
+          />
+        </div>
+        <div className="flex flex-col mt-5 gap-y-2">
+          <h1 className="text-2xl font-semibold text-white ">Checkbox - Sizes</h1>
+          <p className="text-paragraph-secondary">
+          </p>
+          <ElementShowcase
+            codeShowcase={
+              <CodeShowcase
+                code={sizeCheckbox}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
@@ -132,17 +176,17 @@ export default function Home() {
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={sizeButton}
+            code={sizeCheckbox}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">
-            Rounded Checkbox
+            Checkbox - Rounded Edges
           </h1>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={roundedButton}
+                code={roundedCheckbox}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
@@ -156,16 +200,16 @@ export default function Home() {
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={roundedButton}
+            code={roundedCheckbox}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Icon Checkbox</h1>
+          <h1 className="text-2xl font-semibold text-white ">Checkbox - Icon Variant</h1>
 
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={sizeButton}
+                code={iconCheckbox}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
@@ -180,12 +224,12 @@ export default function Home() {
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={sizeButton}
+            code={iconCheckbox}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">
-            Colored Checkbox
+            Checkbox - Color Variants
           </h1>
           <ElementShowcase
             codeShowcase={
@@ -197,11 +241,11 @@ export default function Home() {
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
-                  <Checkbox onChange={() => {}} color="default" />
-                  <Checkbox onChange={() => {}} color="success" />
-                  <Checkbox onChange={() => {}} color="warning" />
-                  <Checkbox onChange={() => {}} color="error" />
-                  <Checkbox onChange={() => {}} color="info" />
+                  <Checkbox onChange={() => {}} variant="default" />
+                  <Checkbox onChange={() => {}} variant="success" />
+                  <Checkbox onChange={() => {}} variant="warning" />
+                  <Checkbox onChange={() => {}} variant="error" />
+                  <Checkbox onChange={() => {}} variant="info" />
                 </div>
               </div>
             }

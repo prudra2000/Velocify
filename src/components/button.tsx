@@ -21,7 +21,7 @@ const buttonVariants = cva(
       size: {
         default: "px-3 py-1.5",
         small: "rounded-md px-2 py-1",
-        large: " rounded-md px-4 py-3",
+        large: " rounded-md px-4 py-2 text-sm",
       },
       rounded: {
         default: "rounded-lg",
@@ -38,6 +38,7 @@ const buttonVariants = cva(
       size: "default",
       rounded: "default",
       disabled: false,
+      
     },
   }
 );
@@ -55,16 +56,18 @@ export interface ButtonProps
   rounded?: "default" | "none" | "full";
   disabled?: boolean;
   size?: "default" | "small" | "large" ;
+  variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "link" | "custom";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, ...props }, ref) => { // {{ edit_2 }}
+  ({ className, alt, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, ...props }, ref) => { // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
         
         <button
         className={twMerge(buttonVariants({ variant, size, rounded, className, disabled }))}
         ref={ref}
+        aria-label={alt}
         {...props}
         disabled={disabled}
       >

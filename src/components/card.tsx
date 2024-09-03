@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ className, title, description, icon }) => {
             </div>
             <h1 className="text-xl font-bold">{title}</h1>
           </div>
-          <div className="flex flex-col gap-y-2 text-gray-400">
+          <div className="flex flex-col gap-y-2 text-paragraph-secondary">
             <p>{description}</p>
           </div>
         </div>

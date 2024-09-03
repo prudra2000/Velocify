@@ -34,12 +34,12 @@ const Table: React.FC<TableProps> = ({ className, data, columns }) => {
                   </div>
                 </td>
                 <td className="px-6 py-2">
-                  <div className="flex flex-row w-min px-3 py-1 justify-start items-end rounded-lg text-sm bg-white/10 text-gray-400">
+                  <div className="flex flex-row w-min px-3 py-1 justify-start items-end rounded-lg text-sm bg-white/10 text-paragraph-secondary">
                     <p className="text-xs">{item.type}</p>
                   </div>
                 </td>
                 <td className="px-6 py-2">
-                  <p className="text-xs text-gray-400">{item.default}</p>
+                  <p className="text-xs text-paragraph-secondary">{item.default}</p>
                 </td>
               </tr>
             ))}

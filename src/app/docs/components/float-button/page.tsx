@@ -1,252 +1,176 @@
 "use client";
-import React, { useEffect, useState } from "react"; // Add this import
-import { Chip } from "@/components/chip";
+import React from "react"; // Add this import
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";
+import { Button } from "@/components/button";
+import { IconButton } from "@/components/iconButton";
+import FloatButton from "@/components/floatButton";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
-  const badgeTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
-  const badgeTableData = [
-    { prop: "className", type: "string", default: "-" },
+  const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
+  const buttonTableData = [
+    { prop: "asChild", type: "boolean", default: "false" },
     { prop: "children", type: "React.ReactNode", default: "-" },
-    { prop: "icon", type: "React.ReactNode", default: "-" },
-    { prop: "avatar", type: "React.ReactNode", default: "-" },
+    { prop: "alt", type: "string", default: "-" },
     { prop: "size", type: "string", default: "default" },
+    { prop: "variant", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
   ];
-  const basicChip = `<Chip variant="default">
+  const buttonProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const buttonData = [
+    { prop: "size", type: "default, none, full", default: "default" }, // Changed 'types' to 'type'
+    { prop: "position", type: "bottom-right, bottom-left, top-right, top-left", default: "bottom-left" },
+    { prop: "variant", type: "default, secondary, warning, success, info, error, ghost, custom", default: "default" },
+  ];
+  const basicIconButton = `<IconButton variant="default" alt="Default">
   Default
-</Chip>`;
-  const iconChip = `<Chip
-  variant="default"
-  avatar={
-    <Zap 
-      className="w-5 h-5" 
-    />
-}>
-  Icon Chip
-</Chip>`;
-  const disabledChip = `<Chip variant="default" disabled>
-  Disabled
-</Chip>`;
-  const sizeChip = `<Chip variant="default" size="small">
-  Small
-</Chip>
-<Chip variant="default" size="default">
-  Default
-</Chip>
-<Chip variant="default" size="large">
-  Large
-</Chip>`;
-  const avatarChip = `<Chip
-  variant="default"
-  avatar={
-    <Avatar
-      alt={"avatar"}
-      src={"/avatarImage.png"}
-      width={20}
-      height={20}
-    />
-}>
-  Avatar Chip
-</Chip>`;
-  const outlineChip = `<Chip variant="outline">
-  Default
-</Chip>`;
-  const secondaryChip = `<Chip variant="secondary">
-  Secondary
-</Chip>`;
-  const warningChip = `<Chip variant="warning">
-  Warning
-</Chip>`;
-  const successChip = `<Chip variant="success">
-  Success
-</Chip>`;
-  const infoChip = `<Chip variant="info">
-  Info
-</Chip>`;
-  const errorChip = `<Chip variant="error">
-  Error
-</Chip>`;
-  const terminal = `npm install velocity-ui@latest add badge`;
- 
+</IconButton>`;
+  const disabledIconButton = `<IconButton variant="default" disabled>
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const sizeIconButton = `<IconButton variant="default" size="small">
+  <Zap className="w-3 h-3 stroke-accent" />
+</IconButton>
+<IconButton variant="default" size="default">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>
+<IconButton variant="default" size="large">
+  <Zap className="w-7 h-7 stroke-accent" />
+</IconButton>`;
+  const secondaryIconButton = `<IconButton variant="secondary" alt="Secondary">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const warningIconButton = `<IconButton variant="warning" alt="Warning">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const successIconButton = `<IconButton variant="success" alt="Success">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const infoIconButton = `<IconButton variant="info" alt="Info">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const errorIconButton = `<IconButton variant="error" alt="Error">
+  <Zap className="w-5 h-5 stroke-accent" />
+</IconButton>`;
+  const terminal = `npm install velocity-ui@latest add button`;
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
-      
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
-          <h2 className="text-3xl font-bold text-white ">Chip</h2>
-          <p className="text-paragraph-secondary">
-          </p>
+          <h2 className="text-3xl font-bold text-white ">Float Button</h2>
+          <p className="text-paragraph-secondary"></p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Chip Installation
+            Float Button Installation
           </h1>
           <TerminalShowcase command={terminal} />
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">Basic Chip</h1>
+          <h1 className="text-2xl font-semibold text-white ">
+            Basic Float Button
+          </h1>
           <div className="flex flex-col gap-y-2  ">
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={basicChip}
+                  code={basicIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <Chip variant="default">Default</Chip>
+                  <FloatButton
+                    variant="default"
+                    onClick={() => {}}
+                    position="bottom-left"
+                  >
+                    <Zap className="w-5 h-5" />
+                    Test
+                  </FloatButton>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={basicChip}
+              code={basicIconButton}
             />
           </div>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
-            Chip API Reference
+            Button API Reference
           </h1>
-          <Table data={badgeTableData} columns={badgeTableColumns} />{" "}
+          <Table data={buttonTableData} columns={buttonTableColumns} />{" "}
+          <TableProps data={buttonData} columns={buttonProps} />{" "}
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Disabled Chip</h1>
+          <h1 className="text-2xl font-semibold text-white ">
+            Disabled Button
+          </h1>
           <p className="text-paragraph-secondary">
-            The Chip component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all
-            styles, sizes, and variants.
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={disabledChip}
+                code={disabledIconButton}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
-                  <Chip variant="default" disabled>
-                    Disabled
-                  </Chip>
+                  <IconButton variant="default" disabled>
+                    <Zap className="w-5 h-5 stroke-accent" />
+                  </IconButton>
                 </div>
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={disabledChip}
+            code={disabledIconButton}
           />
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Size Chip</h1>
+          <h1 className="text-2xl font-semibold text-white ">Size Button</h1>
           <p className="text-paragraph-secondary">
-            The Chip component has a prop called size which allows you to
-            change the size of the button.
           </p>
           <ElementShowcase
             codeShowcase={
               <CodeShowcase
-                code={sizeChip}
+                code={sizeIconButton}
                 githubLink="https://github.com/prudra2000/Velocify"
               />
             }
             element={
               <div className="flex flex-col gap-y-5 justify-center items-center">
                 <div className="flex flex-row gap-x-5 px-10">
-                  <Chip variant="default" size="small">
-                    Small
-                  </Chip>
-                  <Chip variant="default" size="default">
-                    Default
-                  </Chip>
-                  <Chip variant="default" size="large">
-                    Large
-                  </Chip>
+                  <IconButton variant="default" size="small">
+                    <Zap className="w-3 h-3 stroke-accent" />
+                  </IconButton>
+                  <IconButton variant="default" size="default">
+                    <Zap className="w-5 h-5 stroke-accent" />
+                  </IconButton>
+                  <IconButton variant="default" size="large">
+                    <Zap className="w-7 h-7 stroke-accent" />
+                  </IconButton>
                 </div>
               </div>
             }
             githubLink="https://github.com/prudra2000/Velocify"
-            code={sizeChip}
+            code={sizeIconButton}
           />
         </div>
+
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Icon Chip</h1>
+          <h1 className="text-2xl font-semibold text-white ">Badge Variants</h1>
           <p className="text-paragraph-secondary">
-            The Chip component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={iconChip}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Chip variant="default" icon={<Zap className="w-5 h-5" />}>
-                    Icon Chip
-                  </Chip>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={iconChip}
-          />
-        </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Avatar Chip</h1>
-          <p className="text-paragraph-secondary">
-            The Chip component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
-          </p>
-          <ElementShowcase
-            codeShowcase={
-              <CodeShowcase
-                code={avatarChip}
-                githubLink="https://github.com/prudra2000/Velocify"
-              />
-            }
-            element={
-              <div className="flex flex-col gap-y-5 justify-center items-center">
-                <div className="flex flex-row gap-x-5 px-10">
-                  <Chip
-                    variant="default"
-                    avatar={
-                      <Avatar
-                        alt={"avatar"}
-                        src={"/avatarImage.png"}
-                        width={20}
-                        height={20}
-                      />
-                    }
-                  >
-                    Avatar Chip
-                  </Chip>
-                </div>
-              </div>
-            }
-            githubLink="https://github.com/prudra2000/Velocify"
-            code={avatarChip}
-          />
-        </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Chip Variants</h1>
-          <p className="text-paragraph-secondary">
-            The Chip component offers various variants, including default,
-            outline, secondary, warning, success, info, and error, each designed
-            to convey different meanings and enhance visual distinction in your
-            application.
+            The IconButton component provides various styles and sizes, allowing
+            for a flexible and customizable user interface. It can be used for
+            primary actions, secondary options, or to enhance visual hierarchy
+            in your application.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -257,19 +181,21 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={secondaryChip}
+                  code={secondaryIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Chip variant="secondary">Secondary</Chip>
+                    <IconButton variant="secondary" alt="Secondary">
+                      <Zap className="w-5 h-5 stroke-accent" />
+                    </IconButton>
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={secondaryChip}
+              code={secondaryIconButton}
             />
           </div>
         </div>
@@ -279,19 +205,21 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={errorChip}
+                  code={errorIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Chip variant="error">Error</Chip>
+                    <IconButton variant="error" alt="Error">
+                      <Zap className="w-5 h-5 stroke-accent" />
+                    </IconButton>
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={errorChip}
+              code={errorIconButton}
             />
           </div>
         </div>
@@ -301,19 +229,21 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={warningChip}
+                  code={warningIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Chip variant="warning">Warning</Chip>
+                    <IconButton variant="warning" alt="Warning">
+                      <Zap className="w-5 h-5 stroke-accent" />
+                    </IconButton>
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={warningChip}
+              code={warningIconButton}
             />
           </div>
         </div>
@@ -323,19 +253,21 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={successChip}
+                  code={successIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Chip variant="success">Success</Chip>
+                    <IconButton variant="success" alt="Success">
+                      <Zap className="w-5 h-5 stroke-accent" />
+                    </IconButton>
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={successChip}
+              code={successIconButton}
             />
           </div>
         </div>
@@ -345,19 +277,21 @@ export default function Home() {
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
-                  code={infoChip}
+                  code={infoIconButton}
                   githubLink="https://github.com/prudra2000/Velocify"
                 />
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
-                    <Chip variant="info">Info</Chip>
+                    <IconButton variant="info" alt="Info">
+                      <Zap className="w-5 h-5 stroke-accent" />
+                    </IconButton>
                   </div>
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
-              code={infoChip}
+              code={infoIconButton}
             />
           </div>
         </div>

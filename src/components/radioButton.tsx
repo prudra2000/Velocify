@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
 const radioButtonVariants = cva(
-  "peer col-start-1 row-start-1 appearance-none shrink-0 w-4 h-4 b disabled:border-gray-4000",
+  "peer col-start-1 row-start-1 appearance-none shrink-0 w-4 h-4 b disabled:border-paragraph-secondary0",
   {
     variants: {
       rounded: {
@@ -104,7 +104,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             "pointer-events-none",
             "col-start-1 row-start-1",
             "w-2 h-2 rounded-full",
-            "peer-checked:peer-disabled:bg-gray-400",
+            "peer-checked:peer-disabled:bg-paragraph-secondary",
             {
               "peer-checked:bg-light-primary": selectedColor === "default",
               "peer-checked:bg-dark-secondary": selectedColor === "secondary",
@@ -120,7 +120,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
         />
       </div>
 
-      <span className="text-gray-400">{label}</span>
+      <span className="text-paragraph-secondary">{label}</span>
     </label>
   );
 };

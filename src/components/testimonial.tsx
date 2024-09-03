@@ -28,7 +28,7 @@ const TestimonialHeader = React.forwardRef<
         <Avatar src={avatarURL} alt="ASdksai" />
         <p className="font-semibold text-xs sm:text-sm md:text-base">{name}</p>
         {secondaryInfo && (
-          <p className="text-gray-400 text-xs sm:text-sm md:text-base">
+          <p className="text-paragraph-secondary text-xs sm:text-sm md:text-base">
             {secondaryInfo}
           </p>
         )}

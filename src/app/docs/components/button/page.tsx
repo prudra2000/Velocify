@@ -6,6 +6,7 @@ import Table from "@/components/table";
 import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";
 import { Button } from "@/components/button";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -22,13 +23,22 @@ export default function Home() {
     { prop: "variant", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
   ];
+  const buttonProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const buttonData = [
+    { prop: "rounded", type: "default, none, full" },
+    { prop: "size", type: "default, small, large" },
+    {
+      prop: "variant",
+      type: "default, secondary, warning, success, info, error, link, custom",
+    },
+  ];
   const basicButton = `<Button variant="default" alt="Default">
   Default
 </Button>`;
-const disabledButton = `<Button variant="default" disabled>
+  const disabledButton = `<Button variant="default" disabled>
   Disabled
 </Button>`;
-const sizeButton = `<Button variant="default" size="small">
+  const sizeButton = `<Button variant="default" size="small">
   Small
 </Button>
 <Button variant="default" size="default">
@@ -113,7 +123,18 @@ const sizeButton = `<Button variant="default" size="small">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Button</h2>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
+            The Button component is a versatile UI element designed for
+            flexibility and customization, offering a wide range of props to
+            cater to various design needs. It supports different sizes,
+            variants, icons, and avatars, allowing developers to create buttons
+            that align perfectly with the application&apos;s aesthetic and functional
+            requirements. Whether you need a simple action button, an
+            icon-enhanced button, or one with rounded corners, the Button
+            component provides a consistent and responsive experience across all
+            devices. The component is also fully customizable, with options for
+            disabled states, icon positioning, and different button styles to
+            suit various use cases.
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -147,12 +168,13 @@ const sizeButton = `<Button variant="default" size="small">
             Button API Reference
           </h1>
           <Table data={buttonTableData} columns={buttonTableColumns} />{" "}
+          <TableProps data={buttonData} columns={buttonProps} />{" "}
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Disabled Button</h1>
-          <p className="text-gray-400">
-            The Button component has a prop called disabled which allows you to
-            disable the button. The disabled button is compatable with all styles, sizes, and variants.
+          <h1 className="text-2xl font-semibold text-white ">
+            Disabled Button
+          </h1>
+          <p className="text-paragraph-secondary">
           </p>
           <ElementShowcase
             codeShowcase={
@@ -174,11 +196,9 @@ const sizeButton = `<Button variant="default" size="small">
             code={disabledButton}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Size Button</h1>
-          <p className="text-gray-400">
-            The Button component has a prop called size which allows you to
-            change the size of the button.
+        <div className="flex flex-col mt-5 gap-y-2" id="size">
+          <h1 className="text-2xl font-semibold text-white ">Button - Sizes</h1>
+          <p className="text-paragraph-secondary">
           </p>
           <ElementShowcase
             codeShowcase={
@@ -206,9 +226,9 @@ const sizeButton = `<Button variant="default" size="small">
             code={sizeButton}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Icon Button</h1>
-          <p className="text-gray-400">
+        <div className="flex flex-col mt-5 gap-y-2" id="icon">
+          <h1 className="text-2xl font-semibold text-white ">Button - Icon Variant</h1>
+          <p className="text-paragraph-secondary">
             The Button component has a prop called leftIcon and rightIcon which
             allows you to add an icon to the left or right of the button.
           </p>
@@ -243,9 +263,9 @@ const sizeButton = `<Button variant="default" size="small">
             code={iconButton}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Avatar Button</h1>
-          <p className="text-gray-400">
+        <div className="flex flex-col mt-5 gap-y-2" id="avatar">
+          <h1 className="text-2xl font-semibold text-white ">Button - Avatar Variant</h1>
+          <p className="text-paragraph-secondary">
             The Button component has a prop called leftAvatar and rightAvatar
             which allows you to add an avatar to the left or right of the
             button.
@@ -293,11 +313,9 @@ const sizeButton = `<Button variant="default" size="small">
             code={avatarButton}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Rounded Button</h1>
-          <p className="text-gray-400">
-            The Button component has a prop called rounded which allows you to
-            add a rounded button.
+        <div className="flex flex-col mt-5 gap-y-2" id="rounded">
+          <h1 className="text-2xl font-semibold text-white ">Button - Rounded Edges</h1>
+          <p className="text-paragraph-secondary">
           </p>
           <ElementShowcase
             codeShowcase={
@@ -325,16 +343,12 @@ const sizeButton = `<Button variant="default" size="small">
             code={roundedButton}
           />
         </div>
-        <div className="flex flex-col mt-5 gap-y-2">
-          <h1 className="text-2xl font-semibold text-white ">Badge Variants</h1>
-          <p className="text-gray-400">
-            The Button component provides various styles and sizes, allowing for
-            a flexible and customizable user interface. It can be used for
-            primary actions, secondary options, or to enhance visual hierarchy
-            in your application.
+        <div className="flex flex-col mt-5 gap-y-2" id="variant">
+          <h1 className="text-2xl font-semibold text-white ">Button - Style Variants</h1>
+          <p className="text-paragraph-secondary">
           </p>
         </div>
-        <div className="flex flex-col mt-5 gap-y-3">
+        <div className="flex flex-col gap-y-3">
           <h1 className="text-xl font-semibold text-white ">
             Secondary Variant
           </h1>

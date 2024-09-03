@@ -21,9 +21,9 @@ const DocsMenuItem: React.FC<docsMenuItemProps> = ({
   return (
     <a href={`/docs/${hrefText}`}>
       <div
-        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-gray-400 hover:bg-gray-800/80  ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-paragraph-secondary hover:bg-gray-800/80  ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
       >
-        <p className={`${isActive ? "text-[#F8CC38]" : "text-gray-400"}`}>{text}</p>
+        <p className={`${isActive ? "text-[#F8CC38]" : "text-paragraph-secondary"}`}>{text}</p>
       </div>
     </a>
   );
@@ -39,7 +39,7 @@ const DocsMenuDivider: React.FC<docsMenuDividerProps> = ({ sectionTitle }) => {
   return (
     <div className="flex flex-col ">
       <div
-        className={`flex flex-row justify-between items-center px-4 py-2 rounded-lg text-sm bg-gray-900/60 text-gray-400`}
+        className={`flex flex-row justify-between items-center px-4 py-2 rounded-lg text-sm bg-gray-900/60 text-paragraph-secondary`}
       >
         {sectionTitle.toUpperCase()}
         <ChevronRight

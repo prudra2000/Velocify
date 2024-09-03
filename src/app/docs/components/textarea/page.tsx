@@ -51,7 +51,7 @@ export default function Home() {
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Textarea</h2>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
           </p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
@@ -89,7 +89,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">Disabled Textarea</h1>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
             The Badge component has a prop called disabled which allows you to
             disable the button. The disabled button is compatable with all
             styles, sizes, and variants.
@@ -144,7 +144,7 @@ export default function Home() {
           <h1 className="text-2xl font-semibold text-white ">
             Textarea Status Types
           </h1>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
             The Textarea component has a prop called status which allows you to
             change the status of the input.
           </p>
@@ -178,7 +178,7 @@ export default function Home() {
 
         <div className="flex flex-col mt-5 gap-y-2">
           <h1 className="text-2xl font-semibold text-white ">Textarea Styles</h1>
-          <p className="text-gray-400">
+          <p className="text-paragraph-secondary">
             The Textarea component has a prop called variant which allows you to
             change the variant of the input.
           </p>

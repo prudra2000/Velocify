@@ -40,6 +40,7 @@ const floatButtonVariants = cva(
         variant: "default",
         size: "default",
         disabled: false,
+        position: "bottom-right",
       },
     }
   );
@@ -63,7 +64,9 @@ const FloatButton: React.FC<FloatButtonProps> = ({ onClick, children, variant, s
             onClick={onClick} // Add this line
             {...props}
         >
+          <div className="flex flex-row gap-x-2 items-center justify-center">
             {children}
+          </div>
         </IconButton>
     );
 }

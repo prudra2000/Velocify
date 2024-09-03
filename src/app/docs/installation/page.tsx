@@ -19,7 +19,7 @@ export default function Home() {
         <div className="flex flex-col gap-y-2 w-full md:w-3/4"> {/* Added width classes */}
           <div className="flex flex-col gap-y-2">
             <h2 className="text-3xl font-bold text-white ">Installation</h2>
-            <p className="text-gray-400">
+            <p className="text-paragraph-secondary">
               The installation process is simple and straightforward. Can be
               installed using npm.
             </p>
@@ -31,7 +31,7 @@ export default function Home() {
             <div className="flex flex-col gap-y-2  ">
               <TerminalShowcase command={terminal} />
             </div>
-            <p className="text-gray-400">
+            <p className="text-paragraph-secondary">
               After installation, you can start using the components by
               importing them from the library.
             </p>
@@ -43,7 +43,7 @@ export default function Home() {
             <div className="flex flex-col gap-y-2  ">
               <TerminalShowcase command={terminal2} />
             </div>
-            <p className="text-gray-400">
+            <p className="text-paragraph-secondary">
               After installation, you can start using the components by
               importing them from the library.
             </p>

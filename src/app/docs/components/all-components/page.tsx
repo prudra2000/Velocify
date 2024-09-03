@@ -8,7 +8,7 @@ export default function Home() {
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5 items-center">
         <div className="flex flex-col mt-5 gap-y-3">
           <h2 className="text-3xl font-bold text-white ">Components</h2>
-          <p className="text-gray-400"></p>
+          <p className="text-paragraph-secondary"></p>
         </div>
         <div className="flex flex-col mt-5 gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">

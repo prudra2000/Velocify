@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
 const iconButtonVariants = cva(
-  "flex flex-row rounded-full justify-center items-center text-xs lg:text-sm ",
+  "flex flex-row justify-center items-center text-xs lg:text-sm ",
   {
     variants: {
       variant: {
@@ -20,18 +20,24 @@ const iconButtonVariants = cva(
       },
       size: {
         default: "px-2 py-2",
-        small: "px-1 py-1",
+        small: "px-1.5 py-1.5",
         large: "px-3 py-3",
       },
       disabled: {
         true: "opacity-50 cursor-not-allowed",
         false: "",
       },
+      rounded: {
+        default: "rounded-full",
+        none: "rounded-none",
+        large: "rounded-lg",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
       disabled: false,
+      rounded: "default",
     },
   }
 );
@@ -45,16 +51,18 @@ export interface IconButtonProps
   disabled?: boolean;
   variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "custom" | "ghost";
   size?: "default" | "small" | "large";
+  rounded?: "default" | "none" | "large";
 }
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ className, variant, size, asChild = false, children, disabled, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, alt, children, disabled, rounded, ...props }, ref) => {
     // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
         <button
-          className={twMerge(iconButtonVariants({ variant, size, className, disabled }))}
+          className={twMerge(iconButtonVariants({ variant, size, className, disabled, rounded }))}
           ref={ref}
+          aria-label={alt}
           {...props}
         >
           {children}

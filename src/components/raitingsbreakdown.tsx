@@ -49,7 +49,7 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
             clickable={false}
             starColor={accentColor}
           />
-          <p className="text-gray-400 ">{average} out of 5</p>
+          <p className="text-paragraph-secondary ">{average} out of 5</p>
         </div>
       </div>
       <div className="flex flex-row justify-between items-center gap-2">
