@@ -18,7 +18,7 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Head>  // Changed from <head> to <Head>
+      <Head> 
         <title>
           Velocify UI - Performance, Customizability, & Accessibility
         </title>
@@ -30,7 +30,7 @@ export default function Home() {
           name="keywords"
           content="UI, components, web development, performance, customizability, accessibility"
         />
-      </Head>  // Changed from </head> to </Head>
+      </Head> 
       <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
         <div className="flex flex-col gap-y-2 h-screen w-full px-10 md:w-3/4 justify-center items-center ">
           <div className="flex flex-col gap-y-3 justify-center items-center text-center">
