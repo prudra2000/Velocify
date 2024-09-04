@@ -78,7 +78,7 @@ const MainNavbar: React.FC = () => {
                 isActive={currentPath.includes("components/checkbox")} // Check if active
               />
               <DocsMenuItem
-                hrefText="components/float-button"
+                hrefText=""
                 text="Float Button"
                 isActive={currentPath.includes("components/float-button")} // Check if active
                 disabled={true}
@@ -104,13 +104,13 @@ const MainNavbar: React.FC = () => {
                 isActive={currentPath.includes("components/rating-stars")}
               />
               <DocsMenuItem
-                hrefText="components/select"
+                hrefText=""
                 text="Select"
                 isActive={currentPath.includes("components/select")} // Check if active
                 disabled={true}
               />
               <DocsMenuItem
-                hrefText="components/slider"
+                hrefText=""
                 text="Slider"
                 isActive={currentPath.includes("components/slider")} // Check if active
                 disabled={true}
@@ -134,8 +134,7 @@ const MainNavbar: React.FC = () => {
               <DocsMenuItem
                 hrefText="components/badge"
                 text="Badge"
-                isActive={currentPath.includes("components/badge")} // Check if active
-                disabled={true}
+                isActive={currentPath.includes("components/badge")}
               />
               <DocsMenuItem
                 hrefText="components/chip"
@@ -143,13 +142,13 @@ const MainNavbar: React.FC = () => {
                 isActive={currentPath.includes("components/chip")} // Check if active
               />
               <DocsMenuItem
-                hrefText="components/divider"
+                hrefText=""
                 text="Divider"
                 isActive={currentPath.includes("components/divider")} // Check if active
                 disabled={true}
               />
               <DocsMenuItem
-                hrefText="components/progress-bar"
+                hrefText=""
                 text="Progress Bar"
                 isActive={currentPath.includes("components/progress-bar")} // Check if active
                 disabled={true}
@@ -157,8 +156,7 @@ const MainNavbar: React.FC = () => {
               <DocsMenuItem
                 hrefText="components/tooltip"
                 text="Tooltip"
-                isActive={currentPath.includes("components/tooltip")} // Check if active
-                disabled={true}
+                isActive={currentPath.includes("components/tooltip")}
               />
               
               

@@ -2,6 +2,13 @@ import WIPBadge from "@/components/Docs Components/wipBadge";
 import UIDisplayCard from "@/components/uiDisplayCard";
 import React from "react";
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Velocify UI - All Components',
+  description: 'Check out all the components in Velocify UI',
+};
+
 export default function Home() {
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
@@ -10,7 +17,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-white ">Components</h2>
           <p className="text-paragraph-secondary"></p>
         </div>
-        <div className="flex flex-col mt-5 gap-y-3">
+        <div className="flex flex-col gap-y-3">
           <h1 className="text-2xl font-semibold text-white ">
             Input Components
           </h1>
@@ -46,12 +53,7 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge
-            content={"WIP"}
-            variant={"error"}
-            size={"extraLarge"}
-            position={"center"}
-          >
+          <a href="/docs/components/radio-group">
             <UIDisplayCard
               title="Radio Group"
               component={
@@ -148,9 +150,8 @@ export default function Home() {
                   />
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
+          </a>
           <a href="/docs/components/switch">
             <UIDisplayCard
               title="Switch"
@@ -357,7 +358,12 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <WIPBadge
+            content={"WIP"}
+            variant={"error"}
+            size={"extraLarge"}
+            position={"center"}
+          >
             <UIDisplayCard
               title="Select"
               component={
@@ -523,7 +529,12 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <WIPBadge
+            content={"WIP"}
+            variant={"error"}
+            size={"extraLarge"}
+            position={"center"}
+          >
             <UIDisplayCard
               title="Float Button"
               component={
@@ -601,7 +612,12 @@ export default function Home() {
               disabled={true}
             />
           </WIPBadge>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <WIPBadge
+            content={"WIP"}
+            variant={"error"}
+            size={"extraLarge"}
+            position={"center"}
+          >
             <UIDisplayCard
               title="Slider"
               component={
@@ -748,7 +764,7 @@ export default function Home() {
           </h1>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
-        <a href="/docs/components/avatar">
+          <a href="/docs/components/avatar">
             <UIDisplayCard
               title="Avatar"
               component={
@@ -793,7 +809,8 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <a href="/docs/components/badge">
+            {" "}
             <UIDisplayCard
               title="Badge"
               component={
@@ -827,9 +844,8 @@ export default function Home() {
                   />
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
+          </a>
           <a href="/docs/components/chip">
             <UIDisplayCard
               title="Chip"
@@ -865,7 +881,12 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <WIPBadge
+            content={"WIP"}
+            variant={"error"}
+            size={"extraLarge"}
+            position={"center"}
+          >
             <UIDisplayCard
               title="Progress Bar"
               component={
@@ -898,7 +919,7 @@ export default function Home() {
               disabled={true}
             />
           </WIPBadge>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          <a href="/docs/components/tooltip">
             <UIDisplayCard
               title="Tooltip"
               component={
@@ -935,10 +956,14 @@ export default function Home() {
                   />
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
-          <WIPBadge content={"WIP"} variant={"error"} size={"extraLarge"} position={"center"}>
+          </a>
+          <WIPBadge
+            content={"WIP"}
+            variant={"error"}
+            size={"extraLarge"}
+            position={"center"}
+          >
             <UIDisplayCard
               title="Divider"
               component={

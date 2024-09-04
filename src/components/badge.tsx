@@ -19,32 +19,29 @@ const badgeVariants = cva(
           "bg-error-primary text-white outline outline-1 outline-error-secondary",
         custom: "",
       },
-      rounded: {
-        small: "rounded-sm",
-        medium: "rounded-md",
-        large: "rounded-lg",
-        full: "rounded-full",
-      },
       position: {
         "top-right": "top-0.5 right-0", // Corrected key
-        "bottom-right": "top-full right-full", // Added this line
+        "bottom-left": "top-full right-full", // Added this line
         "top-left": "top-0.5 right-full", // Added this line
-        "bottom-left": "top-full right-0", // Added this line
+        "bottom-right": "top-full right-0", // Added this line
       },
       size: {
         default: "min-w-4 h-4 text-[0.70rem] px-0.5",
-        large: "min-w-6 min-h-6 text-[0.75rem] px-1",
+        large: "min-w-6 h-5 text-[0.75rem] px-1",
         small: "min-w-3 h-3 text-[0.50rem] px-0.5",
       },
       noContent: {
         true: "p-0 w-2 h-2",
         false: "",
       },
+      disabled: {
+        true: "text-opacity-50",
+        false: "",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
-      rounded: "full",
       position: "top-right",
     },
   }
@@ -63,8 +60,9 @@ interface BadgeProps extends VariantProps<typeof badgeVariants> {
   rounded?: "small" | "medium" | "large" | "full";
   position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
   className?: string;
-  content: string;
+  content?: string;
   onContent?: boolean;
+  disabled?: boolean;
 }
 
 const Badge: React.FC<BadgeProps> = ({
@@ -76,6 +74,7 @@ const Badge: React.FC<BadgeProps> = ({
   position,
   className = "",
   onContent,
+  disabled,
 }) => {
   return (
     <div className="relative inline-flex flex-col">
@@ -85,10 +84,10 @@ const Badge: React.FC<BadgeProps> = ({
           badgeVariants({
             variant,
             size,
-            rounded,
             position,
             className,
             noContent: content === "" ? true : false, // Updated to use noContent as a boolean
+            disabled: disabled ? true : false,
           })
         )}
       >

@@ -1,14 +1,16 @@
+"use client";
 import React, { useState } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge"; // Add this import
 
 const tooltipVariants = cva(
-  "absolute w-auto p-1 text-xs text-center transition-opacity duration-300 whitespace-normal",
+  "absolute w-auto text-xs text-center transition-opacity duration-300 whitespace-normal ",
   {
     variants: {
       variant: {
-        light: "bg-gray-100 text-black outline outline-1 outline-gray-300",
-        dark: "bg-black text-white outline outline-1 outline-gray-700",
+        default:
+          "bg-dark-primary text-white outline outline-1 outline-dark-secondary",
+        secondary: "bg-light-primary  text-black outline outline-1 outline-light-secondary",
         custom: "",
       },
       rounded: {
@@ -25,14 +27,15 @@ const tooltipVariants = cva(
       },
       size: {
         default: "px-4 py-1",
-        large: "px-6 py-2",
-        small: "px-2 py-0.5",
+        large: "px-5 py-1.5 text-base",
+        small: "px-2 py-0.5 ",
       },
     },
     defaultVariants: {
-      variant: "light",
+      variant: "default",
       size: "default",
       rounded: "small",
+      position: "top",
     },
   }
 );
@@ -56,7 +59,7 @@ const Tooltip: React.FC<TooltipProps> = ({
 
   return (
     <div
-      className="relative flex flex-col items-center"
+      className="relative flex flex-col justify-center items-center"
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
     >

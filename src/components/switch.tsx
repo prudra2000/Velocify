@@ -71,14 +71,14 @@ const Switch: React.FC<SwitchProps> = ({
         `relative inline-flex items-center cursor-pointer select-none ${
           isOn
             ? switchVariants({ variant, size, disabled })
-            : switchVariants({  size, disabled  }) // Apply size variant in both cases
+            : switchVariants({ size, disabled }) // Apply size variant in both cases
         } rounded-full`,
         {
           // Removed size conditions here since they are handled in switchVariants
         },
         
       )}
-      onClick={handleToggle}
+      onClick={disabled ? undefined : handleToggle} // Prevent click if disabled
     >
       <span
         className={cx(

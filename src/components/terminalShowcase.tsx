@@ -37,14 +37,21 @@ const TerminalShowcase: React.FC<TerminalShowcaseProps> = ({
       }
       document.body.removeChild(textarea); // Clean up
     }
+    setTimeout(() => {
+      setIsCopied(false);
+    }, 5000);
   };
   const [isCopied, setIsCopied] = useState(false);
   return (
     <div className="relative border border-1 border-white/10 rounded-lg bg-[#1e293b]">
-      <Tooltip text="Copy to clipboard" className="absolute top-3.5 right-12">
+      <Tooltip
+        text={isCopied ? "Copied!" : "Copy to clipboard"}
+        position="left"
+        className="absolute top-3.5 right-10"
+      >
         <IconButton
           onClick={copyToClipboard}
-          className="absolute top-3 right-3 md:top-3 md:right-3 stroke-white"
+          className="absolute top-3 right-3 md:right-3 stroke-white"
           variant="ghost"
           size="default"
         >

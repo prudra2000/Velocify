@@ -43,19 +43,22 @@ const CodeShowcase: React.FC<CodeShowcaseProps> = ({ code, githubLink }) => {
   const [isCopied, setIsCopied] = useState(false);
   return (
     <div className="relative ">
+      <div className="">
       <Tooltip
         text={isCopied ? "Copied!" : "Copy to clipboard"}
-        className="absolute top-3.5 right-12"
+        position="left"
+        className="absolute top-3.5 right-10"
       >
         <IconButton
           onClick={copyToClipboard}
-          className="absolute top-3 right-3 md:top-3 md:right-3 stroke-white"
+          className="absolute top-3 right-3 md:right-3 stroke-white"
           variant="ghost"
           size="default"
         >
           <Copy className="w-3 h-3" />
         </IconButton>
       </Tooltip>
+      </div>
       {/* <IconButton
           onClick={() => window.open(githubLink, "_blank")}
           className="absolute top-10 right-3 md:top-10 md:right-3 stroke-white"

@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
 import VelocifyUILogo from "@/components/velocifyUILogo";
@@ -8,29 +7,21 @@ import {
   Settings2,
   PersonStanding,
   User,
-} from "lucide-react";
-import React, { useEffect, useState } from "react"; // Ensure this import is present
-import Head from "next/head";
+} from "lucide-react"; // Ensure this import is present
+import Head from "next/head"; // Ensure this import is correct
+
 export default function Home() {
-  useEffect(() => {
-    document.title =
-      "Velocify UI - Performance, Customizability, & Accessibility";
-  }, []);
+  // useEffect(() => {
+  //   document.title =
+  //     "Velocify UI - Performance, Customizability, & Accessibility";
+  // }, []);
   return (
     <>
-      <Head> 
-        <title>
-          Velocify UI - Performance, Customizability, & Accessibility
-        </title>
-        <meta
-          name="description"
-          content="Velocify is a modern UI component library designed to accelerate web development."
-        />
-        <meta
-          name="keywords"
-          content="UI, components, web development, performance, customizability, accessibility"
-        />
-      </Head> 
+
+      <head>
+        <title>Velocify UI - Performance, Customizability, & Accessibility</title>
+        <meta name="description" content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities." />
+      </head>
       <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
         <div className="flex flex-col gap-y-2 h-screen w-full px-10 md:w-3/4 justify-center items-center ">
           <div className="flex flex-col gap-y-3 justify-center items-center text-center">
