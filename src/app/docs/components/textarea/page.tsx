@@ -212,8 +212,8 @@ export default function Home() {
                   />
                 }
                 element={
-                  <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <div className="flex flex-row gap-x-5 px-10">
+                  <div className="flex flex-col gap-y-5 w-full justify-center items-center">
+                    <div className="flex flex-row gap-x-5 w-full px-10">
                       <Textarea
                         placeholder="Secondary Textarea"
                         variant="secondary"

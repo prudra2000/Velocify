@@ -82,7 +82,7 @@ const TerminalShowcase: React.FC<TerminalShowcaseProps> = ({
         wrapLines={true}
         lineProps={{
           style: { wordBreak: "normal", whiteSpace: "pre" },
-        }}
+        }} 
       >
         {command}
       </SyntaxHighlighter>

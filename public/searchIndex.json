@@ -1,0 +1,141 @@
+[
+    {
+      "id": "1",
+      "title": "Installation",
+      "description": "Learn how to install Velocify UI step-by-step",
+      "href": "/docs/installation"
+    },
+    {
+      "id": "2",
+      "title": "Usage",
+      "description": "Understand the usage of Velocify UI components in your project",
+      "href": "/docs/usage"
+    },
+    {
+      "id": "3",
+      "title": "Examples",
+      "description": "Practical examples demonstrating the use of Velocify UI",
+      "href": "/docs/examples"
+    },
+    {
+      "id": "4",
+      "title": "Support",
+      "description": "Find ways to get support for Velocify UI, including contact info",
+      "href": "/docs/support"
+    },
+    {
+      "id": "5",
+      "title": "FAQs",
+      "description": "Frequently asked questions about Velocify UI",
+      "href": "/docs/faqs"
+    },
+    {
+      "id": "6",
+      "title": "Components",
+      "description": "Detailed guide on Velocify UI components and how to use them",
+      "href": "/docs/components"
+    },
+    {
+      "id": "7",
+      "title": "Customization",
+      "description": "Learn how to customize Velocify UI for your needs",
+      "href": "/docs/customization"
+    },
+    {
+      "id": "8",
+      "title": "API",
+      "description": "Reference for Velocify UI's API documentation",
+      "href": "/docs/api"
+    },
+    {
+      "id": "9",
+      "title": "Checkbox",
+      "description": "Component for selecting multiple options from a set",
+      "href": "/docs/components/checkbox"
+    },
+    {
+      "id": "10",
+      "title": "Radio Group",
+      "description": "Component for selecting a single option from a set",
+      "href": "/docs/components/radio-group"
+    },
+    {
+      "id": "11",
+      "title": "Switch",
+      "description": "Toggle switch component",
+      "href": "/docs/components/switch"
+    },
+    {
+      "id": "12",
+      "title": "Input",
+      "description": "Text input field component",
+      "href": "/docs/components/input"
+    },
+    {
+      "id": "13",
+      "title": "Textarea",
+      "description": "Multiline text input field component",
+      "href": "/docs/components/textarea"
+    },
+    {
+      "id": "14",
+      "title": "Button",
+      "description": "Standard button component",
+      "href": "/docs/components/button"
+    },
+    {
+      "id": "15",
+      "title": "Icon Button",
+      "description": "Button component with an icon",
+      "href": "/docs/components/icon-button"
+    },
+    {
+      "id": "16",
+      "title": "Rating",
+      "description": "Component for displaying user ratings",
+      "href": "/docs/components/rating"
+    },
+    {
+      "id": "17",
+      "title": "Avatar",
+      "description": "Component for displaying user profile images",
+      "href": "/docs/components/avatar"
+    },
+    {
+      "id": "18",
+      "title": "Badge",
+      "description": "Component for displaying a badge or label",
+      "href": "/docs/components/badge"
+    },
+    {
+      "id": "19",
+      "title": "Chip",
+      "description": "Component for small items or tags",
+      "href": "/docs/components/chip"
+    },
+    {
+      "id": "20",
+      "title": "Tooltip",
+      "description": "Component for displaying additional information on hover",
+      "href": "/docs/components/tooltip"
+    },
+    {
+      "id": "21",
+      "title": "Card",
+      "description": "Component for displaying content in a card format",
+      "href": "/docs/components/card"
+    },
+    {
+      "id": "22",
+      "title": "Ratings Breakdown",
+      "description": "Component for displaying a breakdown of user ratings",
+      "href": "/docs/components/ratings-breakdown"
+    },
+    {
+      "id": "23",
+      "title": "Navbar",
+      "description": "Navigation bar component",
+      "href": "/docs/components/navbar"
+    }
+  ]
+  

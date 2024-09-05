@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Input } from "./input";
 
-const SearchBar = ({ onSearch }: { onSearch: (query: string) => void }) => {
+const SearchBar = ({ onSearch, id }: { onSearch: (query: string) => void, id: string }) => {
   const [query, setQuery] = useState("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,12 +10,14 @@ const SearchBar = ({ onSearch }: { onSearch: (query: string) => void }) => {
   };
 
   return (
-    <input
+    <Input
       type="text"
       value={query}
       onChange={handleChange}
       placeholder="Search documentation..."
-      className="p-2 border rounded"
+      className="w-full"
+      variant="transparent"
+      id={id}
     />
   );
 };

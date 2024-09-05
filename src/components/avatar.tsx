@@ -8,8 +8,8 @@ const avatarVariants = cva(
   {
     variants: {
       border: {
-        true: "outline outline-1 border-color-class", // Update with the desired border color
-        false: "border-none", // Change to remove the border when false
+        true: "outline outline-1 border-color-class",
+        false: "border-none",
       },
       variant: {
         default: "bg-dark-primary text-white outline-dark-secondary",

@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
+import Link from 'next/link'; // {{ edit_1 }}
 const buttonVariants = cva(
   "flex flex-row justify-center items-center rounded-lg text-xs lg:text-sm ",
   {
@@ -48,6 +49,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   alt?: string;
+  href?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   leftAvatar?: React.ReactNode;     
@@ -57,19 +59,21 @@ export interface ButtonProps
   disabled?: boolean;
   size?: "default" | "small" | "large" ;
   variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "link" | "custom";
+  target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, alt, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, ...props }, ref) => { // {{ edit_2 }}
+  ({ className, alt, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, href, target, ...props }, ref) => { // {{ edit_2 }}
     return (
+      <Link href={href || " #"} target={target || "_self"}>
       <div className="flex flex-row items-center justify-center">
-        
         <button
         className={twMerge(buttonVariants({ variant, size, rounded, className, disabled }))}
         ref={ref}
         aria-label={alt}
         {...props}
         disabled={disabled}
+        
       >
         {leftIcon && <div className="mr-2">{leftIcon}</div>}
         {leftAvatar && <div className="mr-2">{leftAvatar}</div>}
@@ -78,6 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {rightAvatar && <div className="ml-2">{rightAvatar}</div>}
       </button>
       </div>
+      </Link>
     );
   }
 );

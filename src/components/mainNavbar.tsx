@@ -30,9 +30,9 @@ const MainNavbar: React.FC = () => {
           <DocsMenu>
             <DocsMenuSection text="Overview">
               <DocsMenuItem
-                hrefText=""
+                hrefText="overview"
                 text="Overview"
-                isActive={currentPath.includes("installation")} // Check if active
+                isActive={currentPath.includes("overview")} // Check if active
               />
               <DocsMenuItem
                 hrefText="installation"

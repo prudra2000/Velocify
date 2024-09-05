@@ -1,12 +1,14 @@
-import React from "react"; // Add this import
+"use client";
+import React, { useState } from "react"; // Add this import
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Avatar from "@/components/avatar";
-import { Zap } from "lucide-react";
+import { X, Zap } from "lucide-react";
 import { Button } from "@/components/button";
 import TableProps from "@/components/Docs Components/tableProps";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -115,6 +117,17 @@ export default function Home() {
   Link
 </Button>`;
   const terminal = `npm install velocity-ui@latest add button`;
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <>
       <head>
@@ -146,7 +159,22 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Button Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <Button onClick={handleOpenDialog}>Open Dialog</Button>
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Button Installation"
+              fileName="button"
+              topbar={
+                <div className="flex flex-row justify-between items-center w-full">
+                  <h1 className="text-2xl font-semibold text-white ">Button</h1>
+                  <a onClick={handleCloseDialog} className="cursor-pointer">
+                    <X className="w-5 h-5 stroke-[#F8CC38]" />
+                  </a>
+                </div>
+              }
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">Basic Button</h1>

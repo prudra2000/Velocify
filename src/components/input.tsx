@@ -10,6 +10,7 @@ const inputVariants = cva(
         default:
           "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary file:text-white",
         secondary: "bg-light-primary hover:bg-light-secondary text-black file:text-black",
+        transparent: "bg-transparent text-white  outline-none  file:text-white",
       },
       rounded: {
         default: "rounded-lg",
@@ -40,7 +41,7 @@ export interface InputProps
     VariantProps<typeof inputVariants> {
   rounded?: "default" | "none" | "full";
   disabled?: boolean;
-  variant?: "default" | "secondary";
+  variant?: "default" | "secondary" | "transparent";
   status?: "success" | "error" | "warning" | "info";
 }
 
