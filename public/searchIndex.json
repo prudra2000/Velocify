@@ -1,3 +1,4 @@
+
 [
     {
       "id": "1",
@@ -31,9 +32,9 @@
     },
     {
       "id": "6",
-      "title": "Components",
-      "description": "Detailed guide on Velocify UI components and how to use them",
-      "href": "/docs/components"
+      "title": "All Components",
+      "description": "View all components",
+      "href": "/docs/components/all-components"
     },
     {
       "id": "7",
@@ -44,7 +45,7 @@
     {
       "id": "8",
       "title": "API",
-      "description": "Reference for Velocify UI's API documentation",
+      "description": "Reference for Velocify UIs API documentation",
       "href": "/docs/api"
     },
     {
@@ -138,4 +139,3 @@
       "href": "/docs/components/navbar"
     }
   ]
-  
