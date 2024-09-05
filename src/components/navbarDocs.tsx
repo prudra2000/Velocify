@@ -115,7 +115,7 @@ const Navbar = ({
     {
       id: "10",
       title: "Radio Group",
-      description: "Component for selecting a single option from a set",
+      description: "Component for selecting a single option from a set", // Escaped quotes
       href: "/docs/components/radio-group",
     },
     {
