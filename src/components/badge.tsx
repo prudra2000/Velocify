@@ -3,13 +3,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge"; // Add this import
 
 const badgeVariants = cva(
-  "absolute grid translate-x-2/4 -translate-y-2/4 place-items-center rounded-full",
+  "absolute grid place-items-center rounded-full",
   {
     variants: {
       variant: {
         default:
           "bg-dark-primary text-white outline outline-1 outline-dark-secondary",
-        secondary: "bg-light-primary  text-black",
+        secondary: "bg-light-primary  text-black outline outline-1 outline-light-secondary",
         warning:
           "bg-warning-primary text-black outline outline-1 outline-warning-secondary",
         success:
@@ -20,10 +20,10 @@ const badgeVariants = cva(
         custom: "",
       },
       position: {
-        "top-right": "top-0.5 right-0", // Corrected key
-        "bottom-left": "top-full right-full", // Added this line
-        "top-left": "top-0.5 right-full", // Added this line
-        "bottom-right": "top-full right-0", // Added this line
+        "top-right": "top-0 right-0 -translate-y-1/2 translate-x-1/2",
+        "bottom-left": "bottom-0 left-0 translate-y-1/2 -translate-x-1/2",
+        "top-left": "top-0 left-0 -translate-y-1/2 -translate-x-1/2",
+        "bottom-right": "bottom-0 right-0 translate-y-1/2 translate-x-1/2",
       },
       size: {
         default: "min-w-4 h-4 text-[0.70rem] px-0.5",

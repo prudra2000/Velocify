@@ -9,7 +9,7 @@ const chipVariants = cva(
       variant: {
         default:
           "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
-        secondary: "bg-light-primary hover:bg-light-secondary text-black",
+        secondary: "bg-light-primary hover:bg-light-secondary text-black outline outline-1 outline-light-secondary",
         warning:
           "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
         success:
@@ -43,6 +43,7 @@ interface ChipProps extends VariantProps<typeof chipVariants> {
   avatar?: React.ReactNode;
   size?: "default" | "large" | "small";
   disabled?: boolean;
+  variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "custom";
 }
 
 const Chip = React.forwardRef<HTMLDivElement, ChipProps>(

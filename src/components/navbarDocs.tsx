@@ -7,6 +7,8 @@ import Link from "next/link";
 import { AlignJustify, Github, Search, Home, X } from "lucide-react";
 import { Input } from "./input";
 import { IconButton } from "./iconButton";
+import { Dialog } from "./dialog";
+import SearchBar from "./searchBar";
 const NavBarLogo = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-row gap-2 items-center justify-center font-bold">
     {children}
@@ -36,6 +38,15 @@ const Navbar = ({
   logo: React.ReactElement<typeof NavBarLogo>;
   links: React.ReactNode;
 }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   const [isOpen, setIsOpen] = useState(false); // Moved inside the component
   const menuRef = useRef<HTMLDivElement>(null); // Create a ref for the menu
 
@@ -167,6 +178,10 @@ const Navbar = ({
           <div className="flex flex-row gap-2 text-white p-2">{links}</div>
         </div>
       </div>
+      <Dialog isOpen={isDialogOpen}
+            onClose={handleCloseDialog} title="Search">
+        <SearchBar onSearch={() => {}} />
+      </Dialog>
     </div>
   );
 };

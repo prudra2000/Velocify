@@ -1,5 +1,10 @@
+"use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
+import CodeShowcase from "@/components/CodeShowcase";
+import ComponentCodeShowcase from "@/components/ComponentCodeShowcase";
+import { Dialog } from "@/components/dialog";
+import TerminalShowcase from "@/components/terminalShowcase";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import {
   ChevronRight,
@@ -7,20 +12,45 @@ import {
   Settings2,
   PersonStanding,
   User,
+  Github,
 } from "lucide-react"; // Ensure this import is present
 import Head from "next/head"; // Ensure this import is correct
+import { useState } from "react";
 
 export default function Home() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   // useEffect(() => {
   //   document.title =
   //     "Velocify UI - Performance, Customizability, & Accessibility";
   // }, []);
+  const basicSwitch = `import { Switch } from "@/components/switch";
+
+const BasicSwitch = () => {
+  return <Switch />;
+};
+
+export default BasicSwitch;`;
+  const terminal = `npm install @velocify/ui
+npm install twMerge
+npm install class-variance-authority`;
   return (
     <>
-
       <head>
-        <title>Velocify UI - Performance, Customizability, & Accessibility</title>
-        <meta name="description" content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities." />
+        <title>
+          Velocify UI - Performance, Customizability, & Accessibility
+        </title>
+        <meta
+          name="description"
+          content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities."
+        />
       </head>
       <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
         <div className="flex flex-col gap-y-2 h-screen w-full px-10 md:w-3/4 justify-center items-center ">
@@ -39,14 +69,38 @@ export default function Home() {
               Velocify is a modern UI component library designed to accelerate
               web development.
             </p>
-            <Button className="text-[#F8CC38]">
-              Get Started
-              <span>
-                <ChevronRight
-                  className={`w-4 h-4 float-right stroke-[#F8CC38]`}
-                />
-              </span>
-            </Button>
+            <div className="flex gap-x-5">
+              <a href="docs/installation">  
+                <Button className=" text-paragraph-primary gap-x-2" >
+                  Get Started
+                <span>
+                  <ChevronRight
+                    className={`w-4 h-4 float-right stroke-[#F8CC38]`}
+                  />
+                </span>
+               </Button>
+              </a>
+              <a href="docs/components/all-components">
+                <Button className="text-paragraph-primary gap-x-2" >
+                  All Components
+                <span>
+                  <ChevronRight
+                    className={`w-4 h-4 float-right stroke-[#F8CC38]`}
+                  />
+                </span>
+              </Button>
+              </a>
+            </div>
+            <div className="flex gap-x-5">
+              <a href="https://github.com/prudra2000/Velocify">
+                <Button className="text-paragraph-primary gap-x-2" >
+                  View on Github
+                <span>
+                  <Github className={`w-4 h-4 float-right stroke-[#F8CC38]`} />
+                </span>
+              </Button>
+              </a>
+            </div>
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-5 mb-10">
@@ -76,6 +130,24 @@ export default function Home() {
               <PersonStanding className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
             }
           />
+          {/* <Dialog
+            isOpen={isDialogOpen}
+            onClose={handleCloseDialog}
+            title="Button Component"
+          >
+            <p className="text-paragraph-secondary text-sm">
+              Step 1: Install the dependencies
+            </p>
+            <TerminalShowcase command={terminal} />
+            <p className="text-paragraph-secondary text-sm">
+              Step 2: Import the package
+            </p>
+            <ComponentCodeShowcase
+              githubFileUrl="https://raw.githubusercontent.com/prudra2000/Velocify/main/src/components/card.tsx"
+              githubLink="https://github.com/user/repo"
+            />
+          </Dialog>
+          <Button onClick={handleOpenDialog}>Open Dialog</Button> */}
         </div>
       </main>
     </>

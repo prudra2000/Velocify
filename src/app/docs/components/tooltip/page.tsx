@@ -4,8 +4,6 @@ import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import TableProps from "@/components/Docs Components/tableProps";
-import Avatar from "@/components/avatar";
-import Badge from "@/components/badge";
 import { Button } from "@/components/button";
 import Tooltip from "@/components/tooltip";
 import {
@@ -132,7 +130,7 @@ export default function Home() {
                   />
                 }
                 element={
-                  <div className="flex flex-row gap-x-5 justify-center items-center">
+                  <div className="flex flex-row gap-x-5 h-32  justify-center items-center">
                     <Tooltip text={"Tooltip"} position="top">
                       <Button>
                         <p>Hover</p>
@@ -165,9 +163,9 @@ export default function Home() {
                 />
               }
               element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-col gap-y-5 h-32 justify-center items-center">
                   <div className="flex flex-row gap-x-10 px-10 justify-center items-center">
-                    <Tooltip text={"Small"} position="top" size="small">
+                    <Tooltip text={"Small"} position="top" size="small" >
                       <Button>
                         <p>Small</p>
                       </Button>
@@ -177,7 +175,7 @@ export default function Home() {
                         <p>Default</p>
                       </Button>
                     </Tooltip>
-                    <Tooltip text={"Large"} position="top" size="large">
+                    <Tooltip text={"Large"} position="top" size="large" >
                       <Button>
                         <p>Large</p>
                       </Button>
@@ -202,7 +200,7 @@ export default function Home() {
                 />
               }
               element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
+                <div className="flex flex-col gap-y-5 h-32  justify-center items-center">
                   <div className="flex flex-row gap-x-5 px-10">
                     <div className="flex flex-row gap-5 px-10 justify-center items-center">
                       <Tooltip text={"Tooltip"} position="top">
@@ -255,7 +253,7 @@ export default function Home() {
                   />
                 }
                 element={
-                  <div className="flex flex-col gap-y-5 justify-center items-center">
+                  <div className="flex flex-col gap-y-5 h-32  justify-center items-center">
                     <div className="flex flex-row gap-x-5 px-10">
                       <Tooltip text={"Secondary"} variant="secondary">
                         <Button>

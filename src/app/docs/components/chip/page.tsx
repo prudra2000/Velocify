@@ -7,6 +7,7 @@ import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const badgeTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -18,6 +19,15 @@ export default function Home() {
     { prop: "size", type: "string", default: "default" },
     { prop: "disabled", type: "boolean", default: "false" },
   ];
+  const chipProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const chipData = [
+    { prop: "size", type: "default, small, large" },
+    {
+      prop: "variant",
+      type: "default, secondary, warning, success, info, error, custom",
+    },
+  ];
+
   const basicChip = `<Chip variant="default">
   Default
 </Chip>`;
@@ -54,9 +64,6 @@ export default function Home() {
 }>
   Avatar Chip
 </Chip>`;
-  const outlineChip = `<Chip variant="outline">
-  Default
-</Chip>`;
   const secondaryChip = `<Chip variant="secondary">
   Secondary
 </Chip>`;
@@ -87,7 +94,16 @@ export default function Home() {
         <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
           <div className="flex flex-col mt-5 gap-y-3">
             <h2 className="text-3xl font-bold text-white ">Chip</h2>
-            <p className="text-paragraph-secondary"></p>
+            <p className="text-paragraph-secondary">
+              The Chip component in Velocify UI is a versatile UI element
+              designed to display concise information, actions, or tags in a
+              compact form. It supports different variants such as default,
+              secondary, warning, success, info, and error, allowing for visual
+              differentiation. Additionally, it can be customized with icons or
+              avatars, and comes with various size options like small, default,
+              and large. The component also supports a disabled state, making it
+              flexible for different UI scenarios.
+            </p>
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
@@ -119,17 +135,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Chip API Reference
             </h1>
-            <Table data={badgeTableData} columns={badgeTableColumns} />{" "}
+            <Table data={badgeTableData} columns={badgeTableColumns} />
+            <TableProps data={chipData} columns={chipProps} />
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">
               Disabled Chip
             </h1>
-            <p className="text-paragraph-secondary">
-              The Chip component has a prop called disabled which allows you to
-              disable the button. The disabled button is compatable with all
-              styles, sizes, and variants.
-            </p>
+            <p className="text-paragraph-secondary"></p>
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
@@ -151,11 +164,8 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
-            <h1 className="text-2xl font-semibold text-white ">Size Chip</h1>
-            <p className="text-paragraph-secondary">
-              The Chip component has a prop called size which allows you to
-              change the size of the button.
-            </p>
+            <h1 className="text-2xl font-semibold text-white ">Chip - Sizes</h1>
+            <p className="text-paragraph-secondary"></p>
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
@@ -183,13 +193,10 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
-            <h1 className="text-2xl font-semibold text-white ">Icon Chip</h1>
-            <p className="text-paragraph-secondary">
-              The Chip component offers various variants, including default,
-              outline, secondary, warning, success, info, and error, each
-              designed to convey different meanings and enhance visual
-              distinction in your application.
-            </p>
+            <h1 className="text-2xl font-semibold text-white ">
+              Chip - Icon Variant
+            </h1>
+            <p className="text-paragraph-secondary"></p>
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
@@ -211,13 +218,10 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
-            <h1 className="text-2xl font-semibold text-white ">Avatar Chip</h1>
-            <p className="text-paragraph-secondary">
-              The Chip component offers various variants, including default,
-              outline, secondary, warning, success, info, and error, each
-              designed to convey different meanings and enhance visual
-              distinction in your application.
-            </p>
+            <h1 className="text-2xl font-semibold text-white ">
+              Chip - Avatar Variant
+            </h1>
+            <p className="text-paragraph-secondary"></p>
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
@@ -249,14 +253,9 @@ export default function Home() {
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">
-              Chip Variants
+              Chip - Style Variants
             </h1>
-            <p className="text-paragraph-secondary">
-              The Chip component offers various variants, including default,
-              outline, secondary, warning, success, info, and error, each
-              designed to convey different meanings and enhance visual
-              distinction in your application.
-            </p>
+            <p className="text-paragraph-secondary"></p>
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-xl font-semibold text-white ">

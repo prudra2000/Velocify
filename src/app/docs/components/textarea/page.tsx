@@ -4,6 +4,7 @@ import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import { Textarea } from "@/components/textarea";
+import TableProps from "@/components/Docs Components/tableProps";
 
 export default function Home() {
   const inputTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -14,21 +15,20 @@ export default function Home() {
     { prop: "disabled", type: "boolean", default: "false" },
     { prop: "status", type: "string", default: "-" },
   ];
+
+  const textareaProps = [{ col1: "Prop", col2: "Types", col3: "Default" }];
+  const textareaData = [
+    { prop: "rounded", type: "default, none" },
+    {
+      prop: "variant",
+      type: "default, secondary",
+    },
+    { prop: "status", type: "success, error, warning, info" },
+  ];
   const basicTextarea = `<Textarea placeholder="Default Textarea" variant="default" />`;
-  const iconTextarea = `<Textarea
-  variant="default"
-  avatar={
-    <Zap 
-      className="w-5 h-5" 
-    />
-}>
-  Icon Textarea
-</Textarea>`;
   const disabledTextarea = `<Textarea variant="default" disabled />`;
-  const fileTextarea = `<Textarea variant="default" type="file" />`;
   const roundedTextarea = `<Textarea placeholder="Rounded None" rounded="none" />
-<Textarea placeholder="Rounded Default" rounded="default" />
-<Textarea placeholder="Rounded Full" rounded="full" />`;
+<Textarea placeholder="Rounded Default" rounded="default" />`;
   const statusTextarea = `<Textarea 
   placeholder="Default Textarea"  
   status="success" 
@@ -45,6 +45,7 @@ export default function Home() {
   placeholder="Default Textarea" 
   status="info" 
 />`;
+  const secondaryTextarea = `<Textarea placeholder="Secondary Textarea" variant="secondary" />`;
   const terminal = `npm install velocity-ui@latest add input`;
   return (
     <>
@@ -59,7 +60,17 @@ export default function Home() {
         <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
           <div className="flex flex-col mt-5 gap-y-3">
             <h2 className="text-3xl font-bold text-white ">Textarea</h2>
-            <p className="text-paragraph-secondary"></p>
+            <p className="text-paragraph-secondary">
+              The Textarea component in the Velocify UI library provides a
+              flexible and customizable input field for multi-line text. It
+              supports various styling options, including rounded corners and
+              different variants like default or secondary. Additionally, the
+              component offers status indicators such as success, error,
+              warning, and info, allowing you to provide contextual feedback. It
+              can also be easily disabled when needed. The Textarea is perfect
+              for capturing user input in forms and other interactive elements,
+              ensuring adaptability to different design needs and use cases.
+            </p>
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
@@ -96,17 +107,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Textarea API Reference
             </h1>
-            <Table data={inputTableData} columns={inputTableColumns} />{" "}
+            <Table data={inputTableData} columns={inputTableColumns} />
+            <TableProps data={textareaData} columns={textareaProps} />
           </div>
           <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">
               Disabled Textarea
             </h1>
-            <p className="text-paragraph-secondary">
-              The Badge component has a prop called disabled which allows you to
-              disable the button. The disabled button is compatable with all
-              styles, sizes, and variants.
-            </p>
+            <p className="text-paragraph-secondary"></p>
             <ElementShowcase
               codeShowcase={
                 <CodeShowcase
@@ -115,14 +123,12 @@ export default function Home() {
                 />
               }
               element={
-                <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-5 px-10">
-                    <Textarea
-                      placeholder="Default Textarea"
-                      variant="default"
-                      disabled={true}
-                    />
-                  </div>
+                <div className="flex flex-col gap-y-5 w-full justify-center items-center">
+                  <Textarea
+                    placeholder="Default Textarea"
+                    variant="default"
+                    disabled={true}
+                  />
                 </div>
               }
               githubLink="https://github.com/prudra2000/Velocify"
@@ -131,7 +137,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-xl font-semibold text-white ">
-              Rounded Textarea
+              Textarea - Rounded
             </h1>
             <div className="flex flex-col gap-y-2  ">
               <ElementShowcase
@@ -142,14 +148,9 @@ export default function Home() {
                   />
                 }
                 element={
-                  <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <div className="flex flex-col gap-y-3 px-10">
-                      <Textarea placeholder="Rounded None" rounded="none" />
-                      <Textarea
-                        placeholder="Rounded Default"
-                        rounded="default"
-                      />
-                    </div>
+                  <div className="flex flex-col w-full gap-y-5 justify-center items-center">
+                    <Textarea placeholder="Rounded None" rounded="none" />
+                    <Textarea placeholder="Rounded Default" rounded="default" />
                   </div>
                 }
                 githubLink="https://github.com/prudra2000/Velocify"
@@ -160,12 +161,9 @@ export default function Home() {
 
           <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">
-              Textarea Status Types
+              Textarea - Status Types
             </h1>
-            <p className="text-paragraph-secondary">
-              The Textarea component has a prop called status which allows you
-              to change the status of the input.
-            </p>
+            <p className="text-paragraph-secondary"></p>
           </div>
 
           <div className="flex flex-col mt-5 gap-y-3">
@@ -181,19 +179,11 @@ export default function Home() {
                   />
                 }
                 element={
-                  <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <div className="flex flex-col gap-y-3 px-10">
-                      <Textarea
-                        placeholder="Default Textarea"
-                        status="success"
-                      />
-                      <Textarea placeholder="Default Textarea" status="error" />
-                      <Textarea
-                        placeholder="Default Textarea"
-                        status="warning"
-                      />
-                      <Textarea placeholder="Default Textarea" status="info" />
-                    </div>
+                  <div className="flex w-full flex-col gap-y-5 justify-center items-center">
+                    <Textarea placeholder="Default Textarea" status="success" />
+                    <Textarea placeholder="Default Textarea" status="error" />
+                    <Textarea placeholder="Default Textarea" status="warning" />
+                    <Textarea placeholder="Default Textarea" status="info" />
                   </div>
                 }
                 githubLink="https://github.com/prudra2000/Velocify"
@@ -206,38 +196,7 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Textarea Styles
             </h1>
-            <p className="text-paragraph-secondary">
-              The Textarea component has a prop called variant which allows you
-              to change the variant of the input.
-            </p>
-          </div>
-
-          <div className="flex flex-col mt-5 gap-y-3">
-            <h1 className="text-xl font-semibold text-white ">
-              Outline Textarea
-            </h1>
-            <div className="flex flex-col gap-y-2  ">
-              <ElementShowcase
-                codeShowcase={
-                  <CodeShowcase
-                    code={fileTextarea}
-                    githubLink="https://github.com/prudra2000/Velocify"
-                  />
-                }
-                element={
-                  <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <div className="flex flex-row gap-x-5 px-10">
-                      <Textarea
-                        placeholder="Default Textarea"
-                        variant="outline"
-                      />
-                    </div>
-                  </div>
-                }
-                githubLink="https://github.com/prudra2000/Velocify"
-                code={fileTextarea}
-              />
-            </div>
+            <p className="text-paragraph-secondary"></p>
           </div>
 
           <div className="flex flex-col mt-5 gap-y-3">
@@ -248,7 +207,7 @@ export default function Home() {
               <ElementShowcase
                 codeShowcase={
                   <CodeShowcase
-                    code={fileTextarea}
+                    code={secondaryTextarea}
                     githubLink="https://github.com/prudra2000/Velocify"
                   />
                 }
@@ -256,14 +215,14 @@ export default function Home() {
                   <div className="flex flex-col gap-y-5 justify-center items-center">
                     <div className="flex flex-row gap-x-5 px-10">
                       <Textarea
-                        placeholder="Default Textarea"
+                        placeholder="Secondary Textarea"
                         variant="secondary"
                       />
                     </div>
                   </div>
                 }
                 githubLink="https://github.com/prudra2000/Velocify"
-                code={fileTextarea}
+                code={secondaryTextarea}
               />
             </div>
           </div>

@@ -221,7 +221,7 @@ export default function Home() {
               }
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
-                  <div className="flex flex-row gap-x-10 px-10 justify-center items-center">
+                  <div className="flex flex-col sm:flex-row gap-y-5 gap-x-10 px-10 justify-center items-center">
                     <Badge content="Small" size="small">
                       <Avatar
                         alt="Jane Doe"
@@ -229,7 +229,7 @@ export default function Home() {
                         rounded="large"
                       />
                     </Badge>
-                    <Badge content="Default" size="default">
+                    <Badge content="Default" size="default">z
                       <Avatar
                         alt="Jane Doe"
                         src="/avatarImage.png"
@@ -265,7 +265,7 @@ export default function Home() {
               element={
                 <div className="flex flex-col gap-y-5 justify-center items-center">
                   <div className="flex flex-col gap-y-5 gap-x-5 px-10">
-                    <div className="grid grid-cols-2 gap-5 px-10 justify-center items-center">
+                    <div className="grid grid-row-4 gap-5 sm:grid-cols-2 px-10 justify-center items-center">
                       <Badge content="1" position="top-left">
                         <Avatar
                           alt="Jane Doe"
