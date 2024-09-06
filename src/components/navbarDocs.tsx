@@ -256,9 +256,9 @@ const Navbar = ({
                 ) : (
                   <div className="flex flex-col gap-y-5 text-paragraph-primary text-xs justify-center items-center pt-5">
                     <Ban className="w-10 h-10 stroke-paragraph-primary" />
-                    <p>No results found for "{searchQuery}"</p>
+                    <p>No results found for &quot;{searchQuery}&quot;</p>
                     <p>
-                      Try visting the{" "}
+                      Try visiting the{" "}
                       <Link
                         href="/docs/components/all-components"
                         className="text-paragraph-primary underline"
