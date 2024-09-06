@@ -15,6 +15,7 @@ import {
   Github,
 } from "lucide-react"; // Ensure this import is present
 import Head from "next/head"; // Ensure this import is correct
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Home() {
@@ -67,11 +68,11 @@ npm install class-variance-authority`;
             </h2>
             <p className="text-paragraph-secondary">
               Velocify is a modern UI component library designed to accelerate
-              web development.
+              web development. Copy and pasteable components build with
+              responsive design principles.
             </p>
             <div className="flex gap-x-5">
-              <a href="docs/installation">  
-                <Button className=" text-paragraph-primary gap-x-2" >
+                <Button className=" text-paragraph-primary gap-x-2" href="docs/installation">
                   Get Started
                 <span>
                   <ChevronRight
@@ -79,9 +80,7 @@ npm install class-variance-authority`;
                   />
                 </span>
                </Button>
-              </a>
-              <a href="docs/components/all-components">
-                <Button className="text-paragraph-primary gap-x-2" >
+                <Button className="text-paragraph-primary gap-x-2" href="/docs/components/all-components">
                   All Components
                 <span>
                   <ChevronRight
@@ -89,23 +88,20 @@ npm install class-variance-authority`;
                   />
                 </span>
               </Button>
-              </a>
             </div>
             <div className="flex gap-x-5">
-              <a href="https://github.com/prudra2000/Velocify">
-                <Button className="text-paragraph-primary gap-x-2" >
+                <Button className="text-paragraph-primary gap-x-2" href="https://github.com/prudra2000/Velocify" target="_blank">
                   View on Github
                 <span>
                   <Github className={`w-4 h-4 float-right stroke-[#F8CC38]`} />
                 </span>
               </Button>
-              </a>
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-5 mb-10">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-5 mb-10 px-10 md:w-3/4">
           <Card
-            className="flex-1"
+            className="flex-1 md:h-72 md:w-96 lg:w-min"
             title="Performance"
             description="Built with performance as a priority, ensuring  fast load times, smooth interactions, and an optimized user experience."
             icon={
@@ -113,7 +109,7 @@ npm install class-variance-authority`;
             }
           />
           <Card
-            className="flex-1"
+            className="flex-1 md:h-72 md:w-96 lg:w-min"
             title="Customizability"
             description="Designed to be highly
               customizable, allowing developers to tailor the UI to their
@@ -123,13 +119,14 @@ npm install class-variance-authority`;
             }
           />
           <Card
-            className="flex-1"
+            className="flex-1 md:h-72 md:w-96 lg:w-min"
             title="Accessibility"
             description="Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities."
             icon={
               <PersonStanding className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
             }
           />
+          
           {/* <Dialog
             isOpen={isDialogOpen}
             onClose={handleCloseDialog}

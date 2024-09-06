@@ -54,13 +54,16 @@ DocsMenuDivider.displayName = "DocsMenuDivider";
 const DocsMenuSection = ({
   children,
   text,
+  isActive,
 }: {
   children: React.ReactNode;
   text: string;
+  isActive: boolean;
+  
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className=" text-white ">
+    <div className={`text-white `}>
       <button
         className="w-full text-left px-2 p-2 mb-2 bg-gray-900/20 text-white hover:bg-gray-800/80 rounded-lg outline outline-1 outline-gray-800"
         onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +74,7 @@ const DocsMenuSection = ({
               isOpen ? "rotate-90" : ""
             }`}
           />
-          <h2 className="text-lg font-bold">{text}</h2>
+          <h2 className={`text-lg ${isActive ? "font-bold" : " font-semibold"}`}>{text}</h2>
         </div>
       </button>
       {isOpen && <div className="flex flex-col  gap-y-2 px-4">{children}</div>}

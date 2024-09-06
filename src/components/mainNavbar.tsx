@@ -28,39 +28,19 @@ const MainNavbar: React.FC = () => {
       links={
         <div className="flex flex-col gap-y-2 w-full max-h-screen overflow-y-auto pb-52">
           <DocsMenu>
-            <DocsMenuSection text="Overview">
-              <DocsMenuItem
-                hrefText="overview"
-                text="Overview"
-                isActive={currentPath.includes("overview")} // Check if active
-              />
+            <DocsMenuSection text="Get Started" isActive={currentPath.includes("installation") || currentPath.includes("usage")}>
               <DocsMenuItem
                 hrefText="installation"
                 text="Installation"
                 isActive={currentPath.includes("installation")} // Check if active
               />
               <DocsMenuItem
-                hrefText="test"
+                hrefText="usage"
                 text="Usage"
-                isActive={currentPath.includes("test")} // Check if active
-              />
-              <DocsMenuItem
-                hrefText="test"
-                text="Examples"
-                isActive={currentPath.includes("test")} // Check if active
-              />
-              <DocsMenuItem
-                hrefText="test"
-                text="Support"
-                isActive={currentPath.includes("test")} // Check if active
-              />
-              <DocsMenuItem
-                hrefText="test"
-                text="FAQs"
-                isActive={currentPath.includes("test")} // Check if active
+                isActive={currentPath.includes("usage")} // Check if active
               />
             </DocsMenuSection>
-            <DocsMenuSection text="Components">
+            <DocsMenuSection text="Components" isActive={currentPath.includes("components")}>
               <DocsMenuItem
                 hrefText="components/all-components"
                 text="All Components"
