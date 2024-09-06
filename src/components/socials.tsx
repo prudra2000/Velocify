@@ -22,15 +22,13 @@ const Socails: React.FC<SocailsProps> = ({
       <div className="flex flex-col gap-y-3 justify-center items-center w-full p-2">
         <div className="flex flex-row gap-x-5 justify-center items-center ">
           {socialLinks.map(
-            (
-              link // Add this mapping
-            ) => (
+            (link) => (
               <a
+                key={link.name} // Added key prop here
                 href={link.url}
                 className="flex flex-row justify-center items-center gap-x-2"
               >
                 <div
-                  key={link.name}
                   className="flex flex-row gap-x-2 w-10 h-10 justify-center items-center  bg-accent-primary/30 rounded-full border border-1 border-accent-primary"
                 >
                   {link.icon}
