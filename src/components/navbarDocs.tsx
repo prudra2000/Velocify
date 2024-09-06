@@ -18,7 +18,6 @@ import { Input } from "./input";
 import { IconButton } from "./iconButton";
 import SearchBar from "./searchBar";
 import { SearchDialog } from "./searchDialog";
-import docsData from "@/public/searchIndex.json";
 
 const NavBarLogo = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-row gap-2 items-center justify-center font-bold">
@@ -49,7 +48,17 @@ const Navbar = ({
   logo: React.ReactElement<typeof NavBarLogo>;
   links: React.ReactNode;
 }) => {
-  
+  const [docsData, setDocsData] = useState([]); // Initialize state for docsData
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('/searchIndex.json'); // Fetch the JSON data
+      const data = await response.json();
+      setDocsData(data); // Set the fetched data to state
+    };
+
+    fetchData();
+  }, []); // Fetch data on component mount
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
