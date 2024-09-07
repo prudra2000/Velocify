@@ -94,7 +94,10 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Checkbox Installation
             </h1>
-            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CopyCodeDisplay
+              fileName="checkbox"
+              handleOpenDialog={handleOpenDialog}
+            />
             <CodeDialog
               isOpen={isDialogOpen}
               onClose={handleCloseDialog}

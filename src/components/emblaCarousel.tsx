@@ -44,8 +44,6 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   useEffect(() => {
     const autoplay = emblaApi?.plugins()?.autoplay
     if (!autoplay) return
-
-    // Start autoplay on component mount
     autoplay.play()
 
     setIsPlaying(autoplay.isPlaying())

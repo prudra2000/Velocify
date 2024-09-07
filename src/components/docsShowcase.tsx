@@ -21,7 +21,6 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
   const [isCopied, setIsCopied] = useState(false);
   const copyToClipboard = () => {
     if (navigator.clipboard) {
-      // Check if clipboard API is available
       navigator.clipboard
         .writeText(code)
         .then(() => {
@@ -31,23 +30,22 @@ const ElementShowcase: React.FC<ElementShowcaseProps> = ({
           console.error("Failed to copy: ", err);
         });
     } else {
-      // Fallback for unsupported clipboard
       const textarea = document.createElement("textarea");
       textarea.value = code;
       document.body.appendChild(textarea);
       textarea.select();
       try {
-        document.execCommand("copy"); // Fallback copy command
+        document.execCommand("copy");
         setIsCopied(true);
       } catch (err) {
         console.error("Fallback: Failed to copy: ", err);
       }
-      document.body.removeChild(textarea); // Clean up
+      document.body.removeChild(textarea); 
     }
   };
   return (
     <div className="flex flex-col border border-1 border-white/10 rounded-lg justify-center">
-      <div className="flex w-full justify-center items-center p-5 md:p-10 overflow-y-auto max-h-[40vh] md:max-h-[50vh]">  {/* Adjusted padding and max-height for responsiveness */}
+      <div className="flex w-full justify-center items-center p-5 md:p-10 overflow-y-auto max-h-[40vh] md:max-h-[50vh]"> 
         {element}
       </div>
       <div className="border-y border-1 border-white/10 bg-[#1e293b] ">

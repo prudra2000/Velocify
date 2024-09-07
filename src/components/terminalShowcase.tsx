@@ -14,7 +14,6 @@ const TerminalShowcase: React.FC<TerminalShowcaseProps> = ({
 }) => {
   const copyToClipboard = () => {
     if (navigator.clipboard) {
-      // Check if clipboard API is available
       navigator.clipboard
         .writeText(command)
         .then(() => {
@@ -24,18 +23,17 @@ const TerminalShowcase: React.FC<TerminalShowcaseProps> = ({
           console.error("Failed to copy: ", err);
         });
     } else {
-      // Fallback for unsupported clipboard
       const textarea = document.createElement("textarea");
       textarea.value = command;
       document.body.appendChild(textarea);
       textarea.select();
       try {
-        document.execCommand("copy"); // Fallback copy command
+        document.execCommand("copy");
         setIsCopied(true);
       } catch (err) {
         console.error("Fallback: Failed to copy: ", err);
       }
-      document.body.removeChild(textarea); // Clean up
+      document.body.removeChild(textarea);
     }
     setTimeout(() => {
       setIsCopied(false);

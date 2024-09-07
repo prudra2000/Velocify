@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
-import React, { useState, useEffect } from "react"; // Import useState and useEffect
+import React, { useState, useEffect } from "react";
 
 const checkboxVariants = cva(
   "peer cursor-pointer transition-all  appearance-none  ",
@@ -58,7 +58,7 @@ interface CheckboxProps extends VariantProps<typeof checkboxVariants> {
 
 const Checkbox: React.FC<CheckboxProps> = ({
   label,
-  checked: controlledChecked, // Rename prop to avoid confusion
+  checked: controlledChecked, 
   onChange,
   variant,
   rounded,

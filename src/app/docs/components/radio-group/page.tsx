@@ -6,6 +6,8 @@ import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import RadioGroup from "@/components/switch";
 import RadioButtonGroup from "@/components/radioButtonGroup";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const options = [
@@ -88,13 +90,22 @@ export default function Home() {
 }>
   Avatar RadioGroup
 </RadioGroup>`;
-  const secondaryRadioGroup = `<RadioGroup variant="secondary" />`;
-  const warningRadioGroup = `<RadioGroup variant="warning" />`;
-  const successRadioGroup = `<RadioGroup variant="success" />`;
-  const infoRadioGroup = `<RadioGroup variant="info" />`;
-  const errorRadioGroup = `<RadioGroup variant="error" />`;
-  const terminal = `npm install velocity-ui@latest add radio-button-group`;
+  const [isRadioButtonDialogOpen, setIsRadioButtonDialogOpen] = useState(false);
+  const [isRadioGroupDialogOpen, setIsRadioGroupDialogOpen] = useState(false);
 
+  const handleOpenRadioButtonDialog = () => {
+    setIsRadioButtonDialogOpen(true);
+  };
+  const handleOpenRadioGroupDialog = () => {
+    setIsRadioGroupDialogOpen(true);
+  };
+
+  const handleCloseRadioButtonDialog = () => {
+    setIsRadioButtonDialogOpen(false);
+  };
+  const handleCloseRadioGroupDialog = () => {
+    setIsRadioGroupDialogOpen(false);
+  };
   return (
     <>
       <head>
@@ -123,9 +134,35 @@ export default function Home() {
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
+              Radio Button Installation
+            </h1>
+            <CopyCodeDisplay
+              fileName="radioButton"
+              handleOpenDialog={handleOpenRadioButtonDialog}
+            />
+            <CodeDialog
+              isOpen={isRadioButtonDialogOpen}
+              onClose={handleCloseRadioButtonDialog}
+              title="Radio Button"
+              fileName="radioButton"
+              className="bg-dark-primary/80"
+            />
+          </div>
+          <div className="flex flex-col mt-5 gap-y-3">
+            <h1 className="text-2xl font-semibold text-white ">
               Radio Group Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay
+              fileName="radioButtonGroup"
+              handleOpenDialog={handleOpenRadioGroupDialog}
+            />
+            <CodeDialog
+              isOpen={isRadioGroupDialogOpen}
+              onClose={handleCloseRadioGroupDialog}
+              title="Radio Group"
+              fileName="radioButtonGroup"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">

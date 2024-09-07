@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
@@ -8,6 +8,9 @@ import { Zap } from "lucide-react";
 import { IconButton } from "@/components/iconButton";
 import TableProps from "@/components/Docs Components/tableProps";
 import RatingStars from "@/components/ratingstars";
+import { CodeDialog } from "@/components/codeDialog";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -62,7 +65,15 @@ export default function Home() {
   onChange={(rating) => {}}
   starColor="#F8CC38"
 />`;
-  const terminal = `npm install velocity-ui@latest add ratingstars`;
+const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+const handleOpenDialog = () => {
+  setIsDialogOpen(true);
+};
+
+const handleCloseDialog = () => {
+  setIsDialogOpen(false);
+};
   return (
     <>
       <head>
@@ -92,7 +103,17 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Rating Stars Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay
+              fileName="ratingstars"
+              handleOpenDialog={handleOpenDialog}
+            />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Rating Stars"
+              fileName="ratingstars"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">

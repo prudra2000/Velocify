@@ -6,6 +6,8 @@ import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Switch from "@/components/switch";
 import TableProps from "@/components/Docs Components/tableProps";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const switchTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -75,7 +77,16 @@ export default function Home() {
   const successSwitch = `<Switch variant="success" />`;
   const infoSwitch = `<Switch variant="info" />`;
   const errorSwitch = `<Switch variant="error" />`;
-  const terminal = `npm install velocity-ui@latest add switch`;
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
 
   const [switchStates, setSwitchStates] = useState({
     basic: true,
@@ -90,7 +101,8 @@ export default function Home() {
     error: true,
   });
 
-  const toggleSwitch = (key: keyof typeof switchStates) => { // {{ edit_1 }} Use keyof to restrict key type
+  const toggleSwitch = (key: keyof typeof switchStates) => {
+    // {{ edit_1 }} Use keyof to restrict key type
     setSwitchStates((prev) => ({
       ...prev,
       [key]: !prev[key],
@@ -127,7 +139,17 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Switch Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay
+              fileName="switch"
+              handleOpenDialog={handleOpenDialog}
+            />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Switch"
+              fileName="switch"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
@@ -145,7 +167,7 @@ export default function Home() {
                   <div className="flex flex-col gap-y-5 justify-center items-center">
                     <Switch
                       isOn={switchStates.basic}
-                      handleToggle={() => toggleSwitch('basic')}
+                      handleToggle={() => toggleSwitch("basic")}
                       variant="default"
                       size="default"
                     />
@@ -180,7 +202,7 @@ export default function Home() {
                   <div className="flex flex-row gap-x-5 px-10">
                     <Switch
                       isOn={switchStates.disabled}
-                      handleToggle={() => toggleSwitch('disabled')}
+                      handleToggle={() => toggleSwitch("disabled")}
                       variant="default"
                       size="default"
                       disabled={true}
@@ -209,17 +231,17 @@ export default function Home() {
                   <div className="flex flex-row gap-x-5 px-10 justify-center items-center">
                     <Switch
                       isOn={switchStates.sizeSmall}
-                      handleToggle={() => toggleSwitch('sizeSmall')}
+                      handleToggle={() => toggleSwitch("sizeSmall")}
                       size="small" // {{ edit_1 }} Added size prop
                     />
                     <Switch
                       isOn={switchStates.sizeDefault}
-                      handleToggle={() => toggleSwitch('sizeDefault')}
+                      handleToggle={() => toggleSwitch("sizeDefault")}
                       size="default" // {{ edit_2 }} Added size prop
                     />
                     <Switch
                       isOn={switchStates.sizeLarge}
-                      handleToggle={() => toggleSwitch('sizeLarge')}
+                      handleToggle={() => toggleSwitch("sizeLarge")}
                       size="large" // {{ edit_3 }} Added size prop
                     />
                   </div>
@@ -253,7 +275,7 @@ export default function Home() {
                     <div className="flex flex-row gap-x-5 px-10">
                       <Switch
                         isOn={switchStates.secondary}
-                        handleToggle={() => toggleSwitch('secondary')}
+                        handleToggle={() => toggleSwitch("secondary")}
                         variant="secondary"
                         size="default"
                       />
@@ -280,7 +302,7 @@ export default function Home() {
                     <div className="flex flex-row gap-x-5 px-10">
                       <Switch
                         isOn={switchStates.error}
-                        handleToggle={() => toggleSwitch('error')}
+                        handleToggle={() => toggleSwitch("error")}
                         variant="error"
                         size="default"
                       />
@@ -309,7 +331,7 @@ export default function Home() {
                     <div className="flex flex-row gap-x-5 px-10">
                       <Switch
                         isOn={switchStates.warning}
-                        handleToggle={() => toggleSwitch('warning')}
+                        handleToggle={() => toggleSwitch("warning")}
                         variant="warning"
                         size="default"
                       />
@@ -338,7 +360,7 @@ export default function Home() {
                     <div className="flex flex-row gap-x-5 px-10">
                       <Switch
                         isOn={switchStates.success}
-                        handleToggle={() => toggleSwitch('success')}
+                        handleToggle={() => toggleSwitch("success")}
                         variant="success"
                         size="default"
                       />
@@ -365,7 +387,7 @@ export default function Home() {
                     <div className="flex flex-row gap-x-5 px-10">
                       <Switch
                         isOn={switchStates.info}
-                        handleToggle={() => toggleSwitch('info')}
+                        handleToggle={() => toggleSwitch("info")}
                         variant="info"
                         size="default"
                       />

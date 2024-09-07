@@ -5,10 +5,10 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IconButton } from "./iconButton";
 import { Copy, Github } from "lucide-react";
 import Tooltip from "./tooltip";
-import { useEffect } from "react"; // Add this import
+import { useEffect } from "react";
 
 interface CodeShowcaseProps {
-  githubFileUrl: string; // Change this prop
+  githubFileUrl: string;
   githubLink: string;
 }
 
@@ -16,11 +16,10 @@ const ComponentCodeShowcase: React.FC<CodeShowcaseProps> = ({
   githubFileUrl,
   githubLink,
 }) => {
-  const [code, setCode] = useState(""); // Initialize code state
+  const [code, setCode] = useState("");
 
   const copyToClipboard = () => {
     if (navigator.clipboard) {
-      // Check if clipboard API is available
       navigator.clipboard
         .writeText(code)
         .then(() => {
@@ -30,18 +29,17 @@ const ComponentCodeShowcase: React.FC<CodeShowcaseProps> = ({
           console.error("Failed to copy: ", err);
         });
     } else {
-      // Fallback for unsupported clipboard
       const textarea = document.createElement("textarea");
       textarea.value = code;
       document.body.appendChild(textarea);
       textarea.select();
       try {
-        document.execCommand("copy"); // Fallback copy command
+        document.execCommand("copy");
         setIsCopied(true);
       } catch (err) {
         console.error("Fallback: Failed to copy: ", err);
       }
-      document.body.removeChild(textarea); // Clean up
+      document.body.removeChild(textarea);
     }
     setTimeout(() => {
       setIsCopied(false);
@@ -52,16 +50,16 @@ const ComponentCodeShowcase: React.FC<CodeShowcaseProps> = ({
       try {
         const response = await fetch(githubFileUrl);
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`); // Handle HTTP errors
+          throw new Error(`HTTP error! status: ${response.status}`); 
         }
         const data = await response.text();
-        setCode(data); // Set fetched code
+        setCode(data);
       } catch (error) {
         console.error("Error fetching code: ", error);
       }
     };
     fetchCode();
-  }, [githubFileUrl]); // Fetch code when githubFileUrl changes
+  }, [githubFileUrl]);
 
   const [isCopied, setIsCopied] = useState(false);
   return (
@@ -82,14 +80,6 @@ const ComponentCodeShowcase: React.FC<CodeShowcaseProps> = ({
           </IconButton>
         </Tooltip>
       </div>
-      {/* <IconButton
-          onClick={() => window.open(githubLink, "_blank")}
-          className="absolute top-10 right-3 md:top-10 md:right-3 stroke-white"
-          variant="ghost"
-          size="default"
-        >
-          <Github className="w-3 h-3" />
-        </IconButton> */}
 
       <SyntaxHighlighter
         language="tsx"
@@ -103,7 +93,7 @@ const ComponentCodeShowcase: React.FC<CodeShowcaseProps> = ({
           paddingTop: "10px",
           paddingBottom: "10px",
           height: "100%",
-          border: "1px solid rgba(255, 255, 255, 0.1)", // Updated outline to border
+          border: "1px solid rgba(255, 255, 255, 0.1)",
           boxShadow: "",
           overflowY: "auto",
           lineHeight: "1",

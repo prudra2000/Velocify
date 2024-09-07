@@ -30,7 +30,7 @@ const dividerVariants = cva(
 
 interface DividerProps extends VariantProps<typeof dividerVariants> {
   className?: string;
-  size?: "default" | "verticalMedium" | "horizontalMedium"; // Updated size options
+  size?: "default" | "verticalMedium" | "horizontalMedium";
   orientation?: "horizontal" | "vertical";
 }
 

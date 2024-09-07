@@ -3,9 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import React from "react";
 import { ChevronDown, ChevronUp, Check } from "lucide-react";
-// Ensure CheckIcon is imported
 
-// New component for SelectTrigger
 const SelectTrigger = ({ children }: { children: React.ReactNode }) => (
   <RadixSelect.Trigger className=" flex w-full px-3 py-2 text-xs sm:text-sm md:text-base border border-input rounded-lg">
     <div className="inline-flex items-center justify-center">
@@ -18,7 +16,6 @@ const SelectTrigger = ({ children }: { children: React.ReactNode }) => (
 );
 SelectTrigger.displayName = "SelectTrigger";
 
-// New component for SelectItem
 const SelectItem: React.FC<{
   className: string;
   value: string;

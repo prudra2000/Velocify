@@ -6,7 +6,7 @@ interface SocailsProps {
   className?: string;
   title: string;
   description: string;
-  socialLinks: { name: string; url: string; icon: React.ReactNode }[]; // Add this line
+  socialLinks: { name: string; url: string; icon: React.ReactNode }[];
 }
 
 const Socails: React.FC<SocailsProps> = ({
@@ -24,7 +24,7 @@ const Socails: React.FC<SocailsProps> = ({
           {socialLinks.map(
             (link) => (
               <a
-                key={link.name} // Added key prop here
+                key={link.name}
                 href={link.url}
                 className="flex flex-row justify-center items-center gap-x-2"
               >

@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import { Textarea } from "@/components/textarea";
 import TableProps from "@/components/Docs Components/tableProps";
+import { CodeDialog } from "@/components/codeDialog";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
 
 export default function Home() {
   const inputTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -46,8 +49,15 @@ export default function Home() {
   status="info" 
 />`;
   const secondaryTextarea = `<Textarea placeholder="Secondary Textarea" variant="secondary" />`;
-  const terminal = `npm install velocity-ui@latest add input`;
-  return (
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };  return (
     <>
       <head>
         <title>Velocify UI - Textarea</title>
@@ -76,8 +86,17 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Textarea Installation
             </h1>
-            <TerminalShowcase command={terminal} />
-          </div>
+            <CopyCodeDisplay
+              fileName="textarea"
+              handleOpenDialog={handleOpenDialog}
+            />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Textarea"
+              fileName="textarea"
+              className="bg-dark-primary/80"
+            />          </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
               Basic Textarea

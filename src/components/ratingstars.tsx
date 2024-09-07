@@ -4,31 +4,28 @@ import { Star, StarHalf } from "lucide-react";
 import { twMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
 
-const ratingStarsVariants = cva(
-  "flex",
-  {
-    variants: {
-      size: {
-        default: "h-5 w-5",
-        small: "h-4 w-4",
-        large: "h-6 w-6",
-      },
-      disabled: {
-        true: "cursor-not-allowed opacity-50",
-        false: "cursor-pointer",
-      },
+const ratingStarsVariants = cva("flex", {
+  variants: {
+    size: {
+      default: "h-5 w-5",
+      small: "h-4 w-4",
+      large: "h-6 w-6",
     },
-    defaultVariants: {
-      size: "default",
-      disabled: false,
+    disabled: {
+      true: "cursor-not-allowed opacity-50",
+      false: "cursor-pointer",
     },
-  }
-);
+  },
+  defaultVariants: {
+    size: "default",
+    disabled: false,
+  },
+});
 
 interface RatingStarsProps extends VariantProps<typeof ratingStarsVariants> {
   rating: number;
   starColor?: string;
-  clickable?: boolean; 
+  clickable?: boolean;
   maxRating?: number;
   size?: "default" | "small" | "large";
   className?: string;
@@ -36,7 +33,15 @@ interface RatingStarsProps extends VariantProps<typeof ratingStarsVariants> {
   disabled?: boolean;
 }
 
-const RatingStars: React.FC<RatingStarsProps> = ({ rating, disabled = false, size = "default", maxRating = 5, starColor = "#ffc978", clickable = false, onChange }) => {
+const RatingStars: React.FC<RatingStarsProps> = ({
+  rating,
+  disabled = false,
+  size = "default",
+  maxRating = 5,
+  starColor = "#ffc978",
+  clickable = false,
+  onChange,
+}) => {
   const [ratingStars, setRating] = useState(rating);
 
   useEffect(() => {
@@ -45,33 +50,55 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating, disabled = false, siz
 
   const handleRating = (value: number) => {
     if (clickable) {
-      setRating(value); 
-      handleClick(value); // Call handleClick when rating is set
+      setRating(value);
+      handleClick(value); 
     }
   };
 
   const handleClick = (newRating: number) => {
     if (clickable && onChange) {
-      onChange(newRating); // Call onChange when a star is clicked
+      onChange(newRating); 
     }
   };
 
   return (
-    <div className={`flex ${disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"}`}>
+    <div
+      className={`flex ${
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+      }`}
+    >
       {[...Array(maxRating)].map((_, index) => {
         const starValue = index + 1;
         return (
-          <div 
-            key={index} 
-            onClick={() => handleRating(starValue)} 
-            className={`${disabled ? "cursor-not-allowed" : clickable ? "cursor-pointer" : ""}`} // Adjusted cursor styles based on disabled state
+          <div
+            key={index}
+            onClick={() => handleRating(starValue)}
+            className={`${
+              disabled
+                ? "cursor-not-allowed"
+                : clickable
+                ? "cursor-pointer"
+                : ""
+            }`}
           >
             {ratingStars >= starValue ? (
-              <Star fill={starColor} stroke={starColor} className={twMerge(ratingStarsVariants({size}))}/>
+              <Star
+                fill={starColor}
+                stroke={starColor}
+                className={twMerge(ratingStarsVariants({ size }))}
+              />
             ) : ratingStars >= starValue - 0.5 ? (
-              <StarHalf fill={starColor} stroke={starColor} className={twMerge(ratingStarsVariants({size}))}/>
+              <StarHalf
+                fill={starColor}
+                stroke={starColor}
+                className={twMerge(ratingStarsVariants({ size }))}
+              />
             ) : (
-              <Star fill="none" stroke={starColor} className={twMerge(ratingStarsVariants({size}))}/>
+              <Star
+                fill="none"
+                stroke={starColor}
+                className={twMerge(ratingStarsVariants({ size }))}
+              />
             )}
           </div>
         );

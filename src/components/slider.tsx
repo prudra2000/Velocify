@@ -1,4 +1,3 @@
-// components/CustomSlider.tsx
 import { useState, useRef } from "react";
 
 interface SliderProps {

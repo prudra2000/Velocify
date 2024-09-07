@@ -1,4 +1,3 @@
-// components/RadioButton.tsx
 import { cx } from "class-variance-authority";
 import React from "react";
 
@@ -38,7 +37,7 @@ const radioButtonVariants = cva(
         error: "bg-error-secondary",
         accent: "bg-accent-secondary",
         custom: "bg-custom",
-      }
+      },
     },
     defaultVariants: {
       variant: "default",
@@ -61,7 +60,15 @@ interface RadioButtonProps extends VariantProps<typeof radioButtonVariants> {
   disabled?: boolean;
   className?: string;
   alt?: string;
-  selectedColor?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "accent" | "custom";
+  selectedColor?:
+    | "default"
+    | "secondary"
+    | "warning"
+    | "success"
+    | "info"
+    | "error"
+    | "accent"
+    | "custom";
 }
 
 const RadioButton: React.FC<RadioButtonProps> = ({
@@ -79,7 +86,11 @@ const RadioButton: React.FC<RadioButtonProps> = ({
   selectedColor,
 }) => {
   return (
-    <label className={`flex gap-2 items-center ${disabled ? "cursor-not-allowed opacity-50" : ""}`}>
+    <label
+      className={`flex gap-2 items-center ${
+        disabled ? "cursor-not-allowed opacity-50" : ""
+      }`}
+    >
       <div className="grid place-items-center mt-1">
         <input
           type="radio"
@@ -90,8 +101,7 @@ const RadioButton: React.FC<RadioButtonProps> = ({
               size,
               disabled,
               className,
-            }),
-           
+            })
           )}
           name={name}
           value={value}
@@ -108,7 +118,8 @@ const RadioButton: React.FC<RadioButtonProps> = ({
             {
               "peer-checked:bg-light-primary": variant === "default",
               "peer-checked:bg-dark-secondary": variant === "secondary",
-              "peer-checked:bg-accent-secondary": !variant || (variant !== "default" && variant !== "secondary"), // Fallback class
+              "peer-checked:bg-accent-secondary":
+                !variant || (variant !== "default" && variant !== "secondary"),
             },
             disabled ? "cursor-not-allowed opacity-50" : ""
           )}

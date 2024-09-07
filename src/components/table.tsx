@@ -4,7 +4,7 @@ import React, { useState } from "react";
 interface TableProps {
   className?: string;
   columns: Array<{ col1: string; col2: string; col3: string }>;
-  data: Array<{ prop: string; type: string; default: string }>; // Define the structure of your data
+  data: Array<{ prop: string; type: string; default: string }>;
 }
 
 const Table: React.FC<TableProps> = ({ className, data, columns }) => {

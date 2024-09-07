@@ -39,7 +39,6 @@ const NavBarLinks = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-row gap-2">{children}</div>
 );
 NavBarLinks.displayName = "NavBarLinks";
-// Added useState import
 
 const Navbar = ({
   logo,
@@ -48,17 +47,17 @@ const Navbar = ({
   logo: React.ReactElement<typeof NavBarLogo>;
   links: React.ReactNode;
 }) => {
-  const [docsData, setDocsData] = useState([]); // Initialize state for docsData
+  const [docsData, setDocsData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/searchIndex.json'); // Fetch the JSON data
+      const response = await fetch('/searchIndex.json');
       const data = await response.json();
-      setDocsData(data); // Set the fetched data to state
+      setDocsData(data);
     };
 
     fetchData();
-  }, []); // Fetch data on component mount
+  }, []);
 
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
@@ -73,21 +72,21 @@ const Navbar = ({
     setIsDialogOpen(false);
     setSearchQuery("");
   };
-  const [isOpen, setIsOpen] = useState(false); // Moved inside the component
-  const menuRef = useRef<HTMLDivElement>(null); // Create a ref for the menu
-  const dialogRef = useRef<HTMLDivElement>(null); // Create a ref for the dialog
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const toggleNavbar = () => {
-    setIsOpen(true); // Toggle the menu state
+    setIsOpen(true);
   };
   const closeNavbar = () => {
-    setIsOpen(false); // Close the menu
+    setIsOpen(false);
   };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isDialogOpen) {
-        handleCloseDialog(); // Close the dialog on Escape key press
+        handleCloseDialog();
       }
     };
 
@@ -95,12 +94,12 @@ const Navbar = ({
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isDialogOpen]); // Added isDialogOpen as a dependency
+  }, [isDialogOpen]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        closeNavbar(); // Close the menu if clicked outside
+        closeNavbar();
       }
     };
 
@@ -108,7 +107,7 @@ const Navbar = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuRef]); // Added dependencies
+  }, [menuRef]);
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -117,9 +116,7 @@ const Navbar = ({
   );
 
   return (
-    // Added return statement
-    <div className="relative z-20">
-      {" "}
+      <div className="relative z-20">
       <div className="flex flex-row px-5 md:px-10 py-2 justify-between items-center bg-[#030711]/80 backdrop-blur-md border-b border-1 border-white/10 text-white">
         {logo}
         <div
@@ -221,7 +218,8 @@ const Navbar = ({
         </div>
       </div>
       <div
-        ref={menuRef} // Attach the ref to the menu div
+        ref={menuRef} 
+        
         className={`${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 absolute w-80 h-screen bg-[#030711]/90 backdrop-blur-md border-r border-1 border-white/10 `}
@@ -230,7 +228,8 @@ const Navbar = ({
           <div className="flex flex-row gap-2 text-white p-2">{links}</div>
         </div>
       </div>
-      <SearchDialog // Attach the ref to the dialog
+      <SearchDialog
+        ref={dialogRef}
         isOpen={isDialogOpen}
         onClose={handleCloseDialog}
         className=" bg-dark-primary/80 h-80 "
@@ -272,7 +271,7 @@ const Navbar = ({
                 )}
               </>
             )}
-            {filteredDocs.slice(0, 5).map((doc: { title: string; href: string; id: string }) => ( // Explicitly define the type
+            {filteredDocs.slice(0, 5).map((doc: { title: string; href: string; id: string }) => (
               <a href={doc.href} key={doc.id}>
                 <div className="rounded-lg py-2 px-4 w-full flex flex-row justify-between items-center bg-dark-primary outline outline-1 outline-dark-secondary hover:bg-dark-secondary">
                   <h2 className="text-sm text-paragraph-primary">

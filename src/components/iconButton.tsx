@@ -56,7 +56,6 @@ export interface IconButtonProps
 
 const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ className, variant, size, asChild = false, alt, children, disabled, rounded, ...props }, ref) => {
-    // {{ edit_2 }}
     return (
       <div className="flex flex-row items-center justify-center">
         <button

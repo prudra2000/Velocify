@@ -158,7 +158,10 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Button Installation
             </h1>
-            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CopyCodeDisplay
+              fileName="button"
+              handleOpenDialog={handleOpenDialog}
+            />
             <CodeDialog
               isOpen={isDialogOpen}
               onClose={handleCloseDialog}

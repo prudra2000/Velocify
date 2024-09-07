@@ -23,7 +23,6 @@ const NavBarLinks = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-row gap-2">{children}</div>
 );
 NavBarLinks.displayName = "NavBarLinks";
-// Added useState import
 
 const Navbar = ({
   logo,
@@ -32,14 +31,13 @@ const Navbar = ({
   logo: React.ReactElement<typeof NavBarLogo>;
   links: React.ReactElement<typeof NavBarLinks>;
 }) => {
-  const [isOpen, setIsOpen] = useState(false); // Moved inside the component
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    // Added return statement
     <div className="w-full">
       <div className="flex flex-row p-2 px-5 justify-between items-center bg-slate-100">
         {logo}

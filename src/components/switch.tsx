@@ -1,5 +1,3 @@
-// components/Switch.tsx
-
 import React from "react";
 import { cva, cx, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
@@ -61,8 +59,8 @@ interface SwitchProps
 const Switch: React.FC<SwitchProps> = ({
   isOn,
   handleToggle,
-  variant = "default", // Default variant
-  size = "default", // Default size
+  variant = "default", 
+  size = "default", 
   disabled = false,
 }) => {
   return (
@@ -71,14 +69,13 @@ const Switch: React.FC<SwitchProps> = ({
         `relative inline-flex items-center cursor-pointer select-none ${
           isOn
             ? switchVariants({ variant, size, disabled })
-            : switchVariants({ size, disabled }) // Apply size variant in both cases
+            : switchVariants({ size, disabled }) 
         } rounded-full`,
         {
-          // Removed size conditions here since they are handled in switchVariants
         },
         
       )}
-      onClick={disabled ? undefined : handleToggle} // Prevent click if disabled
+      onClick={disabled ? undefined : handleToggle}
     >
       <span
         className={cx(
@@ -94,7 +91,6 @@ const Switch: React.FC<SwitchProps> = ({
               : "translate-x-0"
           }`,
           {
-            // Removed size conditions, using thumbSize instead
             "w-4 h-4": size === "default",
             "w-3 h-3": size === "small",
             "w-6 h-6": size === "large",

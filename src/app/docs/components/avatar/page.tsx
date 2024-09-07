@@ -90,7 +90,10 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Avatar Installation
             </h1>
-            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CopyCodeDisplay
+              fileName="avatar"
+              handleOpenDialog={handleOpenDialog}
+            />
             <CodeDialog
               isOpen={isDialogOpen}
               onClose={handleCloseDialog}

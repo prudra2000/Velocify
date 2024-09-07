@@ -1,5 +1,5 @@
 "use client";
-import React from "react"; // Add this import
+import React, { useState } from "react"; // Add this import
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
@@ -8,6 +8,8 @@ import { Zap } from "lucide-react";
 import { IconButton } from "@/components/iconButton";
 import FloatButton from "@/components/floatButton";
 import TableProps from "@/components/Docs Components/tableProps";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -63,7 +65,16 @@ export default function Home() {
   const errorIconButton = `<IconButton variant="error" alt="Error">
   <Zap className="w-5 h-5 stroke-accent" />
 </IconButton>`;
-  const terminal = `npm install velocity-ui@latest add button`;
+const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+const handleOpenDialog = () => {
+  setIsDialogOpen(true);
+};
+
+const handleCloseDialog = () => {
+  setIsDialogOpen(false);
+};
+
   return (
     <>
       <head>
@@ -83,7 +94,17 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Float Button Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay
+              fileName="floatButton"
+              handleOpenDialog={handleOpenDialog}
+            />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Float Button"
+              fileName="floatButton"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">

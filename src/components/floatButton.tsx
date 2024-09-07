@@ -1,4 +1,4 @@
-"use client"; // Add this line
+"use client";
 
 import { twMerge } from "tailwind-merge";
 import { IconButton } from "./iconButton";
@@ -46,13 +46,12 @@ const floatButtonVariants = cva(
   );
 
 interface FloatButtonProps extends VariantProps<typeof floatButtonVariants> {
-    onClick: () => void; // Add this line
+    onClick: () => void; 
     children: React.ReactNode;
     position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
     size?: "default" | "small" | "large";
     variant?: "default" | "secondary" | "warning" | "success" | "info" | "error" | "custom" | "ghost";
     disabled?: boolean;
-    // ... other props
 }
 
 const FloatButton: React.FC<FloatButtonProps> = ({ onClick, children, variant, size, position, disabled, ...props }) => {
@@ -61,7 +60,7 @@ const FloatButton: React.FC<FloatButtonProps> = ({ onClick, children, variant, s
             variant="default" 
             size="large" 
             className={twMerge(floatButtonVariants({ variant, size, position, disabled }))} 
-            onClick={onClick} // Add this line
+            onClick={onClick} 
             {...props}
         >
           <div className="flex flex-row gap-x-2 items-center justify-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { twMerge } from "tailwind-merge"; // Add this import
+import { twMerge } from "tailwind-merge";
 
 const badgeVariants = cva(
   "absolute grid place-items-center rounded-full",
@@ -56,7 +56,7 @@ interface BadgeProps extends VariantProps<typeof badgeVariants> {
     | "info"
     | "error"
     | "custom";
-  size?: "small" | "large" | "default"; // Removed "medium"
+  size?: "small" | "large" | "default"; 
   rounded?: "small" | "medium" | "large" | "full";
   position?: "top-right" | "bottom-right" | "top-left" | "bottom-left";
   className?: string;
@@ -86,7 +86,7 @@ const Badge: React.FC<BadgeProps> = ({
             size,
             position,
             className,
-            noContent: content === "" ? true : false, // Updated to use noContent as a boolean
+            noContent: content === "" ? true : false, 
             disabled: disabled ? true : false,
           })
         )}

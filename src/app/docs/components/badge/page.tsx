@@ -148,7 +148,10 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Badge Installation
             </h1>
-            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CopyCodeDisplay
+              fileName="badge"
+              handleOpenDialog={handleOpenDialog}
+            />
             <CodeDialog
               isOpen={isDialogOpen}
               onClose={handleCloseDialog}

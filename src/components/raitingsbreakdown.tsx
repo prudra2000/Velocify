@@ -33,7 +33,6 @@ const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
     fourStars * 4 +
     fiveStars * 5;
 
-  // Calculate the average rating
   const average = totalRatings ? (weightedSum / totalRatings).toFixed(1) : 0;
 
   const calculatePercentage = (stars: number) =>

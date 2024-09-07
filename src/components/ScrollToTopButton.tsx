@@ -1,7 +1,6 @@
-"use client"; // Ensure this is a Client Component
-
+"use client"; 
 import React, { useEffect, useState } from "react";
-import FloatButton from "@/components/floatButton"; // Adjust the import path as necessary
+import FloatButton from "@/components/floatButton";
 import { ChevronUpIcon } from "lucide-react";
 
 const ScrollToTopButton: React.FC = () => {

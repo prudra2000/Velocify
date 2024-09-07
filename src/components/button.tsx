@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
-import Link from 'next/link'; // {{ edit_1 }}
+import Link from 'next/link';
 const buttonVariants = cva(
   "flex flex-row justify-center items-center rounded-lg text-xs lg:text-sm ",
   {
@@ -63,7 +63,7 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, alt, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, href, target, ...props }, ref) => { // {{ edit_2 }}
+  ({ className, alt, variant, size, rounded, asChild = false, leftIcon, rightIcon, leftAvatar, rightAvatar, children, disabled, href, target, ...props }, ref) => {
     return (
       <Link href={href || " #"} target={target || "_self"}>
       <div className="flex flex-row items-center justify-center">
