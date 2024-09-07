@@ -1,64 +1,57 @@
-import React, { useState } from 'react';
-import { cva, cx, type VariantProps } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
+// components/CustomSlider.tsx
+import { useState, useRef } from "react";
 
-const sliderVariants = cva(
-  "w-full h-2  rounded-lg appearance-none cursor-pointer",
-  {
-    variants: {
-        variant: {
-            default:
-              "bg-dark-primary text-white hover:bg-dark-secondary outline outline-1 outline-dark-secondary",
-            secondary: "bg-light-primary hover:bg-light-secondary text-black",
-            warning:
-              "bg-warning-primary text-black hover:bg-warning-secondary outline outline-1 outline-warning-secondary",
-            success:
-              "bg-success-primary text-black hover:bg-success-secondary outline outline-1 outline-success-secondary",
-            info: "bg-info-primary text-white hover:bg-info-secondary outline outline-1 outline-info-secondary",
-            error:
-              "bg-error-primary text-white hover:bg-error-secondary outline outline-1 outline-error-secondary",
-            custom: "",
-          },
-          type:{
-            range: "input[type=\"range\"]::-moz-range-thumb",
-          }
-          
-    },
-  }
-);
-
-
-interface RangeSliderProps extends VariantProps<typeof sliderVariants> {
-  min: number;
-  max: number;
+interface SliderProps {
+  min?: number;
+  max?: number;
   step?: number;
-  value: number;
-  onChange: (value: number) => void;
+  initialValue?: number;
 }
 
-const Slider: React.FC<RangeSliderProps> = ({ min, max, step = 1, value, onChange }) => {
-  const [sliderValue, setSliderValue] = useState<number>(value);
+const CustomSlider: React.FC<SliderProps> = ({
+  min = 0,
+  max = 100,
+  step = 1,
+  initialValue = 50,
+}) => {
+  const [value, setValue] = useState(initialValue);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = Number(e.target.value);
-    setSliderValue(newValue);
-    onChange(newValue);
+  const handleMouseMove = (e: MouseEvent) => {
+    if (sliderRef.current) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const newX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
+      const newValue = Math.round((newX / rect.width) * (max - min) + min);
+      setValue(newValue);
+    }
   };
 
+  const handleMouseDown = () => {
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    });
+  };
+
+  const thumbPosition = `${((value - min) / (max - min)) * 100}%`;
+
   return (
-    <div className="flex flex-col items-center w-full">
-      <input
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={sliderValue}
-        onChange={handleChange}
-        className={twMerge(sliderVariants({ variant: "default", type: "range" }))}
-      />
-      <div className="text-sm text-gray-600 mt-2">{sliderValue}</div>
-    </div>
+    <>
+      <div className="w-full flex items-center">
+        <div
+          ref={sliderRef}
+          className="relative w-full h-2 bg-gray-300 rounded-lg "
+          onMouseDown={handleMouseDown}
+        >
+          <div
+            className="absolute h-4 w-4 bg-blue-500 rounded-full cursor-pointer"
+            style={{ left: thumbPosition, top: "50%", transform: "translate(-50%, -50%)" }}
+          />
+        </div>
+      </div>
+      <div className="ml-4 text-gray-700">{value}</div>
+    </>
   );
 };
 
-export default Slider;
+export default CustomSlider;

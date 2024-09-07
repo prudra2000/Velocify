@@ -135,7 +135,6 @@ export default config;
             />
           </div>
         </div>
-        <Slider min={0} max={100} value={50} onChange={(value) => console.log(value)} />
       </div>
     </main>
   );
