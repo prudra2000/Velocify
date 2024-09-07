@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
@@ -6,6 +7,8 @@ import Table from "@/components/table";
 import TableProps from "@/components/Docs Components/tableProps";
 import Avatar from "@/components/avatar";
 import Badge from "@/components/badge";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -107,7 +110,15 @@ export default function Home() {
   const errorBadge = `<Badge content="1" variant="error">
   <Avatar alt="Jane Doe" rounded="large" />
 </Badge>;`;
-  const terminal = `npm install velocity-ui@latest add avatar`;
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   return (
     <>
       <head>
@@ -137,7 +148,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Badge Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Badge"
+              fileName="badge"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">Basic Badge</h1>
@@ -229,7 +247,8 @@ export default function Home() {
                         rounded="large"
                       />
                     </Badge>
-                    <Badge content="Default" size="default">z
+                    <Badge content="Default" size="default">
+                      z
                       <Avatar
                         alt="Jane Doe"
                         src="/avatarImage.png"

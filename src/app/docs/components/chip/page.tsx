@@ -8,6 +8,8 @@ import Table from "@/components/table";
 import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";
 import TableProps from "@/components/Docs Components/tableProps";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const badgeTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -79,8 +81,15 @@ export default function Home() {
   const errorChip = `<Chip variant="error">
   Error
 </Chip>`;
-  const terminal = `npm install velocity-ui@latest add badge`;
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   return (
     <>
       <head>
@@ -109,7 +118,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Chip Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Chip"
+              fileName="chip"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">Basic Chip</h1>

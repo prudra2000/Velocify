@@ -1,10 +1,13 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import TableProps from "@/components/Docs Components/tableProps";
 import Avatar from "@/components/avatar";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
+import { CodeDialog } from "@/components/codeDialog";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -49,8 +52,15 @@ export default function Home() {
 <Avatar alt="Pedro Porter" src="/avatarImage.png" rounded="large" border/>
 <Avatar alt="Juanita Lawrence" src="/avatarImage.png" rounded="full" border/>`;
   const secondaryAvatar = `<Avatar alt="Mayra Lewis" variant="secondary"/>`;
-  const terminal = `npm install velocity-ui@latest add avatar`;
-  return (
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };  return (
     <>
       <head>
         <title>Velocify UI - Avatar</title>
@@ -80,7 +90,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Avatar Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Avatar"
+              fileName="avatar"
+              className="bg-dark-primary/80"
+            />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">Basic Avatar</h1>

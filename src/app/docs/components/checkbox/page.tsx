@@ -1,5 +1,5 @@
 "use client";
-import React from "react"; // Add this import
+import React, { useState } from "react"; // Add this import
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
@@ -7,6 +7,8 @@ import Table from "@/components/table";
 import { ThumbsUp } from "lucide-react";
 import Checkbox from "@/components/checkbox";
 import TableProps from "@/components/Docs Components/tableProps";
+import { CodeDialog } from "@/components/codeDialog";
+import CopyCodeDisplay from "@/components/copyCodeDiaplay";
 
 export default function Home() {
   const buttonTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -54,7 +56,15 @@ export default function Home() {
 <Checkbox onChange={() => {}} variant="warning" />
 <Checkbox onChange={() => {}} variant="error" />
 <Checkbox onChange={() => {}} variant="info" />`;
-  const terminal = `npm install velocity-ui@latest add checkbox`;
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleOpenDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleCloseDialog = () => {
+    setIsDialogOpen(false);
+  };
   return (
     <>
       <head>
@@ -84,7 +94,14 @@ export default function Home() {
             <h1 className="text-2xl font-semibold text-white ">
               Checkbox Installation
             </h1>
-            <TerminalShowcase command={terminal} />
+            <CopyCodeDisplay handleOpenDialog={handleOpenDialog} />
+            <CodeDialog
+              isOpen={isDialogOpen}
+              onClose={handleCloseDialog}
+              title="Checkbox"
+              fileName="checkbox"
+              className="bg-dark-primary/80"
+            />{" "}
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">

@@ -4,25 +4,24 @@ import { IconButton } from "./iconButton";
 import { Github, X } from "lucide-react";
 import CodeShowcase from "./CodeShowcase";
 import ComponentCodeShowcase from "./ComponentCodeShowcase";
+import Link from "next/link";
 
 interface DialogProps {
   ref?: React.RefObject<HTMLDivElement>;
   isOpen: boolean;
   onClose: () => void;
-  title?: string;
   className?: string;
+  title: string;
   fileName: string;
-  topbar?: ReactNode;
 }
 
 export const CodeDialog: React.FC<DialogProps> = ({
   ref,
   isOpen,
   onClose,
-  title,
   className,
   fileName,
-  topbar,
+  title,
 }) => {
   if (!isOpen) return null;
   const fileURL = `https://raw.githubusercontent.com/prudra2000/Velocify/main/src/components/${fileName}.tsx`;
@@ -32,9 +31,16 @@ export const CodeDialog: React.FC<DialogProps> = ({
       <div
         className={`flex flex-col gap-y-2 bg-dark-primary rounded-lg shadow-lg h-max w-3/4 md:w-1/2 outline outline-1 outline-dark-secondary ${className}`}
       >
-        <div className="flex flex-row justify-between items-center border-b border-1 border-white/10 pb-2 px-6 pt-4">
-          {topbar}
-          
+        <div className="flex flex-row justify-between items-center border-b border-1 border-white/10 px-6 py-4">
+          <div className="flex flex-row justify-between items-center w-full">
+            <h1 className="text-2xl font-semibold text-white ">{title}</h1>
+            <a
+              onClick={onClose}
+              className="cursor-pointer p-1 hover:bg-white/10 border border-1 border-white/10 rounded-full flex justify-center items-center"
+            >
+              <X className="w-5 h-5 stroke-[#F8CC38]" />
+            </a>
+          </div>
         </div>
         <div className="flex flex-col px-6">
           <p className="text-paragraph-secondary text-sm">
@@ -52,10 +58,19 @@ export const CodeDialog: React.FC<DialogProps> = ({
           </p>
           <ComponentCodeShowcase githubFileUrl={fileURL} githubLink={repoURL} />
         </div>
-        <div className="flex justify-center py-4 border-t border-1 border-white/10 ">
-          <Button leftIcon={<Github className="w-4 h-4 stroke-[#F8CC38]" />} rounded="full" href={repoURL} target="_blank">
-            <p className="text-white font-semibold">View <span className="underline">{fileName}.tsx</span> on Github</p>
-          </Button>
+        <div className="flex flex-row justify-center items-center border-t border-1 border-white/10 px-6 py-4">
+          <div className="flex justify-center">
+            <Button
+              leftIcon={<Github className="w-4 h-4 stroke-[#F8CC38]" />}
+              rounded="full"
+              href={repoURL}
+              target="_blank"
+            >
+              <p className="text-white font-semibold">
+                View <span className="underline">{fileName}.tsx</span> on Github
+              </p>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
