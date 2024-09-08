@@ -82,7 +82,7 @@ const MainNavbar: React.FC = () => {
               />
               <DocsMenuItem
                 hrefText="components/rating-stars"
-                text="Ratings"
+                text="Ratings Stars"
                 isActive={currentPath.includes("components/rating-stars")}
               />
               <DocsMenuItem
