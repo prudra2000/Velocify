@@ -1,5 +1,5 @@
 
-![Velocify UI - Logo](https://github.com/prudra2000/Velocify/blob/main/public/Velocify%20UI%20-%20Banner.png?raw=true)
+![Velocify UI - Logo](https://github.com/prudra2000/Velocify/blob/main/public/Velocify%20UI%20-%20Banner2.png?raw=true)
 
 
 # Velocify UI
