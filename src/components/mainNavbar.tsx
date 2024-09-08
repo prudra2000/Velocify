@@ -9,6 +9,7 @@ import {
 } from "./docsMenuItem";
 
 import { usePathname } from "next/navigation";
+import { Shapes, Rocket, TextCursorInput } from "lucide-react";
 
 const MainNavbar: React.FC = () => {
   const currentPath = usePathname();
@@ -28,7 +29,7 @@ const MainNavbar: React.FC = () => {
       links={
         <div className="flex flex-col gap-y-2 w-full max-h-screen overflow-y-auto pb-52">
           <DocsMenu>
-            <DocsMenuSection text="Get Started" isActive={currentPath.includes("installation") || currentPath.includes("usage")}>
+            <DocsMenuSection text="Get Started" isActive={currentPath.includes("installation") || currentPath.includes("usage")} icon={<Rocket className="w-5 h-5 text-accent-primary " />}>
               <DocsMenuItem
                 hrefText="installation"
                 text="Installation"
@@ -39,13 +40,14 @@ const MainNavbar: React.FC = () => {
                 text="Usage"
                 isActive={currentPath.includes("usage")}
               />
-            </DocsMenuSection>
-            <DocsMenuSection text="Components" isActive={currentPath.includes("components")}>
               <DocsMenuItem
                 hrefText="components/all-components"
                 text="All Components"
                 isActive={currentPath.includes("components/all-components")}
               />
+            </DocsMenuSection>
+            <DocsMenuSection text="Components" isActive={currentPath.includes("components")} icon={<Shapes className="w-5 h-5 text-accent-primary " />}>
+              
               <DocsMenuDivider sectionTitle={"Input Components"} />
               <DocsMenuItem
                 hrefText="components/button"
@@ -128,10 +130,9 @@ const MainNavbar: React.FC = () => {
                 disabled={true}
               />
               <DocsMenuItem
-                hrefText=""
+                hrefText="components/progress-bar"
                 text="Progress Bar"
                 isActive={currentPath.includes("components/progress-bar")}
-                disabled={true}
               />
               <DocsMenuItem
                 hrefText="components/tooltip"

@@ -87,7 +87,13 @@ const Navbar = ({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isDialogOpen) {
         handleCloseDialog();
+      } 
+      // {{ edit_1 }}
+      else if ((event.key === "k" && (event.metaKey || event.ctrlKey))) {
+        event.preventDefault(); // Prevent default behavior
+        handleOpenDialog(); // Open the search dialog
       }
+      // {{ edit_2 }}
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -128,16 +134,12 @@ const Navbar = ({
             variant="default"
             size="default"
             onClick={() => handleOpenDialog()}
-            className="md:hidden"
+            className="px-3"
           >
             <Search className="w-4 h-4 stroke-[#F8CC38]" />
-          </IconButton>
-          <IconButton
-            variant="default"
-            size="default"
-            onClick={() => handleOpenDialog()}
-          >
-            <Search className="w-4 h-4 stroke-[#F8CC38]" />
+            <span className=" hidden md:block ml-2 border border-1 border-accent-primary text-accent-primary rounded-md px-1 text-xs">
+              {navigator.userAgent.includes("Mac") ? "⌘ K" : "Ctrl+K"}
+            </span>
           </IconButton>
 
           <a href={`/`}>
@@ -172,12 +174,12 @@ const Navbar = ({
             </Button>
           )}
         </div>
-        <div className="-mr-2 flex md:hidden gap-x-2">
-          <IconButton
+        <div className="-mr-2 flex md:hidden gap-x-2 items-center">
+        <IconButton
             variant="default"
             size="default"
             onClick={() => handleOpenDialog()}
-            className="md:hidden"
+            className=""
           >
             <Search className="w-4 h-4 stroke-[#F8CC38]" />
           </IconButton>
@@ -251,9 +253,10 @@ const Navbar = ({
             {searchQuery && (
               <>
                 {filteredDocs.length > 0 ? (
-                  <div></div>
+                  <>
+                  </>
                 ) : (
-                  <div className="flex flex-col gap-y-5 text-paragraph-primary text-xs justify-center items-center pt-5">
+                  <div className="flex flex-col gap-y-5 text-paragraph-primary text-xs justify-center items-center text-center pt-5">
                     <Ban className="w-10 h-10 stroke-paragraph-primary" />
                     <p>No results found for &quot;{searchQuery}&quot;</p>
                     <p>

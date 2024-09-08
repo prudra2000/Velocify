@@ -13,7 +13,7 @@ interface RatingsBreakdownProps {
 }
 
 const RatingsBreakdown: React.FC<RatingsBreakdownProps> = ({
-  accentColor,
+  accentColor = "#F8CC38",
   oneStars,
   twoStars,
   threeStars,

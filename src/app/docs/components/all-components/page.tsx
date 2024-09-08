@@ -1,24 +1,25 @@
 import WIPBadge from "@/components/Docs Components/wipBadge";
 import UIDisplayCard from "@/components/uiDisplayCard";
 import React from "react";
-
-import type { Metadata } from 'next';
+import { Blocks, Brush, Shapes, TextCursorInput } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Velocify UI - All Components',
-  description: 'Check out all the components in Velocify UI',
+  title: "Velocify UI - All Components",
+  description: "Check out all the components in Velocify UI",
 };
 
 export default function Home() {
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5 items-center">
-        <div className="flex flex-col mt-5 gap-y-3">
+        <div className="flex flex-row justify-center items-center mt-5 gap-x-3 mb-5">
+          <Shapes className="w-10 h-10 text-accent-primary" />
           <h2 className="text-3xl font-bold text-white ">Components</h2>
-          <p className="text-paragraph-secondary"></p>
         </div>
-        <div className="flex flex-col gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">
+        <div className="flex flex-row w-full gap-x-3 justify-center items-center bg-dark-primary/50 outline outline-1 outline-dark-secondary rounded-lg py-3">
+          <TextCursorInput className="w-5 h-5 text-accent-primary sm:w-8 sm:h-8" />
+          <h1 className="text-lg sm:text-2xl font-semibold text-white ">
             Input Components
           </h1>
         </div>
@@ -622,16 +623,16 @@ export default function Home() {
               title="Slider"
               component={
                 <svg
-                  width="463"
+                  width="313"
                   height="44"
-                  viewBox="0 0 463 44"
+                  viewBox="0 0 313 44"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect
                     x="1"
                     y="17"
-                    width="461"
+                    width="311"
                     height="10"
                     rx="5"
                     fill="#F8CC38"
@@ -640,14 +641,14 @@ export default function Home() {
                     strokeWidth="2"
                   />
                   <path
-                    d="M6 17H153V27H6C3.23858 27 1 24.7614 1 22C1 19.2386 3.23858 17 6 17Z"
+                    d="M1 22C1 19.2386 3.23858 17 6 17H153V27H6C3.23858 27 1 24.7614 1 22Z"
                     fill="#F8CC38"
                     stroke="#F8CC38"
                     strokeWidth="2"
                   />
                   <g filter="url(#filter0_d_6_104)">
                     <rect
-                      x="142"
+                      x="144"
                       y="10"
                       width="24"
                       height="24"
@@ -655,7 +656,7 @@ export default function Home() {
                       fill="#F8CC38"
                     />
                     <rect
-                      x="143"
+                      x="145"
                       y="11"
                       width="22"
                       height="22"
@@ -667,14 +668,14 @@ export default function Home() {
                   <defs>
                     <filter
                       id="filter0_d_6_104"
-                      x="132.4"
+                      x="134.4"
                       y="0.4"
                       width="43.2"
                       height="43.2"
                       filterUnits="userSpaceOnUse"
-                      colorInterpolationFilters="sRGB"
+                      color-interpolation-filters="sRGB"
                     >
-                      <feFlood floodOpacity="0" result="BackgroundImageFix" />
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
                       <feColorMatrix
                         in="SourceAlpha"
                         type="matrix"
@@ -758,8 +759,9 @@ export default function Home() {
             />
           </a>
         </div>
-        <div className="flex flex-col mt-10 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">
+        <div className="flex flex-row w-full gap-x-3 justify-center items-center bg-dark-primary/50 outline outline-1 outline-dark-secondary rounded-lg py-3">
+          <Brush className="w-5 h-5 text-accent-primary sm:w-8 sm:h-8" />
+          <h1 className="text-lg sm:text-2xl font-semibold text-white ">
             Display Components
           </h1>
         </div>
@@ -881,26 +883,21 @@ export default function Home() {
               }
             />
           </a>
-          <WIPBadge
-            content={"WIP"}
-            variant={"error"}
-            size={"extraLarge"}
-            position={"center"}
-          >
+          <a href="/docs/components/progress-bar">
             <UIDisplayCard
               title="Progress Bar"
               component={
                 <svg
-                  width="463"
+                  width="311"
                   height="12"
-                  viewBox="0 0 463 12"
+                  viewBox="0 0 311 12"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <rect
                     x="1"
                     y="1"
-                    width="461"
+                    width="309"
                     height="10"
                     rx="5"
                     fill="#F8CC38"
@@ -909,16 +906,15 @@ export default function Home() {
                     strokeWidth="2"
                   />
                   <path
-                    d="M6 1H173V11H6C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1Z"
+                    d="M1 6C1 3.23858 3.23858 1 6 1H173V11H6C3.23858 11 1 8.76142 1 6Z"
                     fill="#F8CC38"
                     stroke="#F8CC38"
                     strokeWidth="2"
                   />
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
+          </a>
           <a href="/docs/components/tooltip">
             <UIDisplayCard
               title="Tooltip"
@@ -1034,8 +1030,9 @@ export default function Home() {
             />
           </WIPBadge>
         </div>
-        <div className="flex flex-col mt-10 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">
+        <div className="flex flex-row w-full gap-x-3 justify-center items-center bg-dark-primary/50 outline outline-1 outline-dark-secondary rounded-lg py-3">
+          <Blocks className="w-5 h-5 text-accent-primary sm:w-8 sm:h-8" />
+          <h1 className="text-lg sm:text-2xl font-semibold text-white ">
             Prebuilt Components
           </h1>
         </div>
@@ -1316,36 +1313,6 @@ export default function Home() {
                     rx="4"
                     fill="white"
                     fillOpacity="0.2"
-                  />
-                </svg>
-              }
-            />
-          </a>
-        </div>
-        <div className="flex flex-col mt-10 gap-y-3">
-          <h1 className="text-2xl font-semibold text-white ">
-            Navigation Components
-          </h1>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
-          <a href="/docs/components/navbar">
-            <UIDisplayCard
-              title="Navbar"
-              component={
-                <svg
-                  width="56"
-                  height="56"
-                  viewBox="0 0 56 56"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="1"
-                    y="1"
-                    width="54"
-                    height="54"
-                    rx="26"
-                    fill="#F8CC38"
                   />
                 </svg>
               }

@@ -21,9 +21,17 @@ const DocsMenuItem: React.FC<docsMenuItemProps> = ({
   return (
     <a href={`/docs/${hrefText}`}>
       <div
-        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-paragraph-secondary hover:bg-gray-800/80  ${className} ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+        className={`flex flex-row  px-4 py-2 justify-start items-end rounded-lg text-sm bg-gray-900/20 text-paragraph-secondary hover:bg-gray-800/80  ${className} ${
+          disabled ? "opacity-50 cursor-not-allowed" : ""
+        }`}
       >
-        <p className={`${isActive ? "text-[#F8CC38]" : "text-paragraph-secondary"}`}>{text}</p>
+        <p
+          className={`${
+            isActive ? "text-[#F8CC38]" : "text-paragraph-secondary"
+          }`}
+        >
+          {text}
+        </p>
       </div>
     </a>
   );
@@ -35,16 +43,21 @@ interface docsMenuDividerProps {
   sectionTitle: string;
 }
 
-const DocsMenuDivider: React.FC<docsMenuDividerProps> = ({ sectionTitle }) => {
+const DocsMenuDivider: React.FC<docsMenuDividerProps> = ({
+  sectionTitle,
+}) => {
   return (
     <div className="flex flex-col ">
       <div
-        className={`flex flex-row justify-between items-center px-4 py-2 rounded-lg text-sm bg-gray-900/60 text-paragraph-secondary`}
+        className={`flex flex-row justify-between items-center px-4 py-2 rounded-lg text-sm bg-gray-900/60 text-paragraph-secondary gap-x-3`}
       >
-        {sectionTitle.toUpperCase()}
+        <div className="flex flex-row justify-start items-center gap-x-1">
+          {sectionTitle.toUpperCase()}
+        </div>
+
         <ChevronRight
-            className={`w-4 h-4 float-right stroke-[#F8CC38] rotate-90`}
-          />
+          className={`w-4 h-4 float-right stroke-[#F8CC38] rotate-90`}
+        />
       </div>
     </div>
   );
@@ -55,11 +68,12 @@ const DocsMenuSection = ({
   children,
   text,
   isActive,
+  icon,
 }: {
   children: React.ReactNode;
   text: string;
   isActive: boolean;
-  
+  icon?: React.ReactNode;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -68,13 +82,20 @@ const DocsMenuSection = ({
         className="w-full text-left px-2 p-2 mb-2 bg-gray-900/20 text-white hover:bg-gray-800/80 rounded-lg outline outline-1 outline-gray-800"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className="flex flex-row justify-start items-center gap-x-1 ">
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-row justify-start items-center gap-x-3">
+            {icon && <div className="">{icon}</div>}
+            <h2
+              className={`text-lg ${isActive ? "font-bold" : " font-semibold"}`}
+            >
+              {text}
+            </h2>
+          </div>
           <ChevronRight
             className={`w-4 h-4 float-right stroke-[#F8CC38] ${
               isOpen ? "rotate-90" : ""
             }`}
-          />
-          <h2 className={`text-lg ${isActive ? "font-bold" : " font-semibold"}`}>{text}</h2>
+          />{" "}
         </div>
       </button>
       {isOpen && <div className="flex flex-col  gap-y-2 px-4">{children}</div>}
