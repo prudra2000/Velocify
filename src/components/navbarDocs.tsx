@@ -138,7 +138,7 @@ const Navbar = ({
           >
             <Search className="w-4 h-4 stroke-[#F8CC38]" />
             <span className=" hidden md:block ml-2 border border-1 border-accent-primary text-accent-primary rounded-md px-1 text-xs">
-              {navigator.userAgent.includes("Mac") ? "⌘ K" : "Ctrl+K"}
+              {typeof navigator !== "undefined" && navigator.userAgent.includes("Mac") ? "⌘ K" : "Ctrl+K"}
             </span>
           </IconButton>
 
