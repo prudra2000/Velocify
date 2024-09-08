@@ -138,8 +138,12 @@ const MainNavbar: React.FC = () => {
                 text="Tooltip"
                 isActive={currentPath.includes("components/tooltip")}
               />
-              
-              
+              <DocsMenuDivider sectionTitle={"Prebuilt Components"} />
+              <DocsMenuItem
+                hrefText="components/prebuilt/ratings-breakdown"
+                text="Ratings Breakdown"
+                isActive={currentPath.includes("components/prebuilt/ratings-breakdown")}
+              />
               
             </DocsMenuSection>
           </DocsMenu>

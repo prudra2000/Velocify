@@ -9,80 +9,6 @@ import TerminalShowcase from "@/components/terminalShowcase";
 import { ChevronDown, ChevronRight, Github, Youtube, Zap } from "lucide-react";
 
 export default function Home() {
-  const code = `<Badge variant="default">Default</Badge>
-<Badge variant="outline">Outline</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="warning">Warning</Badge>
-<Badge variant="success">Success</Badge>
-<Badge variant="info">Info</Badge>
-<Badge variant="error">Error</Badge>`;
-  const tailwind = `npm install -D tailwindcss
-npx tailwindcss init`;
-  const cva = `npm install class-variance-authority`;
-  const twMerge = `npm install tailwind-merge`;
-  const tsConfig = `import type { Config } from "tailwindcss";
-
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        paragraph: {
-          primary: "#c2c8d1",
-          secondary: "#9ca3af",
-        },
-        accent: {
-          primary: "#F8CC38",
-          secondary: "#F8CC38",
-        },
-        dark: {
-          primary: "#111827",
-          secondary: "#1F2937",
-        },
-        gray:{
-          light: "#F3F4F6",
-          dark: "#4B5563",
-        },
-        light: {
-          primary: "#E5E7EB",
-          secondary: "#D1D5DB",
-        },
-        warning: {
-          primary: "#EAB308",
-          secondary: "#FDE047",
-          hover: "#FACC15",
-        },
-        success: {
-          primary: "#22C55E",
-          secondary: "#86EFAC",
-          hover: "#4ADE80",
-        },
-        info: {
-          primary: "#3B82F6",
-          secondary: "#93C5FD",
-          hover: "#60A5FA",
-        },
-        error: {
-          primary: "#EF4444",
-          secondary: "#FCA5A5",
-          hover: "#F87171",
-        },
-        link: {
-          primary: "#1D4ED8"
-        },
-        darkBG: "#030711",
-        lightBG: "#FFFFFF",
-      },
-    },
-  },
-  plugins: [],
-};
-export default config;
-`;
   return (
     <main className="bg-[#030711] p-10 flex flex-col items-center gap-x-10 h-screen">
       <div className="flex flex-col gap-y-2 w-full md:w-3/4 mt-10">
@@ -101,14 +27,13 @@ export default config;
           <h1 className="text-2xl font-semibold text-white ">Tailwind CSS</h1>
           <div className="flex flex-col gap-y-2 text-paragraph-primary">
             <div
-              className="relative w-full"
-              style={{ paddingBottom: "56.25%" }}
+              className="flex flex-col md:flex-row gap-x-5 "
             >
               <iframe
-                className="absolute top-0 left-0 w-full h-full focus:outline-none"
+                className="focus:outline-none w-full h-96"
                 src="https://www.youtube.com/embed/RPa3_AD1_Vs"
                 title="YouTube video player"
-                frameBorder="0"
+                frameBorder=""
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               ></iframe>

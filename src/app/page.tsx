@@ -66,7 +66,7 @@ npm install class-variance-authority`;
             <h2 className="text-2xl font-medium bg-gradient-to-b from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
               Performance, Customizability, & Accessibility
             </h2>
-            <p className="text-paragraph-secondary">
+            <p className="text-paragraph-secondary w-full md:w-1/2" >
               Velocify is a modern UI component library designed to accelerate
               web development. Copy and pasteable components build with
               responsive design principles.
