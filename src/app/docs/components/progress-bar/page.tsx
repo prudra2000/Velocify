@@ -68,7 +68,7 @@ export default function Home() {
               options &#40;small, default, large&#41;, style variants &#40;default,
               secondary&#41;, and the ability to display percentage labels.
               Additional features such as rounded corners and disabled states
-              make it adaptable to different design needs. The component's
+              make it adaptable to different design needs. The component&apos;s
               default progress bar color is customizable, and it seamlessly
               integrates with your project to deliver a sleek, dynamic progress
               indicator.
