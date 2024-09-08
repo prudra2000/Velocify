@@ -25,7 +25,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex justify-center items-start pt-16 sm:pt-0 sm:items-center sm:justify-center bg-black bg-opacity-50 text-white backdrop-blur-sm">
+    <div ref={ref} className="fixed inset-0 flex justify-center items-start pt-16 sm:pt-0 sm:items-center sm:justify-center bg-black bg-opacity-50 text-white backdrop-blur-sm">
       <div
         className={`flex flex-col gap-y-2 bg-dark-primary rounded-lg shadow-lg h-max w-3/4 md:w-1/2 outline outline-1 outline-dark-secondary ${className}`}
       >
