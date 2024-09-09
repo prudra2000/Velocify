@@ -1,14 +1,15 @@
 "use client";
 import React, { useState } from "react";
 
-
 interface VelocifyUILogoProps {
   className?: string;
 }
 
 const VelocifyUILogo: React.FC<VelocifyUILogoProps> = ({ className }) => {
   return (
-    <div className={`flex flex-row items-center bg-black rounded-md border border-1 border-white/10 p-[1px] ${className}`}>
+    <div
+      className={`flex flex-row items-center bg-black rounded-md border border-1 border-white/10 p-[1px] ${className}`}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
@@ -44,6 +45,6 @@ const VelocifyUILogo: React.FC<VelocifyUILogoProps> = ({ className }) => {
       </svg>
     </div>
   );
-}
+};
 
 export default VelocifyUILogo;

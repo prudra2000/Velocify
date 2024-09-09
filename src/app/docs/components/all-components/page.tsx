@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
+    <main className="bg-[#030711] flex flex-col items-center p-10 z-10">
       <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5 items-center">
         <div className="flex flex-row justify-center items-center mt-5 gap-x-3 mb-5">
           <Shapes className="w-10 h-10 text-accent-primary" />

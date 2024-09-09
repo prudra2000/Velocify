@@ -17,8 +17,7 @@ const MainNavbar: React.FC = () => {
     <Navbar
       logo={
         <a href="/">
-        <div className="flex flex-row items-center gap-x-2">
-          
+          <div className="flex flex-row items-center gap-x-2">
             <VelocifyUILogo className="w-7 h-7" />
             <p className="text-xl font-bold bg-gradient-to-r from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
               Velocify UI
@@ -29,7 +28,14 @@ const MainNavbar: React.FC = () => {
       links={
         <div className="flex flex-col gap-y-2 w-full max-h-screen overflow-y-auto pb-52">
           <DocsMenu>
-            <DocsMenuSection text="Get Started" isActive={currentPath.includes("installation") || currentPath.includes("usage")} icon={<Rocket className="w-5 h-5 text-accent-primary " />}>
+            <DocsMenuSection
+              text="Get Started"
+              isActive={
+                currentPath.includes("installation") ||
+                currentPath.includes("usage")
+              }
+              icon={<Rocket className="w-5 h-5 text-accent-primary " />}
+            >
               <DocsMenuItem
                 hrefText="installation"
                 text="Installation"
@@ -40,14 +46,17 @@ const MainNavbar: React.FC = () => {
                 text="Usage"
                 isActive={currentPath.includes("usage")}
               />
+            </DocsMenuSection>
+            <DocsMenuSection
+              text="Components"
+              isActive={currentPath.includes("components")}
+              icon={<Shapes className="w-5 h-5 text-accent-primary " />}
+            >
               <DocsMenuItem
                 hrefText="components/all-components"
                 text="All Components"
                 isActive={currentPath.includes("components/all-components")}
               />
-            </DocsMenuSection>
-            <DocsMenuSection text="Components" isActive={currentPath.includes("components")} icon={<Shapes className="w-5 h-5 text-accent-primary " />}>
-              
               <DocsMenuDivider sectionTitle={"Input Components"} />
               <DocsMenuItem
                 hrefText="components/button"
@@ -100,12 +109,12 @@ const MainNavbar: React.FC = () => {
               <DocsMenuItem
                 hrefText="components/switch"
                 text="Switch"
-                isActive={currentPath.includes("components/switch")} 
+                isActive={currentPath.includes("components/switch")}
               />
               <DocsMenuItem
                 hrefText="components/textarea"
                 text="Textarea"
-                isActive={currentPath.includes("components/textarea")} 
+                isActive={currentPath.includes("components/textarea")}
               />
               <DocsMenuDivider sectionTitle={"Display Components"} />
               <DocsMenuItem
@@ -143,9 +152,10 @@ const MainNavbar: React.FC = () => {
               <DocsMenuItem
                 hrefText="components/prebuilt/ratings-breakdown"
                 text="Ratings Breakdown"
-                isActive={currentPath.includes("components/prebuilt/ratings-breakdown")}
+                isActive={currentPath.includes(
+                  "components/prebuilt/ratings-breakdown"
+                )}
               />
-              
             </DocsMenuSection>
           </DocsMenu>
         </div>

@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         paragraph: {
           primary: "#c2c8d1",
-          secondary: "#9ca3af",
+          secondary: "#8a919c",
         },
         accent: {
           primary: "#F8CC38",

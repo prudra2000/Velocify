@@ -134,7 +134,7 @@ const Navbar = ({
             variant="default"
             size="default"
             onClick={() => handleOpenDialog()}
-            className="px-3"
+            className=""
           >
             <Search className="w-4 h-4 stroke-[#F8CC38]" />
             <span className=" hidden md:block ml-2 border border-1 border-accent-primary text-accent-primary rounded-md px-1 text-xs">
@@ -157,21 +157,21 @@ const Navbar = ({
             <Github className="w-4 h-4 stroke-[#F8CC38]" />
           </IconButton>
           {isOpen ? (
-            <Button
+            <IconButton
               variant="default"
               className="rounded-full"
               onClick={closeNavbar}
             >
               <X className="h-4 w-4 stroke-[#F8CC38]" />
-            </Button>
+            </IconButton>
           ) : (
-            <Button
+            <IconButton
               variant="default"
               className="rounded-full"
               onClick={toggleNavbar}
             >
               <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
-            </Button>
+            </IconButton>
           )}
         </div>
         <div className="-mr-2 flex md:hidden gap-x-2 items-center">
@@ -201,21 +201,21 @@ const Navbar = ({
             <Github className="w-4 h-4 stroke-[#F8CC38]" />
           </IconButton>
           {isOpen ? (
-            <Button
+            <IconButton
               variant="default"
               className="rounded-full"
               onClick={closeNavbar}
             >
               <X className="h-4 w-4 stroke-[#F8CC38]" />
-            </Button>
+            </IconButton>
           ) : (
-            <Button
+            <IconButton
               variant="default"
               className="rounded-full"
               onClick={toggleNavbar}
             >
               <AlignJustify className="h-4 w-4 stroke-[#F8CC38]" />
-            </Button>
+            </IconButton>
           )}
         </div>
       </div>
@@ -274,12 +274,13 @@ const Navbar = ({
                 )}
               </>
             )}
-            {filteredDocs.slice(0, 5).map((doc: { title: string; href: string; id: string }) => (
+            {filteredDocs.slice(0, 5).map((doc: { title: string; href: string; id: string, description: string }) => (
               <a href={doc.href} key={doc.id}>
                 <div className="rounded-lg py-2 px-4 w-full flex flex-row justify-between items-center bg-dark-primary outline outline-1 outline-dark-secondary hover:bg-dark-secondary">
-                  <h2 className="text-sm text-paragraph-primary">
-                    {doc.title}
-                  </h2>
+                  <div className="flex flex-col gap-y-1">
+                    <h2 className="text-sm text-paragraph-primary">{doc.title}  </h2>
+                    {/* <p className="text-xs text-paragraph-secondary">{doc.description}</p> */}
+                  </div>
                   <ChevronRight className="w-4 h-4 stroke-[#F8CC38]" />
                 </div>
               </a>

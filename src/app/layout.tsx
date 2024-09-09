@@ -30,12 +30,19 @@ export default function RootLayout({
           content="UI library, web development, performance, customizability, accessibility"
         />
 
-        <meta property="og:title" content="Velocify UI" />
+        <meta
+          property="og:title"
+          content="Velocify UI - Performance, Customizability, & Accessibility"
+        />
         <meta
           property="og:description"
-          content="Modern UI component library for fast, customizable, and accessible web development"
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components built with responsive design principles."
         />
-        <meta property="og:image" content="/og-image.jpg" />
+        <meta
+          property="og:image"
+          content="https://github.com/prudra2000/Velocify/blob/main/public/All.png?raw=true"
+        />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content="Velocify UI" />
@@ -48,11 +55,17 @@ export default function RootLayout({
         />
         <meta
           property="og:description"
-          content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities."
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components build with responsive design principles."
         />
         <meta property="og:image" content="" />
 
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://github.com/prudra2000/Velocify/blob/main/public/All.png?raw=true"
+        />
+        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
         <meta property="twitter:domain" content="velocifyui.com" />
         <meta property="twitter:url" content="https://www.velocifyui.com/" />
         <meta
@@ -61,9 +74,8 @@ export default function RootLayout({
         />
         <meta
           name="twitter:description"
-          content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities."
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components build with responsive design principles."
         />
-        <meta name="twitter:image" content="" />
       </Head>
       <body className={inter.className}>
         <div className="z-10 fixed w-screen ">

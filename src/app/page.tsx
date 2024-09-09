@@ -1,10 +1,6 @@
 "use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
-import CodeShowcase from "@/components/CodeShowcase";
-import ComponentCodeShowcase from "@/components/ComponentCodeShowcase";
-import { Dialog } from "@/components/dialog";
-import TerminalShowcase from "@/components/terminalShowcase";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import {
   ChevronRight,
@@ -13,9 +9,7 @@ import {
   PersonStanding,
   User,
   Github,
-} from "lucide-react"; // Ensure this import is present
-import Head from "next/head"; // Ensure this import is correct
-import Link from "next/link";
+} from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -28,20 +22,6 @@ export default function Home() {
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
   };
-  // useEffect(() => {
-  //   document.title =
-  //     "Velocify UI - Performance, Customizability, & Accessibility";
-  // }, []);
-  const basicSwitch = `import { Switch } from "@/components/switch";
-
-const BasicSwitch = () => {
-  return <Switch />;
-};
-
-export default BasicSwitch;`;
-  const terminal = `npm install @velocify/ui
-npm install twMerge
-npm install class-variance-authority`;
   return (
     <>
       <head>

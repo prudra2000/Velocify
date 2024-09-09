@@ -167,3 +167,23 @@
 }
 
 
+.floating-svgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Prevent interaction */
+}
+
+.float-svg {
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.5s ease;
+}
+
+@keyframes float {
+  0% { transform: translateY(0);
+  rotate: 0deg; }
+  50% { transform: translateY(-20px);
+  rotate: 10deg; }
+  100% { transform: translateY(0);
+  rotate: 0deg; }
+}
