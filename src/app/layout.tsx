@@ -38,10 +38,8 @@ export default function RootLayout({
           property="og:description"
           content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components built with responsive design principles."
         />
-        <meta
-          property="og:image"
-          content="https://raw.githubusercontent.com/prudra2000/Velocify/main/public/All.png"
-        />
+        <meta property="og:image" content="https://www.velocifyui.com/All.png" />
+
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -61,7 +59,7 @@ export default function RootLayout({
 
         <meta
           name="twitter:image"
-          content="https://raw.githubusercontent.com/prudra2000/Velocify/main/public/All.png"
+          content="https://www.velocifyui.com/All.png"
         />
         <meta name="twitter:image:type" content="image/png" />
         <meta name="twitter:image:width" content="1200" />
