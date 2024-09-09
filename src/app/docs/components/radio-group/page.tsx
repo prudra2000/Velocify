@@ -281,17 +281,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-col mt-5 gap-y-2">
-            <h1 className="text-2xl font-semibold text-white ">
-              Switch Variants
-            </h1>
-            <p className="text-paragraph-secondary">
-              The Switch component offers various variants, including default,
-              outline, secondary, warning, success, info, and error, each
-              designed to convey different meanings and enhance visual
-              distinction in your application.
-            </p>
-          </div>
+        
         </div>
       </main>
     </>

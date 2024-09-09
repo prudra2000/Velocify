@@ -251,7 +251,6 @@ export default function Home() {
                       />
                     </Badge>
                     <Badge content="Default" size="default">
-                      z
                       <Avatar
                         alt="Jane Doe"
                         src="/avatarImage.png"

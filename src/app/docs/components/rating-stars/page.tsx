@@ -18,7 +18,7 @@ export default function Home() {
     { prop: "rating*", type: "number", default: "-" },
     { prop: "starColor", type: "string", default: "-" },
     { prop: "clickable", type: "boolean", default: "-" },
-    { prop: "maxRating", type: "number", default: "default" },
+    { prop: "maxRating", type: "number", default: "5" },
     { prop: "size", type: "string", default: "default" },
     { prop: "className", type: "boolean", default: "false" },
     { prop: "disabled", type: "boolean", default: "false" },
