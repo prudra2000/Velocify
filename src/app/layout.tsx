@@ -23,7 +23,7 @@ export default function RootLayout({
         </title>
         <meta
           name="description"
-          content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience."
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components built with responsive design principles."
         />
         <meta
           name="keywords"

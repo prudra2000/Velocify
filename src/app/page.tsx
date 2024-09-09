@@ -30,7 +30,56 @@ export default function Home() {
         </title>
         <meta
           name="description"
-          content="Velocify is a modern UI component library designed to accelerate web development. Built with performance as a priority, ensuring fast load times, smooth interactions, and an optimized user experience. Designed to be highly customizable, allowing developers to tailor the UI to their specific needs. Ensuring accessibility, these are crafted to be usable by everyone, including individuals with disabilities."
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components built with responsive design principles."
+        />
+        <meta
+          name="keywords"
+          content="UI library, web development, performance, customizability, accessibility"
+        />
+
+        <meta
+          property="og:title"
+          content="Velocify UI - Performance, Customizability, & Accessibility"
+        />
+        <meta
+          property="og:description"
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components built with responsive design principles."
+        />
+        <meta property="og:image" content="https://www.velocifyui.com/All.png" />
+
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Velocify UI" />
+
+        <meta property="og:url" content="https://www.velocifyui.com/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Velocify UI - Performance, Customizability, & Accessibility"
+        />
+        <meta
+          property="og:description"
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components build with responsive design principles."
+        />
+        <meta property="og:image" content="" />
+
+        <meta
+          name="twitter:image"
+          content="https://www.velocifyui.com/All.png"
+        />
+        <meta name="twitter:image:type" content="image/png" />
+        <meta name="twitter:image:width" content="1200" />
+        <meta name="twitter:image:height" content="630" />
+        <meta property="twitter:domain" content="velocifyui.com" />
+        <meta property="twitter:url" content="https://www.velocifyui.com/" />
+        <meta
+          name="twitter:title"
+          content="Velocify UI - Performance, Customizability, & Accessibility"
+        />
+        <meta
+          name="twitter:description"
+          content="Velocify is a modern UI component library designed to accelerate web development. Copy and pasteable components build with responsive design principles."
         />
       </head>
       <main className="bg-[#030711] flex flex-col items-center gap-x-10 z-10">
