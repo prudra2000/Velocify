@@ -40,7 +40,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://github.com/prudra2000/Velocify/blob/main/public/All.png?raw=true"
+          content="https://raw.githubusercontent.com/prudra2000/Velocify/main/public/All.png"
         />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
@@ -61,7 +61,7 @@ export default function RootLayout({
 
         <meta
           name="twitter:image"
-          content="https://github.com/prudra2000/Velocify/blob/main/public/All.png?raw=true"
+          content="https://raw.githubusercontent.com/prudra2000/Velocify/main/public/All.png"
         />
         <meta name="twitter:image:type" content="image/png" />
         <meta name="twitter:image:width" content="1200" />
