@@ -22,15 +22,15 @@ export default function Home() {
               quickly get started.
             </p>
           </div>
-          {/* <div className="flex flex-col mt-5 gap-y-2">
+           <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">Tailwind CSS</h1>
             <div className="flex flex-col gap-y-2 text-paragraph-primary">
               <div className="flex flex-col md:flex-row gap-x-5 ">
                 <iframe
                   className="focus:outline-none w-full h-96"
-                  src="https://www.youtube.com/embed/RPa3_AD1_Vs"
-                  title="YouTube video player"
-                  frameBorder=""
+                  src="https://www.youtube.com/embed/bEyr2UTBGaI?si=xiea126XbC3yAPh_"
+                  title="Velocify UI - Installation & Usage"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
@@ -41,14 +41,14 @@ export default function Home() {
                 socialLinks={[
                   {
                     name: "GitHub",
-                    url: "https://github.com",
+                    url: "https://github.com/prudra2000/Velocify",
                     icon: (
                       <Github className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
                     ),
                   },
                   {
                     name: "Youtube",
-                    url: "https://github.com",
+                    url: "https://www.youtube.com/@velocifyui",
                     icon: (
                       <Youtube className="w-5 h-5 bg-transparent border-0 stroke-[#F8CC38]" />
                     ),
@@ -56,7 +56,7 @@ export default function Home() {
                 ]} // Example social link
               />
             </div>
-          </div> */}
+          </div> 
         </div>
       </main>
     </>
