@@ -22,7 +22,7 @@ export default function Home() {
               quickly get started.
             </p>
           </div>
-          <div className="flex flex-col mt-5 gap-y-2">
+          {/* <div className="flex flex-col mt-5 gap-y-2">
             <h1 className="text-2xl font-semibold text-white ">Tailwind CSS</h1>
             <div className="flex flex-col gap-y-2 text-paragraph-primary">
               <div className="flex flex-col md:flex-row gap-x-5 ">
@@ -56,7 +56,7 @@ export default function Home() {
                 ]} // Example social link
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
     </>

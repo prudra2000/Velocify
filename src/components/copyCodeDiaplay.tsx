@@ -9,7 +9,7 @@ interface CopyCodeDisplayProps {
 
 const CopyCodeDisplay: React.FC<CopyCodeDisplayProps> = ({ fileName, handleOpenDialog }) => {
   return (
-    <div className="flex flex-row justify-between items-center w-full h-full p-4 bg-accent-primary/30 rounded-lg border-2 border-accent-primary">
+    <div className="flex flex-col sm:flex-row gap-y-2 sm:gap-y-0 justify-between items-center w-full h-full p-4 bg-accent-primary/30 rounded-lg border-2 border-accent-primary">
       <div className="flex flex-row justify-start items-center gap-x-2">
         <p className="text-white text-sm"><span className="font-bold underline">{fileName}.tsx</span></p>
       </div>
