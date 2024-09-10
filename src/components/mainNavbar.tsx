@@ -41,6 +41,11 @@ const MainNavbar: React.FC = () => {
                 text="Installation"
                 isActive={currentPath.includes("installation")}
               />
+              <DocsMenuItem
+                hrefText="usage"
+                text="Usage"
+                isActive={currentPath.includes("usage")}
+              />
             </DocsMenuSection>
             <DocsMenuSection
               text="Components"
