@@ -177,12 +177,12 @@ export default function Home() {
           <Button onClick={handleOpenDialog}>Open Dialog</Button> */}
           
         </div>
-        <div className="flex flex-col gap-y-5">
+        {/* <div className="flex flex-col gap-y-5">
           <h2 className="text-2xl font-medium bg-gradient-to-b from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
             Customize your theme
           </h2>
-          <Slider step={1} />
-        </div>
+          <Slider min={0} max={100} step={10} rounded="full"  />
+        </div> */}
       </main>
     </>
   );
