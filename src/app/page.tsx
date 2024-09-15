@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
+import Slider from "@/components/slider";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import {
   ChevronRight,
@@ -174,6 +175,13 @@ export default function Home() {
             />
           </Dialog>
           <Button onClick={handleOpenDialog}>Open Dialog</Button> */}
+          
+        </div>
+        <div className="flex flex-col gap-y-5">
+          <h2 className="text-2xl font-medium bg-gradient-to-b from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
+            Customize your theme
+          </h2>
+          <Slider step={1} />
         </div>
       </main>
     </>
