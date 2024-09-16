@@ -1,9 +1,8 @@
 "use client";
-import React, { useEffect, useState } from "react"; // Add this import
+import React, { useState } from "react"; // Add this import
 import { Chip } from "@/components/chip";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
-import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import Avatar from "@/components/avatar";
 import { Zap } from "lucide-react";

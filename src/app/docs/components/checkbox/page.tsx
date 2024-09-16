@@ -2,7 +2,6 @@
 import React, { useState } from "react"; // Add this import
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
-import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import { ThumbsUp } from "lucide-react";
 import Checkbox from "@/components/checkbox";

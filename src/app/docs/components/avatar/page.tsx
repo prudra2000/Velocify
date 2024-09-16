@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
-import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
 import TableProps from "@/components/Docs Components/tableProps";
 import Avatar from "@/components/avatar";

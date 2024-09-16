@@ -2,10 +2,7 @@
 import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
-import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import { Zap } from "lucide-react";
-import { IconButton } from "@/components/iconButton";
 import TableProps from "@/components/Docs Components/tableProps";
 import RatingStars from "@/components/ratingstars";
 import { CodeDialog } from "@/components/codeDialog";

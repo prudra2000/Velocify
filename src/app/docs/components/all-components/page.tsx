@@ -613,12 +613,7 @@ export default function Home() {
               disabled={true}
             />
           </WIPBadge>
-          <WIPBadge
-            content={"WIP"}
-            variant={"error"}
-            size={"extraLarge"}
-            position={"center"}
-          >
+          <a href="/docs/components/slider">
             <UIDisplayCard
               title="Slider"
               component={
@@ -704,9 +699,8 @@ export default function Home() {
                   </defs>
                 </svg>
               }
-              disabled={true}
             />
-          </WIPBadge>
+          </a>
           <a href="/docs/components/rating-stars">
             <UIDisplayCard
               title="Rating"

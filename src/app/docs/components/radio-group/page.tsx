@@ -2,9 +2,7 @@
 import React, { useEffect, useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
-import TerminalShowcase from "@/components/terminalShowcase";
 import Table from "@/components/table";
-import RadioGroup from "@/components/switch";
 import RadioButtonGroup from "@/components/radioButtonGroup";
 import CopyCodeDisplay from "@/components/copyCodeDiaplay";
 import { CodeDialog } from "@/components/codeDialog";

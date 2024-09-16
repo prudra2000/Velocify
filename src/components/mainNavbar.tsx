@@ -132,7 +132,7 @@ const MainNavbar: React.FC = () => {
                 isActive={currentPath.includes("components/chip")}
               />
               <DocsMenuItem
-                hrefText=""
+                hrefText="components/divider"
                 text="Divider"
                 isActive={currentPath.includes("components/divider")}
                 disabled={true}

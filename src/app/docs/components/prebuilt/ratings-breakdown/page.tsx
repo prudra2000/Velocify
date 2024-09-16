@@ -1,12 +1,8 @@
 "use client";
-import React, { useState } from "react"; // Add this import
+import React, { useState } from "react"; 
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import Table from "@/components/table";
-import Avatar from "@/components/avatar";
-import { Copy, X, Zap } from "lucide-react";
-import { Button } from "@/components/button";
-import TableProps from "@/components/Docs Components/tableProps";
 import { CodeDialog } from "@/components/codeDialog";
 import CopyCodeDisplay from "@/components/copyCodeDiaplay";
 import RatingsBreakdown from "@/components/ratingsbreakdown";

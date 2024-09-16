@@ -7,6 +7,7 @@ import TableProps from "@/components/Docs Components/tableProps";
 import CopyCodeDisplay from "@/components/copyCodeDiaplay";
 import { CodeDialog } from "@/components/codeDialog";
 import Slider from "@/components/slider";
+import { Divider } from "@/components/divider";
 
 export default function Home() {
   const sliderTableColumns = [{ col1: "Prop", col2: "Type", col3: "Default" }];
@@ -62,48 +63,37 @@ export default function Home() {
   return (
     <>
       <head>
-        <title>Velocify UI - Slider</title>
+        <title>Velocify UI - Divider</title>
         <meta
           name="description"
-          content="Check out the Slider component in Velocify UI"
+          content="Check out the Divider component in Velocify UI"
         />
       </head>
       <main className="bg-[#030711] p-10 flex flex-col items-center  z-10">
         <div className="flex flex-col w-full md:w-3/4 mt-5 gap-y-5">
           <div className="flex flex-col mt-5 gap-y-3">
-            <h2 className="text-3xl font-bold text-white ">Slider</h2>
-            <p className="text-paragraph-secondary">
-              The Slider component in Velocify UI offers a highly customizable
-              range input element designed to handle dynamic values with
-              precision. It supports a variety of configurations such as min,
-              max, step, and initialValue, providing flexibility in setting the
-              value range and granularity. The component also includes style
-              variants, size options, and the ability to customize the
-              appearance of the slider thumb and step markers. This makes the
-              Slider ideal for scenarios where users need to adjust values
-              within a range, with the added benefit of smooth interaction and
-              adaptability.
-            </p>
+            <h2 className="text-3xl font-bold text-white ">Divider</h2>
+            <p className="text-paragraph-secondary"></p>
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
-              Slider Installation
+              Divider Installation
             </h1>
             <CopyCodeDisplay
-              fileName="slider"
+              fileName="divider"
               handleOpenDialog={handleOpenDialog}
             />
             <CodeDialog
               isOpen={isDialogOpen}
               onClose={handleCloseDialog}
-              title="Slider"
-              fileName="slider"
+              title="Divider"
+              fileName="divider"
               className="bg-dark-primary/80"
             />
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
-              Slider Basic Usage
+              Divider Basic Usage
             </h1>
             <div className="flex flex-col gap-y-2  ">
               <ElementShowcase
@@ -115,8 +105,14 @@ export default function Home() {
                 }
                 element={
                   <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <div className="w-56">
-                      <Slider />
+                    <div className="flex flex-col w-56 text-center bg-dark-primary rounded-lg outline outline-1 outline-dark-secondary text-white text-sm ">
+                      <div className="flex flex-row gap-x-2 justify-center">
+                        <p className="p-2">Value:</p>
+                        <Divider orientation="vertical" />
+                        <p className="p-2">Value:</p>
+                      </div>
+                      <Divider orientation="horizontal" size="small" />
+                      <p className="p-2">Value:</p>
                     </div>
                   </div>
                 }

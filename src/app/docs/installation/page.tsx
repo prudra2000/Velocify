@@ -1,19 +1,8 @@
 "use client";
 
-import { Button } from "@/components/button";
-import CodeShowcase from "@/components/CodeShowcase";
-import ElementShowcase from "@/components/docsShowcase";
 import TerminalShowcase from "@/components/terminalShowcase";
-import { ChevronDown, ChevronRight } from "lucide-react";
 
 export default function Home() {
-  const code = `<Badge variant="default">Default</Badge>
-<Badge variant="outline">Outline</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="warning">Warning</Badge>
-<Badge variant="success">Success</Badge>
-<Badge variant="info">Info</Badge>
-<Badge variant="error">Error</Badge>`;
   const tailwind = `npm install -D tailwindcss
 npx tailwindcss init`;
   const cva = `npm install class-variance-authority`;

@@ -1,7 +1,6 @@
 "use client";
 import { Button } from "@/components/button";
 import Card from "@/components/card";
-import Slider from "@/components/slider";
 import VelocifyUILogo from "@/components/velocifyUILogo";
 import {
   ChevronRight,
@@ -11,18 +10,8 @@ import {
   User,
   Github,
 } from "lucide-react";
-import { useState } from "react";
 
 export default function Home() {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-
-  const handleOpenDialog = () => {
-    setIsDialogOpen(true);
-  };
-
-  const handleCloseDialog = () => {
-    setIsDialogOpen(false);
-  };
   return (
     <>
       <head>

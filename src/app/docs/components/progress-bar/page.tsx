@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react"; // Add this import
+import React, { useState } from "react";
 import CodeShowcase from "@/components/CodeShowcase";
 import ElementShowcase from "@/components/docsShowcase";
 import Table from "@/components/table";
