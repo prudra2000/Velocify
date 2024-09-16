@@ -1,9 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import { IconButton } from "./iconButton";
-import { Copy, Github } from "lucide-react";
-import { Button } from "./button";
-import Tooltip from "./tooltip";
 
 interface ElementShowcaseProps {
   element: React.ReactNode;

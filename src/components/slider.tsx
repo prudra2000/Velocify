@@ -17,12 +17,6 @@ const sliderVariants = cva("", {
       large: "rounded-lg",
       full: "rounded-full",
     },
-    position: {
-      top: "bottom-full mb-2",
-      bottom: "top-full mt-2",
-      left: "right-full mr-2",
-      right: "left-full ml-2",
-    },
     size: {
       default: "h-2",
       large: "h-3",
@@ -32,8 +26,7 @@ const sliderVariants = cva("", {
   defaultVariants: {
     sliderVariant: "default",
     size: "default",
-    rounded: "small",
-    position: "top",
+    rounded: "full",
   },
 });
 
@@ -41,8 +34,13 @@ const thumbVariants = cva("", {
   variants: {
     thumbVariant: {
       default: "bg-blue-500",
-      secondary: "bg-red-500",
-      custom: "bg-green-500",
+      secondary: "bg-dark-secondary",
+      custom: "",
+    },
+    thumbSize: {
+      default: "h-4 w-4",
+      large: "h-5 w-5",
+      small: "h-3 w-3",
     },
   },
 });
@@ -51,12 +49,13 @@ const stepVariants = cva("", {
   variants: {
     stepVariant: {
       default: "bg-dark-secondary/50",
-      secondary: "bg-red-500",
+      secondary: "bg-light-secondary/70",
       custom: "bg-green-500",
     },
     stepSize: {
       default: "h-2",
-      small: "h-0.5",
+      large: "h-3",
+      small: "h-1",
     },
     stepRound: {
       default: "rounded-none",
@@ -79,44 +78,47 @@ interface SliderProps
   max?: number;
   step?: number;
   initialValue?: number;
+  onChange?: (value: number) => void;
   stepMark?: boolean;
   className?: string;
   sliderVariant?: "default" | "secondary" | "custom";
   rounded?: "small" | "medium" | "large" | "full";
-  position?: "top" | "bottom" | "left" | "right";
   size?: "default" | "large" | "small";
   thumbVariant?: "default" | "secondary" | "custom";
+  thumbSize?: "default" | "large" | "small";
   stepVariant?: "default" | "secondary" | "custom";
   stepSize?: "default" | "small";
   stepRound?: "default" | "small" | "large";
+  disabled?: boolean;
 }
 
 const Slider: React.FC<SliderProps> = ({
   min = 0,
   max = 100,
   step = 1,
-  initialValue = 50,
+  initialValue = 0,
   stepMark = true,
+  onChange,
   sliderVariant = "default",
-  rounded = "small",
-  position = "top",
+  rounded = "full",
   size = "default",
   thumbVariant = "default",
-  stepVariant = "default",
-  stepSize = "default",
+  thumbSize = size,
+  stepVariant = sliderVariant,
+  stepSize = size,
   stepRound = "default",
+  disabled = false,
 }) => {
   const [value, setValue] = useState(initialValue);
   const sliderRef = useRef<HTMLDivElement>(null);
-
   const handleMouseMove = (e: MouseEvent) => {
-    if (sliderRef.current) {
+    if (sliderRef.current && !disabled) {
       const rect = sliderRef.current.getBoundingClientRect();
       const newX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
       const newValue = Math.round((newX / rect.width) * (max - min) + min);
-      // {{ edit_1 }}
-      const steppedValue = Math.round(newValue / step) * step; // Adjust to step
+      const steppedValue = Math.round(newValue / step) * step;
       setValue(steppedValue);
+      if (onChange) onChange(steppedValue);
     }
   };
 
@@ -126,18 +128,47 @@ const Slider: React.FC<SliderProps> = ({
       document.removeEventListener("mousemove", handleMouseMove);
     });
   };
+  const handleTouchMove = (e: TouchEvent) => {
+    if (sliderRef.current && !disabled) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const newX = Math.min(Math.max(e.touches[0].clientX - rect.left, 0), rect.width);
+      const newValue = Math.round((newX / rect.width) * (max - min) + min);
+      const steppedValue = Math.round(newValue / step) * step;
+      setValue(steppedValue);
+      if (onChange) onChange(steppedValue);
+    }
+  };
+
+  const handleTouchStart = () => {
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", () => {
+      document.removeEventListener("touchmove", handleTouchMove);
+    });
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (sliderRef.current && !disabled) {
+      const rect = sliderRef.current.getBoundingClientRect();
+      const newX = Math.min(Math.max(e.clientX - rect.left, 0), rect.width);
+      const newValue = Math.round((newX / rect.width) * (max - min) + min);
+      const steppedValue = Math.round(newValue / step) * step;
+      setValue(steppedValue);
+      if (onChange) onChange(steppedValue);
+    }
+  };
+
   const renderSteps = () => {
     if (step >= 5) {
       const stepsCount = Math.floor((max - min) / step);
       return Array.from({ length: stepsCount - 1 }, (_, index) => (
         <div
-          key={index + 1} // Adjusted index to skip the first step
+          key={index + 1}
           className={twMerge(
             "absolute w-0.5 bg-gray-500 ",
             stepVariants({ stepVariant, stepSize, stepRound })
           )}
           style={{
-            left: `${((index + 1) / stepsCount) * 100}%`, // Adjusted for correct positioning
+            left: `${((index + 1) / stepsCount) * 100}%`,
             top: "0",
             transform: "translateX(-50%)",
           }}
@@ -157,25 +188,32 @@ const Slider: React.FC<SliderProps> = ({
             ref={sliderRef}
             className={twMerge(
               "relative w-full h-2 bg-gray-300 rounded-lg ",
-              sliderVariants({ sliderVariant, rounded, position, size })
+              sliderVariants({ sliderVariant, rounded, size })
             )}
             onMouseDown={handleMouseDown}
+            onTouchStart={handleTouchStart}
+            onClick={handleClick}
           >
             <div
               className={twMerge(
-                "absolute h-2 rounded-lg",
+                "absolute rounded-lg " +
+                  (size === "default"
+                    ? "h-2"
+                    : size === "small"
+                    ? "h-1"
+                    : "h-3"),
                 thumbVariants({ thumbVariant })
-              )} // New filled portion
+              )}
               style={{
-                width: `${((value - min) / (max - min)) * 100}%`, // Fill based on current value
+                width: `${((value - min) / (max - min)) * 100}%`,
                 top: 0,
               }}
             />
             {stepMark && renderSteps()}
             <div
               className={twMerge(
-                "absolute h-4 w-4 rounded-full cursor-pointer",
-                thumbVariants({ thumbVariant })
+                "absolute rounded-full cursor-pointer",
+                thumbVariants({ thumbVariant, thumbSize })
               )}
               style={{
                 left: thumbPosition,
@@ -185,7 +223,6 @@ const Slider: React.FC<SliderProps> = ({
             />
           </div>
         </div>
-        <div className="text-paragraph-primary">{value}</div>
       </div>
     </>
   );

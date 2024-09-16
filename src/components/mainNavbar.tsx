@@ -9,7 +9,7 @@ import {
 } from "./docsMenuItem";
 
 import { usePathname } from "next/navigation";
-import { Shapes, Rocket, TextCursorInput } from "lucide-react";
+import { Shapes, Rocket } from "lucide-react";
 
 const MainNavbar: React.FC = () => {
   const currentPath = usePathname();
@@ -101,10 +101,9 @@ const MainNavbar: React.FC = () => {
                 disabled={true}
               />
               <DocsMenuItem
-                hrefText=""
+                hrefText="components/slider"
                 text="Slider"
                 isActive={currentPath.includes("components/slider")}
-                disabled={true}
               />
               <DocsMenuItem
                 hrefText="components/switch"

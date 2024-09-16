@@ -2,8 +2,7 @@
 import React from "react";
 import { Button } from "@/components/button";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
+import { useState } from "react";
 import { AlignJustify } from "lucide-react";
 const NavBarLogo = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-row gap-2 items-center justify-center font-bold">{children}</div>

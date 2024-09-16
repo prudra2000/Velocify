@@ -90,7 +90,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({
             ) : ratingStars >= starValue - 0.5 ? (
               <>
                 <Star
-                  fill="none" // Outline for the full star
+                  fill="none"
                   stroke={starColor}
                   className={twMerge(ratingStarsVariants({ size }), "absolute")}
                 />

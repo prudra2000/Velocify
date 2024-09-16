@@ -1,10 +1,6 @@
-import { ReactNode } from "react";
 import { Button } from "./button";
-import { IconButton } from "./iconButton";
 import { Github, X } from "lucide-react";
-import CodeShowcase from "./CodeShowcase";
 import ComponentCodeShowcase from "./ComponentCodeShowcase";
-import Link from "next/link";
 
 interface DialogProps {
   ref?: React.RefObject<HTMLDivElement>;

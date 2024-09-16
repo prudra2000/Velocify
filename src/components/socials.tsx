@@ -1,6 +1,4 @@
-"use client";
-import React, { useState } from "react";
-import { Zap } from "lucide-react";
+
 
 interface SocailsProps {
   className?: string;
@@ -11,8 +9,6 @@ interface SocailsProps {
 
 const Socails: React.FC<SocailsProps> = ({
   className,
-  title,
-  description,
   socialLinks,
 }) => {
   return (

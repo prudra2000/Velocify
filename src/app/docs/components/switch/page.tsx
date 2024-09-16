@@ -153,7 +153,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col mt-5 gap-y-3">
             <h1 className="text-2xl font-semibold text-white ">
-              Switch Switch
+              Switch Basic Usage
             </h1>
             <div className="flex flex-col gap-y-2  ">
               <ElementShowcase

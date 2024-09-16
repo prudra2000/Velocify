@@ -157,32 +157,8 @@ export default function Home() {
             }
           />
           
-          {/* <Dialog
-            isOpen={isDialogOpen}
-            onClose={handleCloseDialog}
-            title="Button Component"
-          >
-            <p className="text-paragraph-secondary text-sm">
-              Step 1: Install the dependencies
-            </p>
-            <TerminalShowcase command={terminal} />
-            <p className="text-paragraph-secondary text-sm">
-              Step 2: Import the package
-            </p>
-            <ComponentCodeShowcase
-              githubFileUrl="https://raw.githubusercontent.com/prudra2000/Velocify/main/src/components/card.tsx"
-              githubLink="https://github.com/user/repo"
-            />
-          </Dialog>
-          <Button onClick={handleOpenDialog}>Open Dialog</Button> */}
-          
         </div>
-        {/* <div className="flex flex-col gap-y-5">
-          <h2 className="text-2xl font-medium bg-gradient-to-b from-[#F8CC38] to-[#F5B945] bg-clip-text text-transparent">
-            Customize your theme
-          </h2>
-          <Slider min={0} max={100} step={10} rounded="full"  />
-        </div> */}
+        {/*  */}
       </main>
     </>
   );

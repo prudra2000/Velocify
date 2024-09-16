@@ -1,7 +1,7 @@
 "use client";
 import RatingStars from "./ratingstars";
 import ProgressBar from "./progressbar";
-import { useState } from "react"; // Add this import
+import { useState } from "react";
 import { Button } from "./button";
 
 interface RatingsBreakdownExpandableProps {
@@ -23,7 +23,7 @@ const RatingsBreakdownExpandable: React.FC<RatingsBreakdownExpandableProps> = ({
   fiveStars,
   title = "Customer Reviews",
 }) => {
-  const [isOpen, setIsOpen] = useState(false); // Add state for accordion
+  const [isOpen, setIsOpen] = useState(false);
 
   const totalRatings = oneStars + twoStars + threeStars + fourStars + fiveStars;
   const weightedSum =
@@ -55,15 +55,15 @@ const RatingsBreakdownExpandable: React.FC<RatingsBreakdownExpandableProps> = ({
         {!isOpen && (
         <Button 
           onClick={(event) => { 
-            event.preventDefault(); // Prevent default button behavior
-            setIsOpen(!isOpen); // Toggle accordion
+            event.preventDefault();
+            setIsOpen(!isOpen);
           }}
           className="text-paragraph-primary"
         >
           {isOpen ? "Hide Ratings" : "Show Ratings"}
         </Button>
         )}
-        {isOpen && ( // Conditional rendering for accordion content
+        {isOpen && (
           <div className="flex flex-row justify-between items-center gap-2 text-paragraph-primary ">
             <div className="flex flex-col items-center gap-2 w-min">
               <p className="text-xs whitespace-nowrap">5 Stars</p>
@@ -88,8 +88,8 @@ const RatingsBreakdownExpandable: React.FC<RatingsBreakdownExpandableProps> = ({
         {isOpen && (
         <Button 
           onClick={(event) => { 
-            event.preventDefault(); // Prevent default button behavior
-            setIsOpen(!isOpen); // Toggle accordion
+            event.preventDefault();
+            setIsOpen(!isOpen);
           }}
           className="text-paragraph-primary mt-4"
         >

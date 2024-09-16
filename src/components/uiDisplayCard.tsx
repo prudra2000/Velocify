@@ -21,7 +21,7 @@ const UIDisplayCard: React.FC<UIDisplayCardProps> = ({
       <div className="flex justify-center items-center p-5 md:p-10 overflow-y-auto flex-grow min-h-40">
         {component}
       </div>
-      <div className="flex flex-row py-3 justify-center items-end bg-gray-900"> {/* Added mt-auto */}
+      <div className="flex flex-row py-3 justify-center items-end bg-gray-900">
         <h1 className="text-base font-semibold">{title}</h1>
       </div>
     </div>

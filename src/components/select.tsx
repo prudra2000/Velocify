@@ -1,8 +1,7 @@
 import * as RadixSelect from "@radix-ui/react-select";
-import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import React from "react";
-import { ChevronDown, ChevronUp, Check } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 
 const SelectTrigger = ({ children }: { children: React.ReactNode }) => (
   <RadixSelect.Trigger className=" flex w-full px-3 py-2 text-xs sm:text-sm md:text-base border border-input rounded-lg">

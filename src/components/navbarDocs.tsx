@@ -88,12 +88,10 @@ const Navbar = ({
       if (event.key === "Escape" && isDialogOpen) {
         handleCloseDialog();
       } 
-      // {{ edit_1 }}
       else if ((event.key === "k" && (event.metaKey || event.ctrlKey))) {
-        event.preventDefault(); // Prevent default behavior
-        handleOpenDialog(); // Open the search dialog
+        event.preventDefault();
+        handleOpenDialog();
       }
-      // {{ edit_2 }}
     };
 
     document.addEventListener("keydown", handleKeyDown);

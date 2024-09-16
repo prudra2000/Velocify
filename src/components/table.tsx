@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from "react";
+import React from "react";
 
 interface TableProps {
   className?: string;
@@ -11,8 +10,6 @@ const Table: React.FC<TableProps> = ({ className, data, columns }) => {
   return (
     <div className="border border-1 border-white/20 rounded-lg overflow-hidden text-white">
       <div className="overflow-x-auto">
-        {" "}
-        {/* Added this div for horizontal scrolling */}
         <table className="min-w-full divide-y divide-white/20">
           <thead className="">
             <tr className="text-start text-xs font-medium text-white">

@@ -1,12 +1,5 @@
 "use client";
 import React from "react";
-import { Button } from "@/components/button";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { AlignJustify, Github, Search, Home } from "lucide-react";
-import { Input } from "./input";
-import { IconButton } from "./iconButton";
 
 const FooterBarDocs = ({
   logo,

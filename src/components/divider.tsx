@@ -2,36 +2,27 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 import * as React from "react";
 
-const dividerVariants = cva(
-  "bg-white w-full",
-  {
-    variants: {
-      variant: {
-        default:
-          "",
-      },
-      size: {
-        default: "",
-        verticalMedium: "",
-        horizontalMedium: "",
-      },
-      orientation: {
-        horizontal: "h-1",
-        vertical: "w-1",
-      },
+const dividerVariants = cva("w-full h-full", {
+  variants: {
+    variant: {
+      default: " bg-dark-secondary",
     },
-    defaultVariants: {
-      variant: "default",
-      orientation: "horizontal",
-      size: "default",
+    orientation: {
+      horizontal: "h-[1px]",
+      vertical: "w-[1px]",
     },
-  }
-);
+  },
+  defaultVariants: {
+    variant: "default",
+    orientation: "horizontal",
+  },
+});
 
 interface DividerProps extends VariantProps<typeof dividerVariants> {
   className?: string;
-  size?: "default" | "verticalMedium" | "horizontalMedium";
+  size?: "default" | "medium";
   orientation?: "horizontal" | "vertical";
+  variant?: "default";
 }
 
 const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
@@ -39,10 +30,15 @@ const Divider = React.forwardRef<HTMLDivElement, DividerProps>(
     <div>
       <div
         ref={ref}
-        className={twMerge(dividerVariants({ variant, className, orientation, size }))}
+        className={twMerge(
+          dividerVariants({
+            variant,
+            className,
+            orientation,
+          })
+        )}
         {...props}
       >
-        <hr className={orientation} />
       </div>
     </div>
   )

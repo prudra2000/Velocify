@@ -1,4 +1,4 @@
-import { ChevronRight, Code, Copy } from "lucide-react";
+import { Code } from "lucide-react";
 import React from "react";
 import { Button } from "./button";
 
