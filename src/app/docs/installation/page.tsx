@@ -1,6 +1,7 @@
 "use client";
 
 import TerminalShowcase from "@/components/terminalShowcase";
+import Link from "next/link";
 
 export default function Home() {
   const tailwind = `npm install -D tailwindcss
@@ -185,12 +186,12 @@ export default config;
                 You can simply add the components to your project by copying the
                 code from the documentation and pasting it into your project.
                 Check out all the components{" "}
-                <a
-                  href="docs/components/all-components"
+                <Link
+                  href="/docs/components/all-components"
                   className="text-info-primary hover:underline"
                 >
                   here
-                </a>
+                </Link>
                 .
               </p>
             </div>
